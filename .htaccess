@@ -1,0 +1,14 @@
+# ── Keamanan dasar Mitloin ──
+
+# Blokir akses langsung ke file konfigurasi & database
+<FilesMatch "(config\.php|database\.sql|\.htaccess|README.*\.txt)$">
+    Require all denied
+</FilesMatch>
+
+# Matikan listing direktori
+Options -Indexes
+
+# Paksa file .php diproses sebagai PHP (jaga-jaga)
+<FilesMatch "\.php$">
+    Require all granted
+</FilesMatch>

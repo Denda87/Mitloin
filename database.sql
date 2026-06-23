@@ -1,0 +1,136 @@
+-- ════════════════════════════════════════════════════════════
+-- MITLOIN — SKEMA DATABASE + DATA AWAL
+-- Import file ini lewat phpMyAdmin (tab "Import").
+-- ════════════════════════════════════════════════════════════
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ─────────────────────────────────────────────
+-- TABEL: kategori
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS kategori (
+    id     INT AUTO_INCREMENT PRIMARY KEY,
+    slug   VARCHAR(40)  NOT NULL UNIQUE,
+    nama   VARCHAR(100) NOT NULL,
+    emoji  VARCHAR(10)  DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ─────────────────────────────────────────────
+-- TABEL: users (owner / admin / member)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS users (
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    nama       VARCHAR(120) NOT NULL,
+    email      VARCHAR(160) NOT NULL UNIQUE,
+    password   VARCHAR(255) NOT NULL,
+    no_wa      VARCHAR(30)  DEFAULT '',
+    role       ENUM('owner','admin','member') NOT NULL DEFAULT 'member',
+    status     ENUM('aktif','nonaktif')       NOT NULL DEFAULT 'aktif',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ─────────────────────────────────────────────
+-- TABEL: produk
+-- (foto disimpan sebagai data URL base64 / atau URL gambar biasa)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS produk (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nama        VARCHAR(160) NOT NULL,
+    kategori_id INT,
+    emoji       VARCHAR(10)  DEFAULT '🥩',
+    foto        MEDIUMTEXT,
+    harga       DECIMAL(12,2) NOT NULL DEFAULT 0,
+    satuan      VARCHAR(20)  DEFAULT '/kg',
+    stok        INT          NOT NULL DEFAULT 0,
+    deskripsi   TEXT,
+    badge       VARCHAR(60)  DEFAULT NULL,
+    badge_type  VARCHAR(30)  DEFAULT '',
+    status      ENUM('aktif','nonaktif') NOT NULL DEFAULT 'aktif',
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (kategori_id) REFERENCES kategori(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ─────────────────────────────────────────────
+-- TABEL: pesanan
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS pesanan (
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    kode_pesanan   VARCHAR(40) NOT NULL UNIQUE,
+    user_id        INT DEFAULT NULL,
+    nama_pelanggan VARCHAR(120) NOT NULL,
+    no_wa          VARCHAR(30)  NOT NULL,
+    alamat         TEXT,
+    total          DECIMAL(12,2) NOT NULL DEFAULT 0,
+    catatan        TEXT,
+    status         ENUM('baru','diproses','dikirim','selesai','batal') NOT NULL DEFAULT 'baru',
+    created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ─────────────────────────────────────────────
+-- TABEL: pesanan_item
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS pesanan_item (
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    pesanan_id   INT NOT NULL,
+    produk_id    INT DEFAULT NULL,
+    nama_produk  VARCHAR(160) NOT NULL,
+    harga_satuan DECIMAL(12,2) NOT NULL,
+    qty          INT NOT NULL,
+    subtotal     DECIMAL(12,2) NOT NULL,
+    FOREIGN KEY (pesanan_id) REFERENCES pesanan(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ─────────────────────────────────────────────
+-- TABEL: log_aktivitas (audit trail)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS log_aktivitas (
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    user_id    INT DEFAULT NULL,
+    aksi       VARCHAR(120) NOT NULL,
+    detail     VARCHAR(255) DEFAULT '',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- ════════════════════════════════════════════════════════════
+-- DATA AWAL
+-- ════════════════════════════════════════════════════════════
+
+-- Kategori
+INSERT INTO kategori (id, slug, nama, emoji) VALUES
+ (1,'sapi','Daging Sapi','🥩'),
+ (2,'ayam','Daging Ayam','🍗'),
+ (3,'seafood','Seafood','🦐'),
+ (4,'olahan','Produk Olahan','🌭'),
+ (5,'paket','Paket Hemat','📦');
+
+-- Akun default (password keduanya: mitloin2026 — GANTI setelah login!)
+INSERT INTO users (nama, email, password, no_wa, role, status) VALUES
+ ('Owner Mitloin','owner@mitloin.com','$2y$12$MDJQvAA6wDKrgs8jhWOYZ.kmx6HA9Cr4msUJ4Bk2VpRMo8PSe3nhu','6282110009255','owner','aktif'),
+ ('Admin Mitloin','admin@mitloin.com','$2y$12$MDJQvAA6wDKrgs8jhWOYZ.kmx6HA9Cr4msUJ4Bk2VpRMo8PSe3nhu','6282110009255','admin','aktif');
+
+-- Produk awal (sinkron dgn katalog website)
+INSERT INTO produk (nama, kategori_id, emoji, harga, satuan, stok, deskripsi, badge, badge_type, status) VALUES
+ ('Ribeye Wagyu Grade A',1,'🥩',285000,'/250g',25,'Marbling indah, lembut, kaya rasa umami. Perfect untuk pan-seared steak.','Best Seller','',  'aktif'),
+ ('Tenderloin Sapi Lokal',1,'🥩',165000,'/300g',30,'Potongan paling empuk dari sapi lokal pilihan. Cocok untuk steak atau tumis.',NULL,'','aktif'),
+ ('Sirloin Premium Aus',1,'🥩',195000,'/300g',20,'Impor Australia, tekstur padat berasa dengan lemak yang seimbang.','Premium','','aktif'),
+ ('Daging Giling Sapi',1,'🥩',75000,'/500g',40,'Digiling segar setiap hari. Ideal untuk burger, bakso, atau bolognese.',NULL,'','aktif'),
+ ('Brisket Asap Ready Cook',1,'🥩',125000,'/500g',15,'Pre-marinated brisket siap dimasak. Tinggal bakar atau kukus, langsung lezat!','New','','aktif'),
+ ('Short Rib (Iga Pendek)',1,'🦴',145000,'/500g',18,'Iga pendek sapi dengan daging tebal. Sempurna untuk sup atau braised ribs.',NULL,'','aktif'),
+ ('Ayam Kampung Utuh',2,'🍗',55000,'/ekor',35,'Ayam kampung segar dipilih hari ini. Tekstur kenyal, rasa autentik.','Segar','','aktif'),
+ ('Chicken Breast Fillet',2,'🍗',45000,'/500g',50,'Fillet dada ayam tanpa tulang, rendah lemak, tinggi protein. Untuk gym & diet.','Best Seller','','aktif'),
+ ('Chicken Wings Premium',2,'🍗',38000,'/500g',45,'Sayap ayam jumbo untuk BBQ, fried chicken, atau buffalo wings.',NULL,'','aktif'),
+ ('Ceker Ayam Segar',2,'🐾',22000,'/500g',60,'Ceker segar bersih, cocok untuk sup kolagen atau dimsum.',NULL,'','aktif'),
+ ('Udang Vaname Segar',3,'🦐',95000,'/500g',28,'Udang segar size 30, langsung dari tambak. Manis dan segar tanpa amis.','Segar','','aktif'),
+ ('Salmon Fillet Impor',3,'🐟',185000,'/300g',22,'Salmon Atlantik impor dengan kandungan omega-3 tinggi. Siap sashimi atau panggang.','Premium','','aktif'),
+ ('Cumi-Cumi Segar',3,'🦑',65000,'/500g',30,'Cumi segar berukuran sedang, bersih. Cocok untuk calamari, sambal, atau sautéed.',NULL,'','aktif'),
+ ('Ikan Gurame Hidup',3,'🐠',55000,'/ekor',24,'Gurame hidup ukuran 600-700g, segar. Sempurna untuk bakar atau steam.',NULL,'','aktif'),
+ ('Bakso Sapi Premium',4,'🍡',48000,'/pack',40,'Bakso sapi homemade tanpa pengawet, bouncy dan kenyal. Isi 20 biji.','Halal','','aktif'),
+ ('Sosis Sapi Homemade',4,'🌭',52000,'/pack',38,'Sosis sapi hand-made tanpa MSG, rasa daging asli. Isi 6 pcs.','New','','aktif'),
+ ('Dendeng Sapi Balado',4,'🥩',85000,'/250g',26,'Dendeng sapi tipis crispy dengan bumbu balado pedas manis khas Minang.','Best Seller','','aktif'),
+ ('Paket BBQ Family',5,'🍖',350000,'/paket',12,'Ribeye 500g + Chicken Wings 1kg + Sosis 3 packs. Siap bakar untuk 6 orang!','Hemat 20%','','aktif'),
+ ('Paket Meal Prep Seminggu',5,'📦',495000,'/paket',10,'Chicken Breast 2kg + Daging Giling 1kg + Salmon 600g. Cukup protein untuk 7 hari.','Best Value','','aktif'),
+ ('Paket Restoran Starter',5,'🏪',1250000,'/paket',8,'Tenderloin 2kg + Sirloin 2kg + Ribeye 1kg + Salmon 1kg. Stok awal resto ideal.','B2B','','aktif');
