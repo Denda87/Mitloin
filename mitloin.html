@@ -809,6 +809,20 @@
     font-family: 'Playfair Display', serif;
     font-size: 28px; font-weight: 700; color: var(--crimson);
   }
+  .btn-lang {
+    background: transparent;
+    border: 1.5px solid var(--crimson);
+    color: var(--crimson);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    padding: 7px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .btn-lang:hover { background: var(--crimson); color: #fff; }
   .btn-checkout {
     width: 100%;
     background: #25D366; color: white;
@@ -979,6 +993,7 @@
       <li><a onclick="navigate('kontak')" id="nav-kontak">Kontak</a></li>
     </ul>
     <div class="nav-actions">
+      <button id="lang-toggle" class="btn-lang" onclick="toggleLang()" title="Language / Bahasa">🌐 EN</button>
       <!-- Keranjang icon SVG - shopping cart trolley shape -->
       <button class="btn-cart" onclick="toggleCart()" title="Keranjang Belanja">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -2180,11 +2195,11 @@ function toggleSound() {
     vid.volume = 0.5;
     vid.play().catch(()=>{});
     icon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
-    label.textContent = 'Suara: ON';
+    label.textContent = tr('Suara: ON');
   } else {
     vid.muted = true;
     icon.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM3 9v6h4l5 5V4L7 9H3z"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="1.8"/>';
-    label.textContent = 'Suara: OFF — Klik untuk nyalakan';
+    label.textContent = tr('Suara: OFF — Klik untuk nyalakan');
   }
 }
 
@@ -2354,7 +2369,7 @@ function submitKontak() {
   const wa = document.getElementById('f-wa').value.trim();
   const keperluan = document.getElementById('f-keperluan').value;
   const pesan = document.getElementById('f-pesan').value.trim();
-  if (!nama || !wa) { alert('Mohon isi nama dan nomor WhatsApp Anda.'); return; }
+  if (!nama || !wa) { alert(tr('Mohon isi nama dan nomor WhatsApp Anda.')); return; }
   const msg = `Halo Mitloin! 👋%0A%0ANama: ${nama}%0ANo. WA: ${wa}%0AKeperluan: ${keperluan || '-'}%0A%0APesan:%0A${pesan}`;
   window.open(`https://wa.me/6282110009255?text=${msg}`, '_blank');
 }
@@ -2367,7 +2382,7 @@ function openArtikel(idx) {
 // ═══════════════════ TOAST ═══════════════════
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
+  t.textContent = (typeof tr === 'function') ? tr(msg) : msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
@@ -2465,6 +2480,114 @@ document.addEventListener('DOMContentLoaded', () => {
       initReveal();
     });
 });
+</script>
+
+<!-- ════════════════════════════ I18N: Bahasa ID / EN ════════════════════════════ -->
+<script>
+(function(){
+  const DICT = {"Tentang": "About", "Produk ▾": "Products ▾", "🥩 Daging Sapi": "🥩 Beef", "🍗 Ayam & Bebek": "🍗 Chicken & Duck", "🦐 Seafood": "🦐 Seafood", "🌭 Produk Olahan": "🌭 Processed Products", "🍖 Daging Premium": "🍖 Premium Meat", "🌾 Bahan Pokok": "🌾 Staples", "🫙 Bahan Kering": "🫙 Dry Goods", "🥫 Saos": "🥫 Sauces", "🥤 Bahan Minuman": "🥤 Beverage Ingredients", "Kemitraan": "Partnership", "Artikel": "Articles", "Kontak": "Contact", "Masuk": "Sign In", "Premium Quality Since 2016": "Premium Quality Since 2016", "Daging Premium": "Premium Meat", "Berkualitas Tinggi": "High Quality", "Pilihan terbaik daging sapi, ayam, seafood, dan produk premium": "The finest selection of beef, chicken, seafood, and premium products", "halal untuk keluarga Anda — langsung dari sumbernya": "halal for your family — straight from the source", "Lihat Produk →": "View Products →", "Pesan via WhatsApp": "Order via WhatsApp", "Suara: OFF — Klik untuk nyalakan": "Sound: OFF — Click to turn on", "Suara: ON": "Sound: ON", "Produk Tersedia": "Products Available", "Pelanggan Puas": "Happy Customers", "Produk Halal": "Halal Products", "Premium Quality": "Premium Quality", "Dipilih langsung dari sumber terpercaya dengan standar kualitas tertinggi": "Selected directly from trusted sources with the highest quality standards", "Same-Day Delivery": "Same-Day Delivery", "Pengiriman cepat dengan cold-chain packaging untuk menjaga kesegaran": "Fast delivery with cold-chain packaging to keep products fresh", "100% Halal & Segar": "100% Halal & Fresh", "Bersertifikasi halal MUI, segar setiap hari tanpa bahan pengawet": "MUI halal certified, fresh every day with no preservatives", "Pilihan Terbaik": "Top Picks", "Produk Unggulan": "Featured Products", "Daging segar premium pilihan yang paling digemari pelanggan setia Mitloin.": "Premium fresh meat favorites most loved by Mitloin's loyal customers.", "Lihat Semua Produk →": "View All Products →", "Kenapa Mitloin?": "Why Mitloin?", "Keunggulan Kami": "Our Advantages", "Kami bukan sekadar toko daging. Kami adalah mitra kuliner premium untuk rumah tangga dan bisnis Anda.": "We are more than a meat shop. We are your premium culinary partner for homes and businesses.", "Kualitas Grade A": "Grade A Quality", "Setiap produk dipilih secara ketat dengan standar grade premium — marbling sempurna, warna merah segar, dan tekstur yang lembut.": "Every product is strictly selected to premium grade standards — perfect marbling, fresh red color, and tender texture.", "Cold Chain Terjamin": "Guaranteed Cold Chain", "Dari kandang ke meja makan Anda, rantai dingin dijaga ketat di suhu 0–4°C untuk memastikan kesegaran optimal.": "From farm to your table, the cold chain is strictly maintained at 0–4°C to ensure optimal freshness.", "Custom Cut": "Custom Cut", "Butcher profesional kami siap memotong sesuai kebutuhan — slice tipis, cube, butterfly, atau khusus untuk restoran.": "Our professional butchers are ready to cut to order — thin slices, cubes, butterfly, or special restaurant cuts.", "Testimoni": "Testimonials", "Kata Pelanggan Kami": "What Our Customers Say", "\"Dagingnya beneran premium banget, marbling-nya cantik. Steak kami di restoran makin disukai pelanggan sejak ganti ke Mitloin!\"": "\"The meat is genuinely premium, the marbling is beautiful. Our restaurant steaks have become even more popular since switching to Mitloin!\"", "Owner Resto, Jakarta Selatan": "Restaurant Owner, South Jakarta", "\"Pengirimannya super cepat, daging datang masih segar dan dingin. Kemasan rapih banget. Sudah langganan 2 tahun dan tidak pernah kecewa!\"": "\"Delivery is super fast, the meat arrives fresh and cold. The packaging is very neat. I've been a customer for 2 years and never disappointed!\"", "Pelanggan Setia, Tangerang": "Loyal Customer, Tangerang", "\"Harganya kompetitif untuk kualitas sepremium ini. Seafoodnya segar sekali, ikan dan udangnya tidak amis. Recommended!\"": "\"The prices are competitive for this premium quality. The seafood is very fresh, the fish and shrimp aren't fishy. Recommended!\"", "Chef, Hotel Bintang 5": "Chef, 5-Star Hotel", "Siap Pesan Sekarang?": "Ready to Order Now?", "Hubungi kami via WhatsApp untuk penawaran terbaik, custom order, dan konsultasi produk.": "Contact us via WhatsApp for the best deals, custom orders, and product consultation.", "Tentang Kami": "About Us", "Cerita di Balik": "The Story Behind", "Setiap Potongan": "Every Cut", "Mitloin hadir untuk memenuhi kebutuhan daging berkualitas premium dengan pelayanan terbaik untuk keluarga dan bisnis kuliner Indonesia.": "Mitloin exists to meet the need for premium-quality meat with the best service for Indonesian families and culinary businesses.", "Kisah Kami": "Our Story", "Membangun Kepercayaan Sejak 2016": "Building Trust Since 2016", "PT Mitloin Global Group didirikan pada April 2016 yang didasari dorongan ingin menyediakan kebutuhan bahan baku primer dengan harga terjangkau demi memenuhi kebutuhan akan pangan seluruh lapisan masyarakat.": "PT Mitloin Global Group was founded in April 2016, driven by the desire to provide primary raw materials at affordable prices to meet the food needs of all levels of society.", "Seiring dengan perkembangan zaman, maka kami akan terus menerus memberikan inovasi dan perubahan demi menjadi perusahaan yang lebih handal yang mampu memenuhi kebutuhan pasar dalam negeri maupun luar negeri.": "As times evolve, we will continuously deliver innovation and change to become a more reliable company capable of meeting both domestic and international market needs.", "Produk import kami berasal dari Amerika Serikat, Australia, Selandia Baru dan India dengan harga yang kompetitif, legal dan disertai sertifikat halal.": "Our imported products come from the United States, Australia, New Zealand and India at competitive prices, legal and accompanied by halal certificates.", "Hingga saat ini, kami sudah memasok hotel, restoran, catering, pengecer, dan konsumen rumah tangga langsung setiap harinya.": "To date, we supply hotels, restaurants, catering, retailers, and household consumers directly every day.", "PT Mitloin Global Group terus berupaya semaksimal mungkin memenuhi kepuasan klien dengan mendistribusikan daging sapi, daging ayam, daging olahan, seafood, domba hingga sayuran dengan kualitas yang terbaik dan halal.": "PT Mitloin Global Group continually strives to maximize client satisfaction by distributing beef, chicken, processed meat, seafood, lamb, and even vegetables of the best and halal quality.", "Tahun Berdiri": "Year Established", "Kota Terlayani": "Cities Served", "Tujuan Kami": "Our Purpose", "Visi & Misi": "Vision & Mission", "Landasan yang mengarahkan setiap langkah PT Mitloin Global Group menuju masa depan yang lebih baik.": "The foundation guiding every step of PT Mitloin Global Group toward a better future.", "VISI": "VISION", "Menjadi pilihan utama sebagai penyedia kebutuhan bahan baku primer dengan harga terjangkau yang memiliki keahlian dalam memberikan kualitas produk terbaik, kepuasan para stake holder, dan demi memenuhi kebutuhan akan pangan seluruh lapisan masyarakat baik dalam maupun luar negeri.": "To become the primary choice as a provider of affordable primary raw materials, with the expertise to deliver the best product quality, stakeholder satisfaction, and to meet the food needs of all levels of society both domestically and abroad.", "Misi Pertama": "First Mission", "Misi Kedua": "Second Mission", "Misi Ketiga": "Third Mission", "Misi Keempat": "Fourth Mission", "Mempertahankan standar kualitas yang tinggi dari para pemasok dan pengawasan kualitas produk dalam kondisi optimal.": "Maintaining high quality standards from suppliers and product quality control in optimal condition.", "Mempertahankan keunggulan produk dan pelayanan melalui perekrutan tenaga ahli, pelatihan karyawan, dan pengawasan operasional.": "Maintaining product and service excellence through recruiting experts, training employees, and operational supervision.", "Mendirikan cabang di setiap kota dan menciptakan Brand Awareness kepada seluruh lapisan masyarakat.": "Establishing branches in every city and building brand awareness across all levels of society.", "Terus berkembang dan menyesuaikan produk dengan kebutuhan pasar dan tren secara nasional maupun secara global.": "Continuously growing and adapting products to market needs and trends both nationally and globally.", "Nilai Kami": "Our Values", "Prinsip yang Kami Pegang": "The Principles We Hold", "Halal & Terpercaya": "Halal & Trusted", "Semua produk bersertifikat halal MUI. Kami bekerja sama hanya dengan peternakan yang memenuhi standar penyembelihan halal yang ketat.": "All products are MUI halal certified. We work only with farms that meet strict halal slaughter standards.", "Kemitraan Lokal": "Local Partnership", "Kami mendukung peternak lokal Indonesia dengan harga yang fair dan adil, membangun ekosistem peternakan yang berkelanjutan.": "We support local Indonesian farmers with fair prices, building a sustainable farming ecosystem.", "Sustainable Practice": "Sustainable Practice", "Kemasan kami menggunakan bahan yang ramah lingkungan. Kami berkomitmen untuk terus mengurangi jejak karbon dalam operasional kami.": "Our packaging uses eco-friendly materials. We are committed to continually reducing our carbon footprint in operations.", "Katalog": "Catalog", "Semua": "All", "Produk": "Products", "Daging segar, seafood premium, dan produk olahan berkualitas tinggi": "Fresh meat, premium seafood, and high-quality processed products", "Program Kemitraan": "Partnership Program", "Paket Kemitraan": "Partnership Packages", "Franchise": "Franchise", "Pilih paket sesuai kebutuhan, mulai usaha mudah & menguntungkan": "Choose a package that fits your needs — start an easy & profitable business", "Paket": "Package", "JUTA": "MILLION", "/5 TH": "/5 YRS", "/10 TH": "/10 YRS", "Analisa Keuangan": "Financial Analysis", "Ilustrasi | Paket Premium": "Illustration | Premium Package", "Ilustrasi | Paket Exclusive": "Illustration | Exclusive Package", "Ilustrasi | Paket Ekonomis": "Illustration | Economical Package", "Pemasukan": "Income", "Omset per hari (rata-rata 250 cup)": "Daily revenue (avg 250 cups)", "Omset per hari (rata-rata 150 cup)": "Daily revenue (avg 150 cups)", "Omset 1 Bulan (30 Hari)": "Monthly revenue (30 days)", "Pengeluaran": "Expenses", "Pembelian Bahan Baku 60%": "Raw material purchase 60%", "Biaya Karyawan": "Staff cost", "Sewa Tempat / Bulan": "Rent / month", "Listrik": "Electricity", "Biaya Lainnya": "Other costs", "Total Pengeluaran": "Total Expenses", "Keuntungan Bersih": "Net Profit", "Net Profit Bagi Hasil 50%": "Net Profit Sharing 50%", "Termasuk dalam Paket Premium:": "Included in the Premium Package:", "Termasuk dalam Paket Exclusive:": "Included in the Exclusive Package:", "Termasuk dalam Paket Ekonomis:": "Included in the Economical Package:", "Renovasi outlet standar Inarlain": "Standard outlet renovation", "Freezer (Second) 210 L + Urn": "Freezer (used) 210 L + Urn", "Freezer (Second) 310 L + Urn": "Freezer (used) 310 L + Urn", "Peralatan lengkap": "Complete equipment", "Timbangan Digital": "Digital scale", "Bahan baku awal": "Initial raw materials", "Meja Power 1 buah di merchant": "1 power table at merchant", "Marketing Tools (Banner, Crak Board, Flyer, dll)": "Marketing tools (banner, chalk board, flyer, etc.)", "Biaya penggantian & tanggung ongkir pusat": "Replacement cost & central shipping covered", "Business Culity 90.000/boks (±3 Box)": "Business supply 90,000/box (±3 boxes)", "Business Culity 180.000/boks (±6 Box)": "Business supply 180,000/box (±6 boxes)", "Business Culity 60.000/boks (±2 Box)": "Business supply 60,000/box (±2 boxes)", "Sistem pergantian status dikarenakan": "Status replacement system included", "Kuota Supply Daging 300 Kg/Bulan": "Meat supply quota 300 kg/month", "Kuota Supply Daging 270 Kg/Bulan": "Meat supply quota 270 kg/month", "Kuota Supply Daging 100 Kg/Bulan": "Meat supply quota 100 kg/month", "Hak usaha, Forecast BEP 3-4 Tahun": "Business rights, BEP forecast 3–4 years", "Hak usaha, Forecast BEP 2-3 Tahun": "Business rights, BEP forecast 2–3 years", "Desain outlet": "Outlet design", "FREE Biaya Sewa (Kontrak 10 Tahun)": "FREE rent (10-year contract)", "Provisi asuransi menurunkan kerusakan": "Insurance provision reducing damages", "Logo outlet, Meja + Kursi": "Outlet logo, tables + chairs", "Peralatan usaha ekonomis": "Economical business equipment", "Gerobak / Booth portable": "Portable cart / booth", "Terpopuler": "Most Popular", "Exclusive": "Exclusive", "Ekonomis": "Economical", "Brand Terkenal": "Famous Brand", "dan Terbukti": "and Proven", "Potensi Omset": "Revenue Potential", "Tinggi": "High", "Bisnis Mudah": "Easy Business", "Dijalankan": "to Run", "Support Penuh dari": "Full Support from", "Tim Profesional": "Professional Team", "Keuntungan": "Profit", "Berkelanjutan": "Sustainable", "Tertarik Bergabung?": "Interested in Joining?", "Konsultasikan kebutuhan Anda dengan tim kemitraan kami. Kami siap membantu Anda memulai bisnis yang menguntungkan.": "Consult your needs with our partnership team. We're ready to help you start a profitable business.", "Blog & Edukasi": "Blog & Education", "Tips &": "Tips &", "Inspirasi": "Inspiration", "Panduan memasak, tips memilih daging, dan inspirasi resep terbaik": "Cooking guides, meat selection tips, and the best recipe inspiration", "Tips Memasak": "Cooking Tips", "Panduan Lengkap Memilih Steak yang Sempurna: Grade, Marbling, dan Cara Masak": "The Complete Guide to Choosing the Perfect Steak: Grade, Marbling, and Cooking", "Memilih potongan steak yang tepat bisa membuat perbedaan besar pada hasil masakan. Dari ribeye hingga tenderloin, pelajari cara memilih yang terbaik untuk kebutuhan Anda.": "Choosing the right steak cut can make a big difference in the result. From ribeye to tenderloin, learn how to pick the best for your needs.", "📅 10 Juni 2025": "📅 June 10, 2025", "⏱ 8 menit baca": "⏱ 8 min read", "Resep": "Recipe", "5 Resep Ayam Premium yang Mudah Dibuat di Rumah": "5 Easy Premium Chicken Recipes to Make at Home", "Dari ayam panggang herbal hingga sup krim ayam mushroom — semua bisa dibuat dengan bahan dari Mitloin.": "From herb-roasted chicken to creamy chicken mushroom soup — all made with ingredients from Mitloin.", "📅 5 Juni 2025": "📅 June 5, 2025", "⏱ 5 menit baca": "⏱ 5 min read", "Pengetahuan": "Knowledge", "Cara Menyimpan Seafood Segar Agar Tahan Lama": "How to Store Fresh Seafood to Make It Last Longer", "Teknik penyimpanan yang benar bisa memperpanjang kesegaran seafood hingga 2x lebih lama. Simak tipsnya!": "Proper storage techniques can extend seafood freshness up to 2x longer. Check out the tips!", "📅 1 Juni 2025": "📅 June 1, 2025", "⏱ 4 menit baca": "⏱ 4 min read", "Bisnis Kuliner": "Culinary Business", "Mengapa Restoran Top Jakarta Memilih Mitloin sebagai Supplier Utama": "Why Top Jakarta Restaurants Choose Mitloin as Their Main Supplier", "Konsistensi kualitas, layanan custom cut, dan jaminan kesegaran menjadi alasan utama resto-resto premium mempercayai Mitloin.": "Consistent quality, custom-cut service, and a freshness guarantee are the main reasons premium restaurants trust Mitloin.", "📅 28 Mei 2025": "📅 May 28, 2025", "⏱ 6 menit baca": "⏱ 6 min read", "Hubungi Kami": "Contact Us", "Kami Siap": "We're Ready", "Membantu": "to Help", "Ada pertanyaan, pesanan custom, atau ingin jadi mitra? Kami siap melayani Anda": "Have questions, custom orders, or want to partner with us? We're ready to serve you", "Informasi Kontak": "Contact Information", "Kami menerima pesanan melalui berbagai saluran. Tim kami siap membantu Anda dari Senin–Sabtu, 07.00–20.00 WIB.": "We accept orders through various channels. Our team is ready to help you Monday–Saturday, 07:00–20:00 WIB.", "Lokasi": "Location", "Jam Operasional": "Operating Hours", "Senin – Sabtu: 07.00 – 20.00 WIB": "Monday – Saturday: 07:00 – 20:00 WIB", "Minggu: 08.00 – 16.00 WIB": "Sunday: 08:00 – 16:00 WIB", "Media Sosial": "Social Media", "Kirim Pesan": "Send Message", "Isi form di bawah ini dan kami akan segera menghubungi Anda via WhatsApp.": "Fill out the form below and we'll contact you via WhatsApp shortly.", "Nama Lengkap": "Full Name", "No. WhatsApp": "WhatsApp Number", "Keperluan": "Purpose", "Pilih keperluan...": "Select purpose...", "Pemesanan Produk": "Product Order", "Pertanyaan Produk": "Product Inquiry", "Kemitraan / Reseller": "Partnership / Reseller", "Custom Order / Bulk": "Custom Order / Bulk", "Lainnya": "Other", "Pesan": "Message", "Daging premium berkualitas tinggi untuk keluarga dan bisnis kuliner Anda. Halal, segar, dan lezat — dikirim langsung ke pintu Anda.": "High-quality premium meat for your family and culinary business. Halal, fresh, and delicious — delivered straight to your door.", "Navigasi": "Navigation", "Beranda": "Home", "Daging Sapi": "Beef", "Ayam & Bebek": "Chicken & Duck", "Produk Olahan": "Processed Products", "Bahan Pokok": "Staples", "Bahan Kering": "Dry Goods", "Saos": "Sauces", "Bahan Minuman": "Beverage Ingredients", "Dibuat dengan ❤️ untuk keluarga Indonesia": "Made with ❤️ for Indonesian families", "Masuk atau daftar untuk melanjutkan": "Sign in or register to continue", "Daftar": "Register", "Lupa password?": "Forgot password?", "MASUK": "SIGN IN", "atau lanjutkan dengan": "or continue with", "DAFTAR SEKARANG": "REGISTER NOW", "Keranjang Belanja 🛒": "Shopping Cart 🛒", "Keranjang kosong": "Cart is empty", "Tambahkan produk favorit Anda": "Add your favorite products", "Total Belanja": "Total", "🛒 Produk ditambahkan ke keranjang!": "🛒 Product added to cart!", "Best Seller": "Best Seller", "Favorit": "Favorite", "Segar": "Fresh", "Bebek": "Duck", "New": "New", "Halal": "Halal", "Premium": "Premium", "Marbling indah, lembut, kaya rasa umami. Perfect untuk pan-seared steak.": "Beautiful marbling, tender, rich umami flavor. Perfect for pan-seared steak.", "Potongan paling empuk dari sapi lokal pilihan. Cocok untuk steak atau tumis.": "The most tender cut from select local beef. Great for steak or stir-fry.", "Impor Australia, tekstur padat berasa dengan lemak yang seimbang.": "Imported from Australia, firm and flavorful texture with balanced fat.", "Digiling segar setiap hari. Ideal untuk burger, bakso, atau bolognese.": "Ground fresh every day. Ideal for burgers, meatballs, or bolognese.", "Pre-marinated brisket siap dimasak. Tinggal bakar atau kukus, langsung lezat!": "Pre-marinated brisket ready to cook. Just grill or steam — instantly delicious!", "Iga pendek sapi dengan daging tebal. Sempurna untuk sup atau braised ribs.": "Beef short ribs with thick meat. Perfect for soup or braised ribs.", "Daging wagyu potong dadu premium siap masak. Marbling indah, cocok untuk teppanyaki, hot pot, atau sautéed butter.": "Premium diced wagyu ready to cook. Beautiful marbling, great for teppanyaki, hot pot, or butter sauté.", "Buntut sapi segar, potongan tebal berisi. Favorit untuk sop buntut atau buntut bakar.": "Fresh oxtail, thick meaty cuts. A favorite for oxtail soup or grilled oxtail.", "Potongan daging sandung lamur khas rawon, empuk setelah dimasak lama dengan kluwek.": "Brisket cut for rawon, tender after slow cooking with kluwek.", "Potongan daging sapi pilihan khusus untuk rendang, serat pas agar empuk dan meresap bumbu.": "Select beef cut specially for rendang, with the right grain to stay tender and absorb spices.", "Iga sapi premium dengan marbling cantik, ideal untuk iga bakar, sup iga, atau panggang.": "Premium beef ribs with beautiful marbling, ideal for grilled ribs, rib soup, or roasting.", "Lidah sapi segar, tekstur lembut setelah direbus. Cocok untuk semur atau lidah goreng.": "Fresh ox tongue, tender after boiling. Great for stew or fried tongue.", "Paru sapi segar pilihan, renyah saat digoreng kering. Pas untuk paru goreng atau sambal goreng paru.": "Select fresh beef lung, crispy when deep-fried. Perfect for fried lung or sambal goreng paru.", "Ayam kampung segar dipilih hari ini. Tekstur kenyal, rasa autentik.": "Fresh free-range chicken picked today. Firm texture, authentic flavor.", "Fillet dada ayam tanpa tulang, rendah lemak, tinggi protein. Untuk gym & diet.": "Boneless chicken breast fillet, low fat, high protein. For gym & diet.", "Sayap ayam jumbo untuk BBQ, fried chicken, atau buffalo wings.": "Jumbo chicken wings for BBQ, fried chicken, or buffalo wings.", "Ceker segar bersih, cocok untuk sup kolagen atau dimsum.": "Clean fresh chicken feet, great for collagen soup or dim sum.", "Ayam broiler segar utuh, daging tebal dan empuk. Cocok untuk ungkep, goreng, atau bakar.": "Whole fresh broiler chicken, thick and tender meat. Great for braising, frying, or grilling.", "Fillet dada bebek boneless, tekstur padat dan gurih khas bebek. Premium untuk steak atau panggang.": "Boneless duck breast fillet, firm and savory duck flavor. Premium for steak or roasting.", "Paha bawah ayam (drumstick) segar, juicy. Favorit untuk fried chicken & BBQ.": "Fresh juicy chicken drumsticks. A favorite for fried chicken & BBQ.", "Paha ayam utuh (atas + bawah) segar, daging tebal. Mantap untuk ungkep & ayam bakar.": "Whole chicken leg (thigh + drumstick), fresh with thick meat. Great for braising & grilled chicken.", "Udang segar size 30, langsung dari tambak. Manis dan segar tanpa amis.": "Fresh size-30 shrimp, straight from the farm. Sweet and fresh without fishy smell.", "Salmon Atlantik impor dengan kandungan omega-3 tinggi. Siap sashimi atau panggang.": "Imported Atlantic salmon high in omega-3. Ready for sashimi or grilling.", "Cumi segar berukuran sedang, bersih. Cocok untuk calamari, sambal, atau sautéed.": "Fresh medium-sized squid, cleaned. Great for calamari, sambal, or sautéing.", "Gurame hidup ukuran 600-700g, segar. Sempurna untuk bakar atau steam.": "Live gourami 600–700g, fresh. Perfect for grilling or steaming.", "Bakso sapi homemade tanpa pengawet, bouncy dan kenyal. Isi 20 biji.": "Homemade beef meatballs with no preservatives, bouncy and chewy. 20 pieces.", "Sosis sapi hand-made tanpa MSG, rasa daging asli. Isi 6 pcs.": "Hand-made beef sausage with no MSG, real meat flavor. 6 pcs.", "Dendeng sapi tipis crispy dengan bumbu balado pedas manis khas Minang.": "Thin crispy beef jerky with sweet-spicy Minang balado seasoning.", "✅ Pesanan tersimpan! Melanjutkan ke WhatsApp...": "✅ Order saved! Continuing to WhatsApp...", "⚠️ Mohon isi email dan password Anda.": "⚠️ Please enter your email and password.", "✅ Berhasil masuk! Selamat datang kembali.": "✅ Signed in successfully! Welcome back.", "Email atau password salah.": "Wrong email or password.", "⚠️ Mohon lengkapi semua data pendaftaran.": "⚠️ Please complete all registration fields.", "✅ Pendaftaran berhasil! Selamat bergabung di Mitloin.": "✅ Registration successful! Welcome to Mitloin.", "Pendaftaran gagal, coba lagi.": "Registration failed, please try again.", "📖 Membuka artikel...": "📖 Opening article...", "Mohon isi nama dan nomor WhatsApp Anda.": "Please enter your name and WhatsApp number.", "Nama Anda": "Your name", "Tuliskan pesan atau pertanyaan Anda...": "Write your message or question...", "Nama lengkap Anda": "Your full name", "Min. 8 karakter": "Min. 8 characters"};
+  const FRAG = [[" ditambahkan!", " added!"], ["🔐 Menghubungkan dengan ", "🔐 Connecting with "]];
+  window.MITLOIN_LANG = localStorage.getItem('mitloin_lang') || 'id';
+
+  // Global translate helper (used by toasts, alerts, dynamic JS)
+  window.tr = function(s){
+    if (window.MITLOIN_LANG !== 'en' || !s) return s;
+    if (DICT[s]) return DICT[s];
+    var r = s;
+    for (var i=0;i<FRAG.length;i++){ r = r.split(FRAG[i][0]).join(FRAG[i][1]); }
+    return r;
+  };
+
+  function walkText(root, cb){
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        var p = n.parentNode;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.nodeName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'TEXTAREA') return NodeFilter.FILTER_REJECT;
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(cb);
+  }
+
+  var observer = null;
+
+  function applyLang(lang){
+    window.MITLOIN_LANG = lang;
+    localStorage.setItem('mitloin_lang', lang);
+    document.documentElement.lang = lang;
+    if (observer) observer.disconnect();
+
+    // Text nodes
+    walkText(document.body, function(n){
+      if (n.__origId === undefined) n.__origId = n.nodeValue;
+      var key = n.__origId.trim();
+      if (lang === 'en' && DICT[key]){
+        n.nodeValue = n.__origId.replace(key, DICT[key]);
+      } else {
+        n.nodeValue = n.__origId;
+      }
+    });
+
+    // Placeholders
+    var phEls = document.querySelectorAll('[placeholder]');
+    for (var i=0;i<phEls.length;i++){
+      var el = phEls[i];
+      if (el.__origPh === undefined) el.__origPh = el.getAttribute('placeholder');
+      var k = (el.__origPh || '').trim();
+      el.setAttribute('placeholder', (lang === 'en' && DICT[k]) ? DICT[k] : el.__origPh);
+    }
+
+    // Option values keep; toggle button label
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.textContent = (lang === 'en') ? '🌐 ID' : '🌐 EN';
+
+    if (observer) observer.observe(document.body, {childList:true, subtree:true});
+  }
+
+  window.toggleLang = function(){
+    applyLang(window.MITLOIN_LANG === 'en' ? 'id' : 'en');
+  };
+
+  // Re-translate dynamically rendered content (products, cart) when in EN
+  function initObserver(){
+    observer = new MutationObserver(function(muts){
+      if (window.MITLOIN_LANG !== 'en') return;
+      observer.disconnect();
+      muts.forEach(function(m){
+        for (var i=0;i<m.addedNodes.length;i++){
+          var node = m.addedNodes[i];
+          if (node.nodeType === 1){
+            walkText(node, function(n){
+              if (n.__origId === undefined) n.__origId = n.nodeValue;
+              var key = n.__origId.trim();
+              if (DICT[key]) n.nodeValue = n.__origId.replace(key, DICT[key]);
+            });
+          } else if (node.nodeType === 3 && node.nodeValue && node.nodeValue.trim()){
+            if (node.__origId === undefined) node.__origId = node.nodeValue;
+            var key2 = node.__origId.trim();
+            if (DICT[key2]) node.nodeValue = node.__origId.replace(key2, DICT[key2]);
+          }
+        }
+      });
+      observer.observe(document.body, {childList:true, subtree:true});
+    });
+    observer.observe(document.body, {childList:true, subtree:true});
+  }
+
+  function boot(){
+    initObserver();
+    if (window.MITLOIN_LANG === 'en') applyLang('en');
+    else { var btn = document.getElementById('lang-toggle'); if (btn) btn.textContent = '🌐 EN'; }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
 </script>
 </body>
 </html>
