@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS pesanan (
     alamat         TEXT,
     total          DECIMAL(12,2) NOT NULL DEFAULT 0,
     catatan        TEXT,
+    metode_bayar   VARCHAR(20)  NOT NULL DEFAULT 'wa',
     status         ENUM('baru','diproses','dikirim','selesai','batal') NOT NULL DEFAULT 'baru',
     created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
@@ -91,6 +92,14 @@ CREATE TABLE IF NOT EXISTS log_aktivitas (
     aksi       VARCHAR(120) NOT NULL,
     detail     VARCHAR(255) DEFAULT '',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ─────────────────────────────────────────────
+-- TABEL: pengaturan (key-value, mis. konfigurasi pembayaran)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS pengaturan (
+    nama  VARCHAR(50) PRIMARY KEY,
+    nilai MEDIUMTEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -139,3 +148,15 @@ INSERT INTO produk (nama, kategori_id, emoji, harga, satuan, stok, deskripsi, ba
  ('Bakso Sapi Premium',4,'🍡',48000,'/pack',40,'Bakso sapi homemade tanpa pengawet, bouncy dan kenyal. Isi 20 biji.','Halal','','aktif'),
  ('Sosis Sapi Homemade',4,'🌭',52000,'/pack',38,'Sosis sapi hand-made tanpa MSG, rasa daging asli. Isi 6 pcs.','New','','aktif'),
  ('Dendeng Sapi Balado',4,'🥩',85000,'/250g',26,'Dendeng sapi tipis crispy dengan bumbu balado pedas manis khas Minang.','Best Seller','','aktif');
+
+-- Pengaturan pembayaran (diisi/diubah dari dashboard → menu Pembayaran)
+INSERT INTO pengaturan (nama, nilai) VALUES
+ ('bank_nama','Bank BCA'),
+ ('bank_rekening','1234567890'),
+ ('bank_atas_nama','PT Mitloin Global Group'),
+ ('qris_gambar',''),
+ ('bayar_transfer','1'),
+ ('bayar_qris','1'),
+ ('bayar_cod','1'),
+ ('bayar_wa','1')
+ON DUPLICATE KEY UPDATE nilai = VALUES(nilai);

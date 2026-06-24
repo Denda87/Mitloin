@@ -383,6 +383,9 @@ switch ($action) {
         $alamat = trim($in['alamat'] ?? '');
         $items = $in['items'] ?? [];
         $catatan = trim($in['catatan'] ?? '');
+        // metode pembayaran: transfer | qris | cod | wa (default wa)
+        $metodeValid = ['transfer', 'qris', 'cod', 'wa'];
+        $metode = in_array($in['metode_bayar'] ?? '', $metodeValid) ? $in['metode_bayar'] : 'wa';
 
         if (!$nama || !$wa || empty($items)) {
             respond(['success' => false, 'message' => 'Nama, no. WhatsApp, dan minimal 1 produk wajib diisi.'], 400);
@@ -396,8 +399,8 @@ switch ($action) {
             }
             $kode = generateKodePesanan($pdo);
 
-            $stmt = $pdo->prepare("INSERT INTO pesanan (kode_pesanan, nama_pelanggan, no_wa, alamat, total, catatan, status) VALUES (?,?,?,?,?,?,'baru')");
-            $stmt->execute([$kode, $nama, $wa, $alamat, $total, $catatan]);
+            $stmt = $pdo->prepare("INSERT INTO pesanan (kode_pesanan, nama_pelanggan, no_wa, alamat, total, catatan, metode_bayar, status) VALUES (?,?,?,?,?,?,?,'baru')");
+            $stmt->execute([$kode, $nama, $wa, $alamat, $total, $catatan, $metode]);
             $pesananId = $pdo->lastInsertId();
 
             $stmtItem = $pdo->prepare("INSERT INTO pesanan_item (pesanan_id, produk_id, nama_produk, harga_satuan, qty, subtotal) VALUES (?,?,?,?,?,?)");
@@ -592,6 +595,53 @@ switch ($action) {
         $stmt->execute([$status, $id]);
         logActivity($pdo, $auth['uid'], 'Update status staff', "Staff #$id -> $status");
         respond(['success' => true, 'message' => 'Status staff berhasil diperbarui.']);
+        break;
+    }
+
+    // ═══════════════════════════════════════════
+    // PENGATURAN PEMBAYARAN
+    // ═══════════════════════════════════════════
+    case 'pengaturan_get': {
+        // Endpoint PUBLIK — dipakai website untuk menampilkan info pembayaran
+        // (rekening bank, gambar QRIS, metode yang aktif) di keranjang.
+        $rows = $pdo->query("SELECT nama, nilai FROM pengaturan")->fetchAll();
+        $cfg = [];
+        foreach ($rows as $r) { $cfg[$r['nama']] = $r['nilai']; }
+        respond([
+            'success' => true,
+            'data' => [
+                'bank_nama'      => $cfg['bank_nama'] ?? '',
+                'bank_rekening'  => $cfg['bank_rekening'] ?? '',
+                'bank_atas_nama' => $cfg['bank_atas_nama'] ?? '',
+                'qris_gambar'    => $cfg['qris_gambar'] ?? '',
+                'bayar_transfer' => ($cfg['bayar_transfer'] ?? '1') === '1',
+                'bayar_qris'     => ($cfg['bayar_qris'] ?? '1') === '1',
+                'bayar_cod'      => ($cfg['bayar_cod'] ?? '1') === '1',
+                'bayar_wa'       => ($cfg['bayar_wa'] ?? '1') === '1',
+            ]
+        ]);
+        break;
+    }
+
+    case 'pengaturan_simpan': {
+        $auth = requireAuth(['owner', 'admin']);
+        $in = getInput();
+        // Hanya key yang dikenal yang boleh disimpan
+        $allowed = ['bank_nama', 'bank_rekening', 'bank_atas_nama', 'qris_gambar',
+                    'bayar_transfer', 'bayar_qris', 'bayar_cod', 'bayar_wa'];
+        $stmt = $pdo->prepare("INSERT INTO pengaturan (nama, nilai) VALUES (?, ?) ON DUPLICATE KEY UPDATE nilai = VALUES(nilai)");
+        foreach ($allowed as $key) {
+            if (array_key_exists($key, $in)) {
+                $val = $in[$key];
+                // boolean toggle disimpan sebagai '1'/'0'
+                if (in_array($key, ['bayar_transfer', 'bayar_qris', 'bayar_cod', 'bayar_wa'])) {
+                    $val = ($val === true || $val === '1' || $val === 1) ? '1' : '0';
+                }
+                $stmt->execute([$key, (string)$val]);
+            }
+        }
+        logActivity($pdo, $auth['uid'], 'Update pengaturan pembayaran', '');
+        respond(['success' => true, 'message' => 'Pengaturan pembayaran berhasil disimpan.']);
         break;
     }
 

@@ -246,6 +246,7 @@
       <a class="nav-item" data-sec="produk" onclick="goSec('produk')"><span class="ic">🥩</span> Produk</a>
       <a class="nav-item" data-sec="member" onclick="goSec('member')"><span class="ic">👥</span> Member</a>
       <a class="nav-item" data-sec="laporan" onclick="goSec('laporan')"><span class="ic">📈</span> Laporan</a>
+      <a class="nav-item" data-sec="pembayaran" onclick="goSec('pembayaran')"><span class="ic">💳</span> Pembayaran</a>
       <a class="nav-item owner-only" data-sec="staff" onclick="goSec('staff')"><span class="ic">🔑</span> Staff</a>
       <a class="nav-item owner-only" data-sec="log" onclick="goSec('log')"><span class="ic">🕓</span> Log Aktivitas</a>
     </nav>
@@ -361,6 +362,32 @@
               <tbody id="laporan-body"></tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      <!-- ───── PEMBAYARAN ───── -->
+      <section class="section" id="sec-pembayaran">
+        <div class="panel" style="max-width:560px">
+          <h2><span class="ttl">💳 Pengaturan Pembayaran</span></h2>
+          <p style="color:var(--warm-gray);font-size:13px;margin:-4px 0 18px">Detail ini otomatis muncul di keranjang website saat pelanggan memilih metode pembayaran.</p>
+          <div class="field"><label>Nama Bank</label><input type="text" id="set-bank-nama" placeholder="Contoh: Bank BCA"></div>
+          <div class="field"><label>Nomor Rekening</label><input type="text" id="set-bank-rek" placeholder="Contoh: 1234567890"></div>
+          <div class="field"><label>Atas Nama</label><input type="text" id="set-bank-an" placeholder="Contoh: PT Mitloin Global Group"></div>
+          <div class="field">
+            <label>Gambar QRIS</label>
+            <input type="file" accept="image/*" id="set-qris-file" onchange="pilihQris(event)">
+            <div id="set-qris-prev" style="margin-top:10px"></div>
+          </div>
+          <div class="field">
+            <label>Metode Aktif di Keranjang</label>
+            <div style="display:flex;flex-wrap:wrap;gap:14px 20px;margin-top:8px">
+              <label style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-weight:600"><input type="checkbox" id="set-m-transfer"> 🏦 Transfer Bank</label>
+              <label style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-weight:600"><input type="checkbox" id="set-m-qris"> 📲 QRIS</label>
+              <label style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-weight:600"><input type="checkbox" id="set-m-cod"> 💵 COD</label>
+              <label style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-weight:600"><input type="checkbox" id="set-m-wa"> 💬 WhatsApp</label>
+            </div>
+          </div>
+          <button class="btn" onclick="simpanPengaturan()" style="margin-top:6px">💾 Simpan Pengaturan</button>
         </div>
       </section>
 
@@ -561,7 +588,7 @@ function logout(silent){
 }
 
 // ═══════════════ NAVIGASI ═══════════════
-const SEC_TITLES = {ringkasan:'Ringkasan',pesanan:'Pesanan',produk:'Produk',member:'Member',laporan:'Laporan',staff:'Kelola Staff',log:'Log Aktivitas'};
+const SEC_TITLES = {ringkasan:'Ringkasan',pesanan:'Pesanan',produk:'Produk',member:'Member',laporan:'Laporan',pembayaran:'Pembayaran',staff:'Kelola Staff',log:'Log Aktivitas'};
 function goSec(sec){
   currentSec = sec;
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.sec===sec));
@@ -572,7 +599,7 @@ function goSec(sec){
   reloadCurrent();
 }
 function reloadCurrent(){
-  ({ringkasan:loadRingkasan,pesanan:()=>loadPesanan(pesananStatus),produk:loadProduk,member:loadMember,laporan:loadLaporan,staff:loadStaff,log:loadLog}[currentSec]||(()=>{}))();
+  ({ringkasan:loadRingkasan,pesanan:()=>loadPesanan(pesananStatus),produk:loadProduk,member:loadMember,laporan:loadLaporan,pembayaran:loadPengaturan,staff:loadStaff,log:loadLog}[currentSec]||(()=>{}))();
 }
 
 // ═══════════════ RINGKASAN ═══════════════
@@ -647,7 +674,8 @@ async function openPesanan(id){
     const opts = ['baru','diproses','dikirim','selesai','batal'].map(s=>`<option value="${s}" ${s===p.status?'selected':''}>${s}</option>`).join('');
     b.innerHTML = `
       <div style="margin-bottom:6px"><b>${esc(p.kode_pesanan)}</b> · ${esc((p.created_at||'').slice(0,16))}</div>
-      <div style="color:var(--warm-gray);margin-bottom:14px">${esc(p.nama_pelanggan)} · ${esc(p.no_wa)}<br>${esc(p.alamat||'')}</div>
+      <div style="color:var(--warm-gray);margin-bottom:10px">${esc(p.nama_pelanggan)} · ${esc(p.no_wa)}<br>${esc(p.alamat||'')}</div>
+      <div style="margin-bottom:14px">💳 Pembayaran: <b>${METODE_LABEL[p.metode_bayar]||p.metode_bayar||'-'}</b></div>
       ${p.catatan?`<div style="margin-bottom:12px">📝 ${esc(p.catatan)}</div>`:''}
       <table style="margin-bottom:14px"><thead><tr><th>Produk</th><th>Qty</th><th>Harga</th><th>Subtotal</th></tr></thead><tbody>${items}</tbody></table>
       <div style="text-align:right;font-size:16px;margin-bottom:18px"><b>Total: ${rp(p.total)}</b></div>
@@ -765,6 +793,51 @@ function readImage(file, cb){
   const r = new FileReader();
   r.onload = e => cb(e.target.result);
   r.readAsDataURL(file);
+}
+
+// ═══════════════ PENGATURAN PEMBAYARAN ═══════════════
+const METODE_LABEL = {transfer:'Transfer Bank', qris:'QRIS', cod:'COD (Bayar di tempat)', wa:'WhatsApp'};
+let qrisData = undefined; // undefined = tak diubah; string = gambar baru
+async function loadPengaturan(){
+  qrisData = undefined;
+  try{
+    const res = await api('pengaturan_get', null, 'GET');
+    if(!res.success) return toast(res.message);
+    const d = res.data;
+    document.getElementById('set-bank-nama').value = d.bank_nama||'';
+    document.getElementById('set-bank-rek').value  = d.bank_rekening||'';
+    document.getElementById('set-bank-an').value   = d.bank_atas_nama||'';
+    document.getElementById('set-m-transfer').checked = !!d.bayar_transfer;
+    document.getElementById('set-m-qris').checked     = !!d.bayar_qris;
+    document.getElementById('set-m-cod').checked      = !!d.bayar_cod;
+    document.getElementById('set-m-wa').checked       = !!d.bayar_wa;
+    document.getElementById('set-qris-prev').innerHTML = d.qris_gambar
+      ? `<img src="${esc(d.qris_gambar)}" style="max-width:200px;border-radius:10px;border:1px solid var(--line)">`
+      : '<span style="color:var(--warm-gray);font-size:13px">Belum ada gambar QRIS.</span>';
+  }catch(e){ toast(e.message); }
+}
+function pilihQris(ev){
+  const file = ev.target.files[0]; if(!file) return;
+  readImage(file, dataUrl=>{
+    qrisData = dataUrl;
+    document.getElementById('set-qris-prev').innerHTML =
+      `<img src="${dataUrl}" style="max-width:200px;border-radius:10px;border:1px solid var(--line)"><div style="font-size:12px;color:var(--warm-gray);margin-top:5px">Gambar baru — klik Simpan untuk menyimpan.</div>`;
+  });
+}
+async function simpanPengaturan(){
+  const payload = {
+    bank_nama:      document.getElementById('set-bank-nama').value.trim(),
+    bank_rekening:  document.getElementById('set-bank-rek').value.trim(),
+    bank_atas_nama: document.getElementById('set-bank-an').value.trim(),
+    bayar_transfer: document.getElementById('set-m-transfer').checked,
+    bayar_qris:     document.getElementById('set-m-qris').checked,
+    bayar_cod:      document.getElementById('set-m-cod').checked,
+    bayar_wa:       document.getElementById('set-m-wa').checked
+  };
+  if(qrisData !== undefined) payload.qris_gambar = qrisData;
+  const res = await api('pengaturan_simpan', payload);
+  toast(res.message);
+  if(res.success){ qrisData = undefined; loadPengaturan(); }
 }
 function onPhotoPick(ev){
   const file = ev.target.files[0]; if(!file) return;
