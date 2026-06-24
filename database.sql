@@ -102,7 +102,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- Kategori
 INSERT INTO kategori (id, slug, nama, emoji) VALUES
  (1,'sapi','Daging Sapi','🥩'),
- (2,'ayam','Daging Ayam','🍗'),
+ (2,'ayam','Ayam & Bebek','🍗'),
  (3,'seafood','Seafood','🦐'),
  (4,'olahan','Produk Olahan','🌭'),
  (5,'paket','Paket Hemat','📦');
@@ -124,6 +124,10 @@ INSERT INTO produk (nama, kategori_id, emoji, harga, satuan, stok, deskripsi, ba
  ('Chicken Breast Fillet',2,'🍗',45000,'/500g',50,'Fillet dada ayam tanpa tulang, rendah lemak, tinggi protein. Untuk gym & diet.','Best Seller','','aktif'),
  ('Chicken Wings Premium',2,'🍗',38000,'/500g',45,'Sayap ayam jumbo untuk BBQ, fried chicken, atau buffalo wings.',NULL,'','aktif'),
  ('Ceker Ayam Segar',2,'🐾',22000,'/500g',60,'Ceker segar bersih, cocok untuk sup kolagen atau dimsum.',NULL,'','aktif'),
+ ('Ayam Broiler Utuh',2,'🍗',38000,'/ekor',40,'Ayam broiler segar utuh, daging tebal dan empuk. Cocok untuk ungkep, goreng, atau bakar.',NULL,'','aktif'),
+ ('Dada Bebek Fillet',2,'🦆',78000,'/500g',20,'Fillet dada bebek boneless, tekstur padat dan gurih khas bebek. Premium untuk steak atau panggang.','Bebek','gold','aktif'),
+ ('Drumstick Ayam (Paha Bawah)',2,'🍗',42000,'/500g',45,'Paha bawah ayam (drumstick) segar, juicy. Favorit untuk fried chicken & BBQ.',NULL,'','aktif'),
+ ('Paha Ayam Utuh',2,'🍗',40000,'/500g',38,'Paha ayam utuh (atas + bawah) segar, daging tebal. Mantap untuk ungkep & ayam bakar.',NULL,'','aktif'),
  ('Udang Vaname Segar',3,'🦐',95000,'/500g',28,'Udang segar size 30, langsung dari tambak. Manis dan segar tanpa amis.','Segar','','aktif'),
  ('Salmon Fillet Impor',3,'🐟',185000,'/300g',22,'Salmon Atlantik impor dengan kandungan omega-3 tinggi. Siap sashimi atau panggang.','Premium','','aktif'),
  ('Cumi-Cumi Segar',3,'🦑',65000,'/500g',30,'Cumi segar berukuran sedang, bersih. Cocok untuk calamari, sambal, atau sautéed.',NULL,'','aktif'),
