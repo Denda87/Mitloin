@@ -1,0 +1,254 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║          PANDUAN INSTALASI — MITLOIN WEBSITE & DASHBOARD            ║
+║                    PT Mitloin Global Group                           ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+Versi   : 1.0
+Tanggal : Juni 2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAFTAR FILE YANG PERLU DI-UPLOAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  mitloin.html          → Website utama (halaman publik)
+  admin-dashboard.html  → Panel admin / dashboard
+  api.php               → Backend API (PHP)
+  config.php            → Konfigurasi database & keamanan
+  database.sql          → Struktur + data awal database
+  PANDUAN-INSTALL.txt   → File ini
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEBUTUHAN SERVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • PHP versi 7.4 atau lebih baru (disarankan PHP 8.x)
+  • MySQL / MariaDB versi 5.7 atau lebih baru
+  • Ekstensi PHP: pdo_mysql, json, mbstring
+  • Hosting shared / VPS / cPanel (semua umumnya sudah mendukung)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 1 — BUAT DATABASE DI CPANEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Login ke cPanel → menu "MySQL Databases"
+  2. Buat database baru, contoh : mitloin_db
+  3. Buat user database, contoh  : mitloin_user
+  4. Set password yang kuat untuk user tersebut
+  5. Tambahkan user ke database (pilih "ALL PRIVILEGES")
+  6. Catat detail berikut (digunakan di Langkah 2) :
+        Host database : localhost   (biasanya localhost)
+        Nama database : mitloin_db
+        User database : mitloin_user
+        Password      : <password yang anda buat>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 2 — EDIT config.php
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Buka file config.php dengan text editor (Notepad++, VS Code, dll.)
+  Ubah bagian berikut sesuai database yang baru dibuat :
+
+      define('DB_HOST', 'localhost');        ← biasanya tidak perlu diubah
+      define('DB_NAME', 'mitloin_db');       ← nama database Anda
+      define('DB_USER', 'mitloin_user');     ← user database Anda
+      define('DB_PASS', 'password_anda');    ← password database Anda
+
+  Ubah juga SECRET_KEY menjadi string acak yang panjang & unik :
+
+      define('SECRET_KEY', 'ganti_dengan_string_rahasia_panjang_123!@#');
+
+  PENTING : Jangan bagikan SECRET_KEY kepada siapapun.
+
+  Ubah ALLOWED_ORIGIN sesuai domain Anda :
+
+      define('ALLOWED_ORIGIN', 'https://www.domainanda.com');
+
+  Simpan file config.php.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 3 — IMPORT DATABASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Di cPanel → buka "phpMyAdmin"
+  2. Pilih database yang baru dibuat (mitloin_db) di panel kiri
+  3. Klik tab "Import" di bagian atas
+  4. Klik "Choose File" → pilih file database.sql
+  5. Klik tombol "Import" / "Go"
+  6. Pastikan muncul pesan sukses (hijau), tanpa error merah
+
+  Catatan : database.sql sudah berisi tabel + data awal produk,
+  kategori, akun admin, dan pengaturan pembayaran default.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 4 — UPLOAD FILE KE HOSTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Upload semua file berikut ke folder public_html (atau subfolder
+  yang Anda inginkan, misal public_html/mitloin/) :
+
+      api.php
+      config.php
+      admin-dashboard.html
+
+  Belum upload mitloin.html — lakukan Langkah 5 terlebih dahulu.
+
+  Cara upload : cPanel → "File Manager" → masuk ke public_html →
+  klik "Upload" → pilih file-file di atas.
+
+  Alternatif : gunakan FTP client (FileZilla, WinSCP) dengan
+  kredensial FTP dari cPanel.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 5 — EDIT API_BASE_URL DI mitloin.html
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Buka mitloin.html dengan text editor.
+  Gunakan fitur Find (Ctrl+F) → cari teks :
+
+      API_BASE_URL
+
+  Anda akan menemukan baris seperti ini :
+
+      const API_BASE_URL = 'https://domainanda.com/backend/api.php';
+
+  Ganti URL tersebut dengan URL api.php di hosting Anda, contoh :
+
+      Jika upload ke public_html langsung :
+        const API_BASE_URL = 'https://www.domainanda.com/api.php';
+
+      Jika upload ke subfolder public_html/mitloin/ :
+        const API_BASE_URL = 'https://www.domainanda.com/mitloin/api.php';
+
+  Simpan file mitloin.html, lalu upload ke hosting (sama seperti
+  file lainnya di Langkah 4).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 6 — AKUN ADMIN DEFAULT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Setelah instalasi, gunakan akun berikut untuk login pertama kali :
+
+      ┌─────────────────────────────────────────────────────┐
+      │  OWNER (akses penuh)                                │
+      │  Email    : owner@mitloin.com                       │
+      │  Password : mitloin2026                             │
+      ├─────────────────────────────────────────────────────┤
+      │  ADMIN (akses operasional)                          │
+      │  Email    : admin@mitloin.com                       │
+      │  Password : mitloin2026                             │
+      └─────────────────────────────────────────────────────┘
+
+  ⚠ WAJIB : Ganti password kedua akun ini segera setelah login
+    pertama melalui menu "Staff" di dashboard admin.
+
+  Akses dashboard : https://www.domainanda.com/admin-dashboard.html
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 7 — ATUR METODE PEMBAYARAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Login ke admin-dashboard.html
+  2. Klik menu "💳 Pembayaran" di sidebar kiri
+  3. Isi data rekening bank :
+       - Nama Bank     : BCA / BRI / Mandiri / dll.
+       - Nomor Rekening: nomor rekening Anda
+       - Atas Nama     : nama pemilik rekening
+  4. Upload gambar QRIS (jika ada)
+  5. Centang metode pembayaran yang ingin diaktifkan di website
+  6. Klik "💾 Simpan Pengaturan"
+
+  Pengaturan ini langsung tampil di keranjang belanja website
+  tanpa perlu edit file HTML.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGKAH 8 — CEK NOMOR WHATSAPP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Nomor WhatsApp untuk notifikasi pesanan saat ini adalah :
+
+      6282110009255   (62 = kode negara Indonesia)
+
+  Jika berbeda, buka mitloin.html → cari teks "wa.me/628" →
+  ganti nomor tersebut dengan nomor WA bisnis Anda.
+  Simpan & re-upload mitloin.html.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHECKLIST PASCA INSTALASI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [ ] Website terbuka di browser tanpa error
+  [ ] Daftar produk muncul di halaman Produk
+  [ ] Tambah produk ke keranjang → metode pembayaran tampil
+  [ ] Login admin-dashboard berhasil dengan akun owner
+  [ ] Password admin & owner sudah diganti
+  [ ] Data pembayaran (rekening/QRIS) sudah diisi & tersimpan
+  [ ] Metode pembayaran di keranjang website sesuai pengaturan
+  [ ] Fitur Daftar Member berfungsi (data tersimpan di dashboard)
+  [ ] Nomor WhatsApp sudah benar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TROUBLESHOOTING UMUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  MASALAH : Login gagal / "Terjadi kesalahan server"
+  SOLUSI  : Periksa kembali kredensial database di config.php.
+            Pastikan database sudah di-import dengan benar.
+
+  MASALAH : Produk tidak muncul / keranjang kosong
+  SOLUSI  : Periksa API_BASE_URL di mitloin.html sudah diubah
+            ke URL hosting yang benar.
+
+  MASALAH : Upload foto QRIS gagal / Error 500
+  SOLUSI  : Periksa apakah kolom `nilai` di tabel `pengaturan`
+            bertipe MEDIUMTEXT (bisa menampung data base64 besar).
+            Re-import database.sql jika perlu.
+
+  MASALAH : Halaman bisa dibuka tapi data tidak tersimpan
+  SOLUSI  : Buka browser DevTools (F12) → tab Console / Network,
+            lihat error yang muncul saat aksi dilakukan.
+            Pastikan api.php bisa diakses di URL-nya langsung.
+
+  MASALAH : CORS error di browser
+  SOLUSI  : Pastikan ALLOWED_ORIGIN di config.php sesuai domain
+            website Anda (termasuk https:// dan tanpa trailing /).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STRUKTUR FILE DI HOSTING (CONTOH)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  public_html/
+  ├── mitloin.html          ← https://www.domainanda.com/
+  ├── admin-dashboard.html  ← https://www.domainanda.com/admin-dashboard.html
+  ├── api.php               ← backend (jangan diakses langsung)
+  └── config.php            ← konfigurasi (jangan diakses langsung)
+
+  Tip : Agar mitloin.html menjadi halaman utama (index), rename
+  file tersebut menjadi index.html setelah diupload, atau buat
+  file index.html berisi redirect :
+    <meta http-equiv="refresh" content="0;url=mitloin.html">
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEAMANAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Pastikan file config.php tidak bisa diakses publik via browser.
+    cPanel biasanya sudah memblokir akses langsung ke file .php
+    selain index.php — tetapi gunakan .htaccess jika diperlukan :
+
+        <Files "config.php">
+            Require all denied
+        </Files>
+
+  • Gunakan HTTPS (SSL). Sebagian besar cPanel hosting modern
+    sudah menyediakan SSL gratis via Let's Encrypt.
+
+  • Rutin backup database melalui cPanel → "Backup Wizard".
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DUKUNGAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  PT Mitloin Global Group
+  WhatsApp : +62 821-1000-9255
+
+══════════════════════════════════════════════════════════════════════
