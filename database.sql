@@ -105,7 +105,11 @@ INSERT INTO kategori (id, slug, nama, emoji) VALUES
  (2,'ayam','Ayam & Bebek','🍗'),
  (3,'seafood','Seafood','🦐'),
  (4,'olahan','Produk Olahan','🌭'),
- (5,'paket','Paket Hemat','📦');
+ (6,'premium','Daging Premium','🍖'),
+ (7,'pokok','Bahan Pokok','🌾'),
+ (8,'kering','Bahan Kering','🫙'),
+ (9,'saos','Saos','🥫'),
+ (10,'minuman','Bahan Minuman','🥤');
 
 -- Akun default (password keduanya: mitloin2026 — GANTI setelah login!)
 INSERT INTO users (nama, email, password, no_wa, role, status) VALUES
@@ -134,7 +138,4 @@ INSERT INTO produk (nama, kategori_id, emoji, harga, satuan, stok, deskripsi, ba
  ('Ikan Gurame Hidup',3,'🐠',55000,'/ekor',24,'Gurame hidup ukuran 600-700g, segar. Sempurna untuk bakar atau steam.',NULL,'','aktif'),
  ('Bakso Sapi Premium',4,'🍡',48000,'/pack',40,'Bakso sapi homemade tanpa pengawet, bouncy dan kenyal. Isi 20 biji.','Halal','','aktif'),
  ('Sosis Sapi Homemade',4,'🌭',52000,'/pack',38,'Sosis sapi hand-made tanpa MSG, rasa daging asli. Isi 6 pcs.','New','','aktif'),
- ('Dendeng Sapi Balado',4,'🥩',85000,'/250g',26,'Dendeng sapi tipis crispy dengan bumbu balado pedas manis khas Minang.','Best Seller','','aktif'),
- ('Paket BBQ Family',5,'🍖',350000,'/paket',12,'Ribeye 500g + Chicken Wings 1kg + Sosis 3 packs. Siap bakar untuk 6 orang!','Hemat 20%','','aktif'),
- ('Paket Meal Prep Seminggu',5,'📦',495000,'/paket',10,'Chicken Breast 2kg + Daging Giling 1kg + Salmon 600g. Cukup protein untuk 7 hari.','Best Value','','aktif'),
- ('Paket Restoran Starter',5,'🏪',1250000,'/paket',8,'Tenderloin 2kg + Sirloin 2kg + Ribeye 1kg + Salmon 1kg. Stok awal resto ideal.','B2B','','aktif');
+ ('Dendeng Sapi Balado',4,'🥩',85000,'/250g',26,'Dendeng sapi tipis crispy dengan bumbu balado pedas manis khas Minang.','Best Seller','','aktif');

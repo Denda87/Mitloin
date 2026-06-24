@@ -967,7 +967,11 @@
           <a onclick="filterProduk('ayam')">🍗 Ayam & Bebek</a>
           <a onclick="filterProduk('seafood')">🦐 Seafood</a>
           <a onclick="filterProduk('olahan')">🌭 Produk Olahan</a>
-          <a onclick="filterProduk('paket')">📦 Paket Hemat</a>
+          <a onclick="filterProduk('premium')">🍖 Daging Premium</a>
+          <a onclick="filterProduk('pokok')">🌾 Bahan Pokok</a>
+          <a onclick="filterProduk('kering')">🫙 Bahan Kering</a>
+          <a onclick="filterProduk('saos')">🥫 Saos</a>
+          <a onclick="filterProduk('minuman')">🥤 Bahan Minuman</a>
         </div>
       </li>
       <li><a onclick="navigate('kemitraan')" id="nav-kemitraan">Kemitraan</a></li>
@@ -1363,38 +1367,6 @@
       </div>
     </section>
 
-    <!-- Team -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header center reveal">
-          <div class="section-eyebrow">Tim Kami</div>
-          <h2 class="section-title">Butcher Profesional Kami</h2>
-          <p class="section-desc">Didukung oleh tim ahli berpengalaman di industri daging selama lebih dari satu dekade.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px">
-          <div class="reveal" style="text-align:center">
-            <div style="width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--crimson-dark),var(--crimson));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:56px;margin-bottom:20px">👨‍🍳</div>
-            <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:4px">Budi Santoso</div>
-            <div style="font-size:12px;color:var(--crimson);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Head Butcher</div>
-          </div>
-          <div class="reveal" style="text-align:center">
-            <div style="width:100%;aspect-ratio:1;background:linear-gradient(135deg,#2D1010,#5C2020);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:56px;margin-bottom:20px">👩‍💼</div>
-            <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:4px">Rina Kurniawati</div>
-            <div style="font-size:12px;color:var(--crimson);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Quality Manager</div>
-          </div>
-          <div class="reveal" style="text-align:center">
-            <div style="width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--crimson-dark),#4A0A0A);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:56px;margin-bottom:20px">👨‍🔬</div>
-            <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:4px">Diki Wahyudi</div>
-            <div style="font-size:12px;color:var(--crimson);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Food Safety Expert</div>
-          </div>
-          <div class="reveal" style="text-align:center">
-            <div style="width:100%;aspect-ratio:1;background:linear-gradient(135deg,#1A0505,#3D1010);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:56px;margin-bottom:20px">👩‍🍳</div>
-            <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:4px">Maya Lestari</div>
-            <div style="font-size:12px;color:var(--crimson);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Chef Consultant</div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 </div>
 
@@ -1415,7 +1387,11 @@
           <button class="tab-btn" onclick="filterProduk('ayam', this)">🍗 Ayam & Bebek</button>
           <button class="tab-btn" onclick="filterProduk('seafood', this)">🦐 Seafood</button>
           <button class="tab-btn" onclick="filterProduk('olahan', this)">🌭 Produk Olahan</button>
-          <button class="tab-btn" onclick="filterProduk('paket', this)">📦 Paket Hemat</button>
+          <button class="tab-btn" onclick="filterProduk('premium', this)">🍖 Daging Premium</button>
+          <button class="tab-btn" onclick="filterProduk('pokok', this)">🌾 Bahan Pokok</button>
+          <button class="tab-btn" onclick="filterProduk('kering', this)">🫙 Bahan Kering</button>
+          <button class="tab-btn" onclick="filterProduk('saos', this)">🥫 Saos</button>
+          <button class="tab-btn" onclick="filterProduk('minuman', this)">🥤 Bahan Minuman</button>
         </div>
         <div class="product-grid" id="all-product-grid"></div>
       </div>
@@ -1916,7 +1892,11 @@
         <li><a onclick="filterProduk('ayam')">Ayam & Bebek</a></li>
         <li><a onclick="filterProduk('seafood')">Seafood</a></li>
         <li><a onclick="filterProduk('olahan')">Produk Olahan</a></li>
-        <li><a onclick="filterProduk('paket')">Paket Hemat</a></li>
+        <li><a onclick="filterProduk('premium')">Daging Premium</a></li>
+        <li><a onclick="filterProduk('pokok')">Bahan Pokok</a></li>
+        <li><a onclick="filterProduk('kering')">Bahan Kering</a></li>
+        <li><a onclick="filterProduk('saos')">Saos</a></li>
+        <li><a onclick="filterProduk('minuman')">Bahan Minuman</a></li>
       </ul>
     </div>
     <div>
@@ -2073,10 +2053,6 @@ let produkData = [
   { id:15, nama:'Bakso Sapi Premium', kategori:'olahan', emoji:'🍡', harga:48000, satuan:'/pack', desc:'Bakso sapi homemade tanpa pengawet, bouncy dan kenyal. Isi 20 biji.', badge:'Halal', badgeType:''},
   { id:16, nama:'Sosis Sapi Homemade', kategori:'olahan', emoji:'🌭', harga:52000, satuan:'/pack', desc:'Sosis sapi hand-made tanpa MSG, rasa daging asli. Isi 6 pcs.', badge:'New', badgeType:''},
   { id:17, nama:'Dendeng Sapi Balado', kategori:'olahan', emoji:'🥩', harga:85000, satuan:'/250g', desc:'Dendeng sapi tipis crispy dengan bumbu balado pedas manis khas Minang.', badge:'Best Seller', badgeType:''},
-  // PAKET
-  { id:18, nama:'Paket BBQ Family', kategori:'paket', emoji:'🍖', harga:350000, satuan:'/paket', desc:'Ribeye 500g + Chicken Wings 1kg + Sosis 3 packs. Siap bakar untuk 6 orang!', badge:'Hemat 20%', badgeType:'gold'},
-  { id:19, nama:'Paket Meal Prep Seminggu', kategori:'paket', emoji:'📦', harga:495000, satuan:'/paket', desc:'Chicken Breast 2kg + Daging Giling 1kg + Salmon 600g. Cukup protein untuk 7 hari.', badge:'Best Value', badgeType:''},
-  { id:20, nama:'Paket Restoran Starter', kategori:'paket', emoji:'🏪', harga:1250000, satuan:'/paket', desc:'Tenderloin 2kg + Sirloin 2kg + Ribeye 1kg + Salmon 1kg. Stok awal resto ideal.', badge:'B2B', badgeType:''},
 ];
 
 // ═══════════════════ KONEKSI BACKEND ═══════════════════
@@ -2311,6 +2287,10 @@ function closeCartOutside(e) {
 function renderProduk(list, containerId) {
   const el = document.getElementById(containerId);
   if (!el) return;
+  if (!list || !list.length) {
+    el.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--warm-gray)"><div style="font-size:48px;margin-bottom:16px">🛒</div><div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:8px">Produk segera hadir</div><div style="font-size:15px">Kategori ini sedang kami siapkan. Hubungi kami untuk ketersediaan.</div></div>`;
+    return;
+  }
   el.innerHTML = list.map(p => `
     <div class="product-card">
       <div class="product-img-placeholder ${p.foto ? 'has-photo' : ''}">
@@ -2331,7 +2311,7 @@ function renderProduk(list, containerId) {
 }
 
 function getCatLabel(k) {
-  const m = { sapi:'🥩 Daging Sapi', ayam:'🍗 Ayam & Bebek', seafood:'🦐 Seafood', olahan:'🌭 Produk Olahan', paket:'📦 Paket Hemat' };
+  const m = { sapi:'🥩 Daging Sapi', ayam:'🍗 Ayam & Bebek', seafood:'🦐 Seafood', olahan:'🌭 Produk Olahan', premium:'🍖 Daging Premium', pokok:'🌾 Bahan Pokok', kering:'🫙 Bahan Kering', saos:'🥫 Saos', minuman:'🥤 Bahan Minuman' };
   return m[k] || k;
 }
 
