@@ -118,12 +118,12 @@ INSERT INTO users (nama, email, password, no_wa, role, status) VALUES
 
 -- Produk awal (sinkron dgn katalog website)
 INSERT INTO produk (nama, kategori_id, emoji, harga, satuan, stok, deskripsi, badge, badge_type, status) VALUES
- ('Ribeye Wagyu Grade A',1,'🥩',285000,'/250g',25,'Marbling indah, lembut, kaya rasa umami. Perfect untuk pan-seared steak.','Best Seller','',  'aktif'),
- ('Tenderloin Sapi Lokal',1,'🥩',165000,'/300g',30,'Potongan paling empuk dari sapi lokal pilihan. Cocok untuk steak atau tumis.',NULL,'','aktif'),
- ('Sirloin Premium Aus',1,'🥩',195000,'/300g',20,'Impor Australia, tekstur padat berasa dengan lemak yang seimbang.','Premium','','aktif'),
+ ('Ribeye Wagyu Grade A',6,'🥩',285000,'/250g',25,'Marbling indah, lembut, kaya rasa umami. Perfect untuk pan-seared steak.','Best Seller','',  'aktif'),
+ ('Tenderloin Sapi Lokal',6,'🥩',165000,'/300g',30,'Potongan paling empuk dari sapi lokal pilihan. Cocok untuk steak atau tumis.',NULL,'','aktif'),
+ ('Sirloin Premium Aus',6,'🥩',195000,'/300g',20,'Impor Australia, tekstur padat berasa dengan lemak yang seimbang.','Premium','','aktif'),
  ('Daging Giling Sapi',1,'🥩',75000,'/500g',40,'Digiling segar setiap hari. Ideal untuk burger, bakso, atau bolognese.',NULL,'','aktif'),
  ('Brisket Asap Ready Cook',1,'🥩',125000,'/500g',15,'Pre-marinated brisket siap dimasak. Tinggal bakar atau kukus, langsung lezat!','New','','aktif'),
- ('Short Rib (Iga Pendek)',1,'🦴',145000,'/500g',18,'Iga pendek sapi dengan daging tebal. Sempurna untuk sup atau braised ribs.',NULL,'','aktif'),
+ ('Short Rib (Iga Pendek)',6,'🦴',145000,'/500g',18,'Iga pendek sapi dengan daging tebal. Sempurna untuk sup atau braised ribs.',NULL,'','aktif'),
  ('Ayam Kampung Utuh',2,'🍗',55000,'/ekor',35,'Ayam kampung segar dipilih hari ini. Tekstur kenyal, rasa autentik.','Segar','','aktif'),
  ('Chicken Breast Fillet',2,'🍗',45000,'/500g',50,'Fillet dada ayam tanpa tulang, rendah lemak, tinggi protein. Untuk gym & diet.','Best Seller','','aktif'),
  ('Chicken Wings Premium',2,'🍗',38000,'/500g',45,'Sayap ayam jumbo untuk BBQ, fried chicken, atau buffalo wings.',NULL,'','aktif'),
