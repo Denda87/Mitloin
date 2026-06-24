@@ -1,0 +1,154 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║        PILIH HOSTING UNTUK WEBSITE MITLOIN — PANDUAN SIMPLE          ║
+║                    PT Mitloin Global Group                           ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JAWABAN SINGKAT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✅ IDwebhost  → CUKUP & PALING MUDAH. Saran utama untuk Anda.
+  ✅ VPS Biznet → BISA, tapi lebih rumit (perlu setting server sendiri).
+
+  Website Mitloin hanya butuh: PHP + MySQL.
+  Kebutuhan ini SUDAH ADA di paket hosting biasa IDwebhost.
+  Anda TIDAK perlu VPS kecuali pengunjung sudah sangat banyak.
+
+  👉 SARAN: Mulai dengan IDwebhost dulu. Pindah ke VPS nanti
+     kalau website sudah ramai (ribuan pengunjung per hari).
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PERBANDINGAN MUDAH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌────────────────────┬─────────────────────┬─────────────────────┐
+  │                    │   IDWEBHOST         │   VPS BIZNET        │
+  │                    │  (Shared Hosting)   │                     │
+  ├────────────────────┼─────────────────────┼─────────────────────┤
+  │ Tingkat kesulitan  │  ⭐ Mudah           │  ⭐⭐⭐⭐ Sulit     │
+  │ cPanel siap pakai  │  ✅ Ya              │  ❌ Install sendiri │
+  │ PHP & MySQL        │  ✅ Sudah ada       │  ❌ Install sendiri │
+  │ Perlu ahli server  │  ❌ Tidak           │  ✅ Ya              │
+  │ Harga              │  💰 Murah           │  💰💰 Lebih mahal   │
+  │ Cocok untuk        │  Pemula / UMKM      │  Teknisi / ramai    │
+  │ Setup SSL (HTTPS)  │  Otomatis/1 klik    │  Manual             │
+  └────────────────────┴─────────────────────┴─────────────────────┘
+
+  Kesimpulan: Untuk website Mitloin, IDwebhost = pilihan tepat.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PILIHAN 1 — IDWEBHOST (SARAN UTAMA, PALING MUDAH)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  LANGKAH BELI:
+  1. Buka idwebhost.com
+  2. Pilih menu "Hosting" → paket apa saja (paket termurah pun cukup)
+     - Cari paket yang menyebut: PHP, MySQL, cPanel
+     - Disk minimal 1 GB sudah cukup (file Anda ~11 MB)
+  3. Beli domain juga (contoh: mitloin.com) — bisa sekalian di sini
+  4. Selesai bayar → Anda dapat akses cPanel
+
+  LANGKAH INSTALL:
+  → Ikuti file PANDUAN-INSTALL.txt langkah 1 sampai 8.
+     Semua langkah di file itu memang dibuat untuk cPanel
+     seperti yang ada di IDwebhost. Tinggal ikuti urut.
+
+  KENAPA INI MUDAH?
+  • cPanel sudah tersedia (tidak perlu install apa-apa)
+  • PHP & MySQL sudah aktif
+  • phpMyAdmin untuk import database sudah ada
+  • SSL/HTTPS bisa diaktifkan 1 klik (Let's Encrypt gratis)
+  • Ada CS yang bisa dihubungi kalau bingung
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PILIHAN 2 — VPS BIZNET (KALAU MAU PAKAI INI)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ⚠ PERHATIAN: VPS itu seperti komputer kosong. Anda harus
+    install sendiri semua software-nya. Butuh sedikit kemampuan
+    teknis (atau bantuan teknisi).
+
+  KALAU TETAP MAU PAKAI VPS, ADA 2 CARA:
+
+  ── CARA A: Install Panel Gratis (DISARANKAN untuk VPS) ──
+     Pakai aplikasi panel gratis supaya VPS jadi mirip cPanel:
+       • aaPanel  (paling mudah, gratis) → aapanel.com
+       • atau CyberPanel / Webuzo
+
+     Langkahnya:
+     1. Beli VPS Biznet (pilih OS: Ubuntu 22.04)
+     2. Install aaPanel (cukup copy-paste 1 perintah dari situsnya)
+     3. Di aaPanel klik install: Nginx/Apache + PHP 8 + MySQL
+     4. Buat database lewat aaPanel
+     5. Upload file lewat File Manager aaPanel
+     6. Lanjut ikuti PANDUAN-INSTALL.txt langkah 2-8
+
+  ── CARA B: Install Manual (untuk yang paham Linux) ──
+     1. Beli VPS Biznet, OS Ubuntu 22.04
+     2. Install LAMP stack:
+          sudo apt update
+          sudo apt install apache2 php php-mysql mysql-server -y
+     3. Buat database & user MySQL
+     4. Upload file ke /var/www/html/
+     5. Pasang SSL pakai Certbot (gratis):
+          sudo apt install certbot python3-certbot-apache -y
+          sudo certbot --apache
+     6. Lanjut ikuti PANDUAN-INSTALL.txt langkah 2-8
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SARAN AGAR SEMUA BERJALAN LANCAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. ✅ MULAI DARI IDWEBHOST
+     Lebih murah, mudah, dan cukup untuk awal usaha. Tidak perlu
+     pusing urus server. Pindah ke VPS nanti kalau sudah ramai.
+
+  2. ✅ AKTIFKAN HTTPS (SSL)
+     Wajib supaya website aman & dipercaya. Di IDwebhost cukup
+     1 klik di cPanel (menu SSL/TLS atau Let's Encrypt).
+
+  3. ✅ PAKAI DOMAIN SENDIRI
+     Contoh: mitloin.com — lebih profesional daripada alamat
+     bawaan hosting. Beli sekalian saat beli hosting.
+
+  4. ✅ GANTI PASSWORD ADMIN
+     Setelah install, segera ganti password owner & admin
+     (lihat PANDUAN-INSTALL.txt langkah 6).
+
+  5. ✅ BACKUP RUTIN
+     Aktifkan backup otomatis di cPanel, atau backup manual
+     database tiap minggu lewat phpMyAdmin → Export.
+
+  6. ✅ PERHATIKAN UKURAN FILE
+     File mitloin.html cukup besar (~11 MB) karena foto produk
+     menyatu di dalamnya. Pastikan koneksi internet stabil saat
+     upload. Kalau lambat, upload pakai FTP (FileZilla).
+
+  7. ✅ ISI DATA PEMBAYARAN DULU
+     Sebelum website dipromosikan, isi rekening & QRIS di
+     dashboard admin → menu Pembayaran. Supaya pelanggan
+     langsung bisa checkout.
+
+  8. ✅ TES SEBELUM PROMOSI
+     Buka website dari HP & laptop, coba tambah produk ke
+     keranjang, coba daftar member, cek pesanan masuk ke
+     dashboard. Pastikan semua jalan dulu baru promosi.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RINGKASAN AKHIR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Untuk Anda sekarang     →  IDwebhost (shared hosting + cPanel)
+  • Kalau website sudah ramai →  Upgrade ke VPS Biznet + aaPanel
+  • Kunci sukses            →  HTTPS aktif, password diganti,
+                               data pembayaran diisi, rutin backup
+
+  Ikuti urutan: beli hosting → PANDUAN-INSTALL.txt → tes → promosi.
+
+══════════════════════════════════════════════════════════════════════
