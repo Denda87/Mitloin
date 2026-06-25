@@ -539,6 +539,21 @@ switch ($action) {
         break;
     }
 
+    // Catat aktivitas ekspor laporan (Excel/PDF) ke database → tersimpan di log_aktivitas
+    case 'laporan_export_log': {
+        $u = requireAuth(['owner', 'admin']);
+        $in = getInput();
+        $format = strtoupper(trim($in['format'] ?? '-'));
+        $dari   = trim($in['dari'] ?? '');
+        $sampai = trim($in['sampai'] ?? '');
+        $omset  = (int)($in['total_omset'] ?? 0);
+        $jml    = (int)($in['jumlah_pesanan'] ?? 0);
+        $detail = "Periode $dari s/d $sampai • Omset Rp " . number_format($omset, 0, ',', '.') . " • $jml pesanan";
+        logActivity($pdo, $u['id'], "Ekspor Laporan $format", $detail);
+        respond(['success' => true]);
+        break;
+    }
+
     // ═══════════════════════════════════════════
     // LOG AKTIVITAS (audit trail, khusus owner)
     // ═══════════════════════════════════════════

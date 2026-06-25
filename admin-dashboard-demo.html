@@ -426,7 +426,7 @@
     <div class="field">
       <label>Foto Produk</label>
       <div class="photo-drop" onclick="document.getElementById('p-foto-file').click()">
-        📷 Klik untuk pilih foto (JPG/PNG, maks ~1MB)<br>
+        📷 Klik untuk pilih foto (JPG/PNG, maks 5MB)<br>
         <small style="color:var(--warm-gray)">atau tempel URL gambar di bawah</small>
       </div>
       <input type="file" id="p-foto-file" accept="image/*" class="hidden" onchange="onPhotoPick(event)">
@@ -862,7 +862,7 @@ function openProdukModal(p){
   });
 }
 function readImage(file, cb){
-  if(file.size > 1.6*1024*1024){ toast('⚠️ Foto terlalu besar (maks ~1.5MB). Kompres dulu.'); return; }
+  if(file.size > 5*1024*1024){ toast('⚠️ Foto terlalu besar (maks 5MB).'); return; }
   const r = new FileReader();
   r.onload = e => cb(e.target.result);
   r.readAsDataURL(file);

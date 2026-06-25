@@ -350,6 +350,8 @@
             <div class="field"><label>Dari</label><input type="date" id="lap-dari"></div>
             <div class="field"><label>Sampai</label><input type="date" id="lap-sampai"></div>
             <button class="btn btn-sm" onclick="loadLaporan()">Terapkan</button>
+            <button class="btn btn-sm" id="btn-export-excel" style="background:#1d6f42" onclick="exportLaporanExcel()" disabled>⬇️ Excel</button>
+            <button class="btn btn-sm" id="btn-export-pdf" style="background:#b5121b" onclick="exportLaporanPDF()" disabled>⬇️ PDF</button>
           </div>
           <div class="cards" style="margin-bottom:18px">
             <div class="card accent"><div class="lbl">💰 Total Omset</div><div class="val" id="lap-omset">—</div></div>
@@ -452,7 +454,7 @@
     <div class="field">
       <label>Foto Produk</label>
       <div class="photo-drop" onclick="document.getElementById('p-foto-file').click()">
-        📷 Klik untuk pilih foto (JPG/PNG, maks ~1MB)<br>
+        📷 Klik untuk pilih foto (JPG/PNG, maks 5MB)<br>
         <small style="color:var(--warm-gray)">atau tempel URL gambar di bawah</small>
       </div>
       <input type="file" id="p-foto-file" accept="image/*" class="hidden" onchange="onPhotoPick(event)">
@@ -789,9 +791,29 @@ function openProdukModal(p){
   });
 }
 function readImage(file, cb){
-  if(file.size > 1.6*1024*1024){ toast('⚠️ Foto terlalu besar (maks ~1.5MB). Kompres dulu.'); return; }
+  if(file.size > 5*1024*1024){ toast('⚠️ Foto terlalu besar (maks 5MB). Pilih foto yang lebih kecil.'); return; }
   const r = new FileReader();
-  r.onload = e => cb(e.target.result);
+  r.onload = e => {
+    const src = e.target.result;
+    // Kompres otomatis: perkecil dimensi agar ukuran simpan tetap ringan & aman di database
+    const img = new Image();
+    img.onload = () => {
+      const MAX = 1400; // sisi terpanjang maksimal (px)
+      let { width:w, height:h } = img;
+      if(w > MAX || h > MAX){
+        if(w >= h){ h = Math.round(h * MAX / w); w = MAX; }
+        else      { w = Math.round(w * MAX / h); h = MAX; }
+      }
+      try{
+        const c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        c.getContext('2d').drawImage(img, 0, 0, w, h);
+        cb(c.toDataURL('image/jpeg', 0.85));
+      }catch(_){ cb(src); } // kalau gagal kompres, pakai gambar asli
+    };
+    img.onerror = () => cb(src);
+    img.src = src;
+  };
   r.readAsDataURL(file);
 }
 
@@ -913,21 +935,105 @@ async function toggleMember(id,status){
 }
 
 // ═══════════════ LAPORAN ═══════════════
+let lapData = null; // menyimpan data laporan terakhir untuk diekspor
 async function loadLaporan(){
   const dari = document.getElementById('lap-dari').value;
   const sampai = document.getElementById('lap-sampai').value;
   const body = document.getElementById('laporan-body');
+  const btnX = document.getElementById('btn-export-excel');
+  const btnP = document.getElementById('btn-export-pdf');
+  btnX.disabled = btnP.disabled = true;
   body.innerHTML='<tr><td colspan="3"><span class="spinner"></span></td></tr>';
   try{
     const res = await api(`laporan_penjualan&dari=${dari}&sampai=${sampai}`, null, 'GET');
     if(!res.success) return body.innerHTML=`<tr><td colspan="3" class="empty">${esc(res.message)}</td></tr>`;
     const d = res.data;
+    lapData = { dari, sampai, ringkasan:d.ringkasan, per_produk:d.per_produk||[] };
     document.getElementById('lap-omset').textContent = rp(d.ringkasan.total_penjualan);
     document.getElementById('lap-jml').textContent = d.ringkasan.jumlah_pesanan;
     body.innerHTML = (d.per_produk && d.per_produk.length)
       ? d.per_produk.map(p=>`<tr><td>${esc(p.nama_produk)}</td><td>${p.total_qty}</td><td>${rp(p.total_omset)}</td></tr>`).join('')
       : '<tr><td colspan="3" class="empty">Tidak ada penjualan di periode ini.</td></tr>';
+    btnX.disabled = btnP.disabled = false; // aktifkan ekspor setelah data dimuat
   }catch(e){ body.innerHTML=`<tr><td colspan="3" class="empty">${esc(e.message)}</td></tr>`; }
+}
+
+// Catat aktivitas ekspor ke database (tabel log_aktivitas) — bisa dilihat di menu Log
+function catatEksporLaporan(format){
+  if(!lapData) return;
+  api('laporan_export_log', {
+    format, dari: lapData.dari, sampai: lapData.sampai,
+    total_omset: lapData.ringkasan.total_penjualan,
+    jumlah_pesanan: lapData.ringkasan.jumlah_pesanan
+  }, 'POST').catch(()=>{}); // jangan ganggu unduhan kalau pencatatan gagal
+}
+
+// ── Ekspor ke Excel (.xls) — tanpa library, dibuka rapi di Excel/Spreadsheet ──
+function exportLaporanExcel(){
+  if(!lapData){ toast('Muat laporan dulu (klik Terapkan).'); return; }
+  const d = lapData;
+  const baris = d.per_produk.length
+    ? d.per_produk.map(p=>`<tr><td>${esc(p.nama_produk)}</td><td>${p.total_qty}</td><td>${Number(p.total_omset||0)}</td></tr>`).join('')
+    : '<tr><td colspan="3">Tidak ada penjualan di periode ini.</td></tr>';
+  const html = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+  <head><meta charset="utf-8"></head><body>
+  <table border="1">
+    <tr><th colspan="3" style="font-size:16px">LAPORAN PENJUALAN — MITLOIN</th></tr>
+    <tr><td colspan="3">Periode: ${esc(d.dari)} s/d ${esc(d.sampai)}</td></tr>
+    <tr><td>Total Omset</td><td colspan="2">${Number(d.ringkasan.total_penjualan||0)}</td></tr>
+    <tr><td>Jumlah Pesanan</td><td colspan="2">${Number(d.ringkasan.jumlah_pesanan||0)}</td></tr>
+    <tr><td colspan="3"></td></tr>
+    <tr><th>Produk</th><th>Qty Terjual</th><th>Total Omset (Rp)</th></tr>
+    ${baris}
+  </table></body></html>`;
+  const blob = new Blob(['﻿'+html], {type:'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `Laporan-Mitloin-${d.dari}_sd_${d.sampai}.xls`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+  catatEksporLaporan('Excel');
+  toast('✅ Laporan Excel diunduh & dicatat di Log.');
+}
+
+// ── Ekspor ke PDF — buka jendela cetak, pilih "Simpan sebagai PDF" ──
+function exportLaporanPDF(){
+  if(!lapData){ toast('Muat laporan dulu (klik Terapkan).'); return; }
+  const d = lapData;
+  const baris = d.per_produk.length
+    ? d.per_produk.map(p=>`<tr><td>${esc(p.nama_produk)}</td><td style="text-align:center">${p.total_qty}</td><td style="text-align:right">${rp(p.total_omset)}</td></tr>`).join('')
+    : '<tr><td colspan="3" style="text-align:center;color:#888">Tidak ada penjualan di periode ini.</td></tr>';
+  const w = window.open('', '_blank');
+  if(!w){ toast('Izinkan pop-up untuk mengunduh PDF.'); return; }
+  w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Laporan Penjualan Mitloin</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;color:#222;padding:28px;max-width:780px;margin:auto}
+    h1{color:#b5121b;font-size:22px;margin:0 0 4px} .sub{color:#666;font-size:13px;margin:0 0 18px}
+    .cards{display:flex;gap:14px;margin-bottom:22px}
+    .card{flex:1;border:1px solid #e2c9c9;border-radius:10px;padding:14px}
+    .card .l{font-size:12px;color:#888} .card .v{font-size:20px;font-weight:700;color:#b5121b;margin-top:4px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{border:1px solid #ddd;padding:8px 10px} th{background:#fbeaea;text-align:left;color:#7a0e15}
+    .foot{margin-top:22px;font-size:11px;color:#999;text-align:center}
+    @media print{ .noprint{display:none} }
+  </style></head><body>
+    <h1>📈 Laporan Penjualan — Mitloin</h1>
+    <p class="sub">Periode: ${esc(d.dari)} s/d ${esc(d.sampai)} &nbsp;•&nbsp; PT Mitloin Global Group</p>
+    <div class="cards">
+      <div class="card"><div class="l">💰 Total Omset</div><div class="v">${rp(d.ringkasan.total_penjualan)}</div></div>
+      <div class="card"><div class="l">🧾 Jumlah Pesanan</div><div class="v">${Number(d.ringkasan.jumlah_pesanan||0)}</div></div>
+    </div>
+    <table><thead><tr><th>Produk</th><th style="text-align:center">Qty Terjual</th><th style="text-align:right">Total Omset</th></tr></thead>
+    <tbody>${baris}</tbody></table>
+    <p class="foot">Dicetak dari Dashboard Mitloin</p>
+    <p class="noprint" style="text-align:center;margin-top:20px">
+      <button onclick="window.print()" style="background:#b5121b;color:#fff;border:0;padding:10px 22px;border-radius:8px;font-size:14px;cursor:pointer">🖨️ Cetak / Simpan PDF</button>
+    </p>
+    <script>setTimeout(function(){window.print();},400);<\/script>
+  </body></html>`);
+  w.document.close();
+  catatEksporLaporan('PDF');
+  toast('✅ Laporan PDF dibuka & dicatat di Log.');
 }
 
 // ═══════════════ STAFF ═══════════════
