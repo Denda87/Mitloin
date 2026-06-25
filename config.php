@@ -6,12 +6,12 @@
 
 // ─── Kredensial Database (ganti sesuai hosting Anda) ───
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'namauser_mitloin_db');     // ← ganti
-define('DB_USER', 'namauser_mitloin_user');   // ← ganti
-define('DB_PASS', 'password_anda_disini');    // ← ganti
+define('DB_NAME', 'mitloinc_mitloin');
+define('DB_USER', 'mitloinc_dbuser');
+define('DB_PASS', 'MitloinDB2026!');
 
 // ─── Kunci rahasia untuk token login (ganti dgn string acak panjang) ───
-define('SECRET_KEY', 'ganti-dengan-string-acak-yang-sangat-rahasia-minimal-32-karakter');
+define('SECRET_KEY', 'mitloin_R4h4s14_2026_xK9pQ7mZ_jangan_dibagi_ke_siapapun');
 
 // ─── Domain yang diizinkan memanggil API (CORS) ───
 // Saat masih uji coba boleh '*'. Setelah live, ganti dgn domain asli, contoh: 'https://mitloin.com'
