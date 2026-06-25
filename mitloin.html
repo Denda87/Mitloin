@@ -2118,8 +2118,11 @@ async function apiCall(action, data, useAuth) {
     headers,
     body: JSON.stringify(data || {})
   });
-  if (!res.ok) throw new Error('Gagal terhubung ke server (status ' + res.status + ')');
-  return await res.json();
+  // Server mungkin membalas dengan status 4xx (mis. 401 password salah, 409 email terdaftar)
+  // tapi tetap mengirim JSON berisi pesan. Kembalikan JSON itu agar pesan asli bisa ditampilkan.
+  const json = await res.json().catch(() => null);
+  if (json) return json;
+  throw new Error('Gagal terhubung ke server (status ' + res.status + ')');
 }
 
 // ═══════════════════ CART ═══════════════════
@@ -2382,9 +2385,7 @@ async function doMasuk() {
     }
     showToast('⚠️ ' + (res && res.message ? res.message : 'Email atau password salah.'));
   } catch (err) {
-    // Backend belum terhubung — fallback ke mode simulasi agar UI tetap berfungsi
-    showToast('✅ Berhasil masuk! Selamat datang kembali.');
-    toggleLogin();
+    showToast('⚠️ Tidak bisa terhubung ke server. Periksa koneksi internet Anda dan coba lagi.');
   }
 }
 
@@ -2408,11 +2409,7 @@ async function doDaftar() {
     }
     showToast('⚠️ ' + (res && res.message ? res.message : 'Pendaftaran gagal, coba lagi.'));
   } catch (err) {
-    // Backend belum terhubung — tetap simpan data lokal agar checkout tetap berjalan
-    localStorage.setItem('mitloin_nama', nama);
-    localStorage.setItem('mitloin_wa', wa);
-    showToast('✅ Pendaftaran berhasil! Selamat bergabung di Mitloin.');
-    toggleLogin();
+    showToast('⚠️ Tidak bisa terhubung ke server. Periksa koneksi internet Anda dan coba lagi.');
   }
 }
 
