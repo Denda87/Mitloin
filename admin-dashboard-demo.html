@@ -560,7 +560,7 @@ async function api(action, data, method){
     case 'login':{
       const role = (data.email||'').toLowerCase().startsWith('owner') ? 'owner' : 'admin';
       const nama = role==='owner'?'Owner Mitloin':'Admin Mitloin';
-      return _ok({token:'demo-token-'+Date.now(), user:{id:role==='owner'?1:2,nama,email:data.email,role,no_wa:'6282110009255'}});
+      return _ok({token:'demo-token-'+Date.now(), user:{id:role==='owner'?1:2,nama,email:data.email,role,no_wa:'6285173308990'}});
     }
     case 'ganti_password': return _msg('Password berhasil diganti. (demo)');
     case 'dashboard_summary':{

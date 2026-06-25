@@ -122,8 +122,8 @@ INSERT INTO kategori (id, slug, nama, emoji) VALUES
 
 -- Akun default (password keduanya: mitloin2026 — GANTI setelah login!)
 INSERT INTO users (nama, email, password, no_wa, role, status) VALUES
- ('Owner Mitloin','owner@mitloin.com','$2y$12$MDJQvAA6wDKrgs8jhWOYZ.kmx6HA9Cr4msUJ4Bk2VpRMo8PSe3nhu','6282110009255','owner','aktif'),
- ('Admin Mitloin','admin@mitloin.com','$2y$12$MDJQvAA6wDKrgs8jhWOYZ.kmx6HA9Cr4msUJ4Bk2VpRMo8PSe3nhu','6282110009255','admin','aktif');
+ ('Owner Mitloin','owner@mitloin.com','$2y$12$MDJQvAA6wDKrgs8jhWOYZ.kmx6HA9Cr4msUJ4Bk2VpRMo8PSe3nhu','6285173308990','owner','aktif'),
+ ('Admin Mitloin','admin@mitloin.com','$2y$12$MDJQvAA6wDKrgs8jhWOYZ.kmx6HA9Cr4msUJ4Bk2VpRMo8PSe3nhu','6285173308990','admin','aktif');
 
 -- Produk awal (sinkron dgn katalog website)
 INSERT INTO produk (nama, kategori_id, emoji, harga, satuan, stok, deskripsi, badge, badge_type, status) VALUES
