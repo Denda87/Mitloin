@@ -549,7 +549,7 @@ switch ($action) {
         $omset  = (int)($in['total_omset'] ?? 0);
         $jml    = (int)($in['jumlah_pesanan'] ?? 0);
         $detail = "Periode $dari s/d $sampai • Omset Rp " . number_format($omset, 0, ',', '.') . " • $jml pesanan";
-        logActivity($pdo, $u['id'], "Ekspor Laporan $format", $detail);
+        logActivity($pdo, $u['uid'], "Ekspor Laporan $format", $detail);
         respond(['success' => true]);
         break;
     }
@@ -629,6 +629,7 @@ switch ($action) {
                 'bank_rekening'  => $cfg['bank_rekening'] ?? '',
                 'bank_atas_nama' => $cfg['bank_atas_nama'] ?? '',
                 'qris_gambar'    => $cfg['qris_gambar'] ?? '',
+                'logo_gambar'    => $cfg['logo_gambar'] ?? '',
                 'bayar_transfer' => ($cfg['bayar_transfer'] ?? '1') === '1',
                 'bayar_qris'     => ($cfg['bayar_qris'] ?? '1') === '1',
                 'bayar_cod'      => ($cfg['bayar_cod'] ?? '1') === '1',
@@ -642,7 +643,7 @@ switch ($action) {
         $auth = requireAuth(['owner', 'admin']);
         $in = getInput();
         // Hanya key yang dikenal yang boleh disimpan
-        $allowed = ['bank_nama', 'bank_rekening', 'bank_atas_nama', 'qris_gambar',
+        $allowed = ['bank_nama', 'bank_rekening', 'bank_atas_nama', 'qris_gambar', 'logo_gambar',
                     'bayar_transfer', 'bayar_qris', 'bayar_cod', 'bayar_wa'];
         $stmt = $pdo->prepare("INSERT INTO pengaturan (nama, nilai) VALUES (?, ?) ON DUPLICATE KEY UPDATE nilai = VALUES(nilai)");
         foreach ($allowed as $key) {

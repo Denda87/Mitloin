@@ -391,6 +391,17 @@
           </div>
           <button class="btn" onclick="simpanPengaturan()" style="margin-top:6px">💾 Simpan Pengaturan</button>
         </div>
+
+        <div class="panel" style="max-width:560px;margin-top:20px">
+          <h2><span class="ttl">🖼️ Logo Website</span></h2>
+          <p style="color:var(--warm-gray);font-size:13px;margin:-4px 0 18px">Logo ini tampil di navbar (atas) & footer website. Disarankan file <b>PNG latar transparan</b>, lebar minimal 500px.</p>
+          <div class="field">
+            <label>Upload Logo (PNG/JPG, maks 5MB)</label>
+            <input type="file" accept="image/*" id="set-logo-file" onchange="pilihLogo(event)">
+            <div id="set-logo-prev" style="margin-top:10px"></div>
+          </div>
+          <button class="btn" onclick="simpanPengaturan()" style="margin-top:6px">💾 Simpan Logo</button>
+        </div>
       </section>
 
       <!-- ───── STAFF (owner) ───── -->
@@ -820,8 +831,9 @@ function readImage(file, cb){
 // ═══════════════ PENGATURAN PEMBAYARAN ═══════════════
 const METODE_LABEL = {transfer:'Transfer Bank', qris:'QRIS', cod:'COD (Bayar di tempat)', wa:'WhatsApp'};
 let qrisData = undefined; // undefined = tak diubah; string = gambar baru
+let logoData = undefined; // undefined = tak diubah; string = logo baru
 async function loadPengaturan(){
-  qrisData = undefined;
+  qrisData = undefined; logoData = undefined;
   try{
     const res = await api('pengaturan_get', null, 'GET');
     if(!res.success) return toast(res.message);
@@ -836,6 +848,10 @@ async function loadPengaturan(){
     document.getElementById('set-qris-prev').innerHTML = d.qris_gambar
       ? `<img src="${esc(d.qris_gambar)}" style="max-width:200px;border-radius:10px;border:1px solid var(--line)">`
       : '<span style="color:var(--warm-gray);font-size:13px">Belum ada gambar QRIS.</span>';
+    const logoPrev = document.getElementById('set-logo-prev');
+    if(logoPrev) logoPrev.innerHTML = d.logo_gambar
+      ? `<div style="display:inline-block;background:#fff;padding:10px;border-radius:10px;border:1px solid var(--line)"><img src="${esc(d.logo_gambar)}" style="max-width:240px;max-height:90px;object-fit:contain"></div>`
+      : '<span style="color:var(--warm-gray);font-size:13px">Belum ada logo. Website memakai logo bawaan.</span>';
   }catch(e){ toast(e.message); }
 }
 function pilihQris(ev){
@@ -845,6 +861,27 @@ function pilihQris(ev){
     document.getElementById('set-qris-prev').innerHTML =
       `<img src="${dataUrl}" style="max-width:200px;border-radius:10px;border:1px solid var(--line)"><div style="font-size:12px;color:var(--warm-gray);margin-top:5px">Gambar baru — klik Simpan untuk menyimpan.</div>`;
   });
+}
+// Logo: pertahankan transparansi (export PNG), perkecil ke lebar maks 700px
+function pilihLogo(ev){
+  const file = ev.target.files[0]; if(!file) return;
+  if(file.size > 5*1024*1024){ toast('⚠️ Logo terlalu besar (maks 5MB).'); return; }
+  const r = new FileReader();
+  r.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const MAX = 700; let w = img.width, h = img.height;
+      if(w > MAX || h > MAX){ if(w >= h){ h = Math.round(h*MAX/w); w = MAX; } else { w = Math.round(w*MAX/h); h = MAX; } }
+      let out = e.target.result;
+      try{ const c = document.createElement('canvas'); c.width = w; c.height = h; c.getContext('2d').drawImage(img,0,0,w,h); out = c.toDataURL('image/png'); }catch(_){}
+      logoData = out;
+      document.getElementById('set-logo-prev').innerHTML =
+        `<div style="display:inline-block;background:#fff;padding:10px;border-radius:10px;border:1px solid var(--line)"><img src="${out}" style="max-width:240px;max-height:90px;object-fit:contain"></div><div style="font-size:12px;color:var(--warm-gray);margin-top:5px">Logo baru — klik Simpan Logo untuk menyimpan.</div>`;
+    };
+    img.onerror = () => { logoData = e.target.result; };
+    img.src = e.target.result;
+  };
+  r.readAsDataURL(file);
 }
 async function simpanPengaturan(){
   const payload = {
@@ -857,9 +894,10 @@ async function simpanPengaturan(){
     bayar_wa:       document.getElementById('set-m-wa').checked
   };
   if(qrisData !== undefined) payload.qris_gambar = qrisData;
+  if(logoData !== undefined) payload.logo_gambar = logoData;
   const res = await api('pengaturan_simpan', payload);
   toast(res.message);
-  if(res.success){ qrisData = undefined; loadPengaturan(); }
+  if(res.success){ qrisData = undefined; logoData = undefined; loadPengaturan(); }
 }
 function onPhotoPick(ev){
   const file = ev.target.files[0]; if(!file) return;
