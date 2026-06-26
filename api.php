@@ -661,6 +661,78 @@ switch ($action) {
         break;
     }
 
+    // ═══════════════════════════════════════════
+    // ARTIKEL (blog / edukasi)
+    // ═══════════════════════════════════════════
+    case 'artikel_publik': {
+        // PUBLIK — dipakai website untuk menampilkan daftar artikel
+        $rows = $pdo->query("
+            SELECT id, judul, tag, emoji, gambar, ringkasan, isi, waktu_baca, created_at
+            FROM artikel WHERE status = 'publish'
+            ORDER BY created_at DESC, id DESC
+        ")->fetchAll();
+        respond(['success' => true, 'data' => $rows]);
+        break;
+    }
+
+    case 'artikel_list': {
+        // ADMIN — semua artikel termasuk draft
+        requireAuth(['owner', 'admin']);
+        $rows = $pdo->query("
+            SELECT id, judul, tag, emoji, gambar, ringkasan, isi, waktu_baca, status, created_at
+            FROM artikel ORDER BY created_at DESC, id DESC
+        ")->fetchAll();
+        respond(['success' => true, 'data' => $rows]);
+        break;
+    }
+
+    case 'artikel_simpan': {
+        $auth = requireAuth(['owner', 'admin']);
+        $in = getInput();
+        $judul = trim($in['judul'] ?? '');
+        $tag = trim($in['tag'] ?? '');
+        $emoji = trim($in['emoji'] ?? '') ?: '📰';
+        $ringkasan = trim($in['ringkasan'] ?? '');
+        $isi = trim($in['isi'] ?? '');
+        $waktu_baca = trim($in['waktu_baca'] ?? '');
+        $status = ($in['status'] ?? 'publish') === 'draft' ? 'draft' : 'publish';
+        // gambar: bisa data URL base64 / URL. Jika tidak dikirim, jangan ubah gambar lama.
+        $gambarDikirim = array_key_exists('gambar', $in);
+        $gambar = $gambarDikirim ? ($in['gambar'] ?: null) : null;
+
+        if (!$judul) respond(['success' => false, 'message' => 'Judul artikel wajib diisi.'], 400);
+
+        if (!empty($in['id'])) {
+            if ($gambarDikirim) {
+                $stmt = $pdo->prepare("UPDATE artikel SET judul=?, tag=?, emoji=?, gambar=?, ringkasan=?, isi=?, waktu_baca=?, status=? WHERE id=?");
+                $stmt->execute([$judul, $tag, $emoji, $gambar, $ringkasan, $isi, $waktu_baca, $status, (int)$in['id']]);
+            } else {
+                $stmt = $pdo->prepare("UPDATE artikel SET judul=?, tag=?, emoji=?, ringkasan=?, isi=?, waktu_baca=?, status=? WHERE id=?");
+                $stmt->execute([$judul, $tag, $emoji, $ringkasan, $isi, $waktu_baca, $status, (int)$in['id']]);
+            }
+            logActivity($pdo, $auth['uid'], 'Update artikel', $judul);
+            respond(['success' => true, 'message' => 'Artikel berhasil diperbarui.', 'id' => (int)$in['id']]);
+        } else {
+            $stmt = $pdo->prepare("INSERT INTO artikel (judul, tag, emoji, gambar, ringkasan, isi, waktu_baca, status) VALUES (?,?,?,?,?,?,?,?)");
+            $stmt->execute([$judul, $tag, $emoji, $gambar, $ringkasan, $isi, $waktu_baca, $status]);
+            $newId = $pdo->lastInsertId();
+            logActivity($pdo, $auth['uid'], 'Tambah artikel', $judul);
+            respond(['success' => true, 'message' => 'Artikel berhasil ditambahkan.', 'id' => (int)$newId]);
+        }
+        break;
+    }
+
+    case 'artikel_hapus': {
+        $auth = requireAuth(['owner', 'admin']);
+        $in = getInput();
+        $id = (int)($in['id'] ?? 0);
+        if (!$id) respond(['success' => false, 'message' => 'ID artikel tidak valid.'], 400);
+        $pdo->prepare("DELETE FROM artikel WHERE id = ?")->execute([$id]);
+        logActivity($pdo, $auth['uid'], 'Hapus artikel', "ID #$id");
+        respond(['success' => true, 'message' => 'Artikel berhasil dihapus.']);
+        break;
+    }
+
     default:
         respond(['success' => false, 'message' => 'Aksi tidak dikenal: ' . $action], 404);
 }

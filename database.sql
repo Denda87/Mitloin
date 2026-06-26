@@ -102,6 +102,23 @@ CREATE TABLE IF NOT EXISTS pengaturan (
     nilai MEDIUMTEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- ─────────────────────────────────────────────
+-- TABEL: artikel (blog / edukasi — dikelola dari dashboard)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS artikel (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    judul       VARCHAR(255) NOT NULL,
+    tag         VARCHAR(80)  DEFAULT '',
+    emoji       VARCHAR(16)  DEFAULT '📰',
+    gambar      MEDIUMTEXT,                       -- base64 / URL gambar (opsional)
+    ringkasan   TEXT,                             -- kutipan singkat di kartu
+    isi         MEDIUMTEXT,                       -- isi artikel lengkap
+    waktu_baca  VARCHAR(40)  DEFAULT '',          -- mis. "5 menit baca"
+    status      ENUM('publish','draft') DEFAULT 'publish',
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- ════════════════════════════════════════════════════════════
@@ -160,3 +177,18 @@ INSERT INTO pengaturan (nama, nilai) VALUES
  ('bayar_cod','1'),
  ('bayar_wa','1')
 ON DUPLICATE KEY UPDATE nilai = VALUES(nilai);
+
+-- Artikel awal (sinkron dgn tampilan website; bisa diedit/hapus dari dashboard)
+INSERT INTO artikel (judul, tag, emoji, ringkasan, isi, waktu_baca, status) VALUES
+ ('Panduan Lengkap Memilih Steak yang Sempurna: Grade, Marbling, dan Cara Masak','Tips Memasak','🥩',
+  'Memilih potongan steak yang tepat bisa membuat perbedaan besar pada hasil masakan. Dari ribeye hingga tenderloin, pelajari cara memilih yang terbaik untuk kebutuhan Anda.',
+  'Steak yang sempurna dimulai dari pemilihan potongan yang tepat. Ribeye dikenal dengan marbling (serat lemak) yang kaya sehingga juicy dan beraroma kuat. Tenderloin adalah potongan paling empuk namun lebih sedikit lemak. Sirloin memberi keseimbangan antara rasa dan tekstur.\n\nPerhatikan grade daging: semakin tinggi marbling, semakin lembut dan gurih. Sebelum memasak, diamkan daging pada suhu ruang ±30 menit, beri garam, lalu panaskan wajan hingga benar-benar panas. Masak 2-3 menit tiap sisi untuk medium, dan istirahatkan daging 5 menit sebelum dipotong agar sari dagingnya tidak hilang.','8 menit baca','publish'),
+ ('5 Resep Ayam Premium yang Mudah Dibuat di Rumah','Resep','🍗',
+  'Dari ayam panggang herbal hingga sup krim ayam mushroom — semua bisa dibuat dengan bahan dari Mitloin.',
+  'Ayam premium memberi hasil masakan yang jauh lebih lezat. Berikut 5 ide: (1) Ayam panggang herbal dengan rosemary & bawang putih, (2) Sup krim ayam mushroom yang creamy, (3) Chicken katsu renyah, (4) Ayam bakar madu, (5) Sup ayam kampung hangat. Gunakan dada fillet untuk masakan rendah lemak dan paha untuk rasa lebih juicy.','5 menit baca','publish'),
+ ('Cara Menyimpan Seafood Segar Agar Tahan Lama','Pengetahuan','🦐',
+  'Teknik penyimpanan yang benar bisa memperpanjang kesegaran seafood hingga 2x lebih lama. Simak tipsnya!',
+  'Seafood sangat cepat rusak bila salah penyimpanan. Cuci bersih, tiriskan, lalu simpan dalam wadah kedap udara. Untuk konsumsi 1-2 hari, simpan di chiller dengan suhu 0-4°C. Untuk jangka panjang, bekukan pada -18°C. Bekukan dalam porsi kecil agar mudah dipakai dan tidak perlu mencairkan semuanya sekaligus.','4 menit baca','publish'),
+ ('Mengapa Restoran Top Jakarta Memilih Mitloin sebagai Supplier Utama','Bisnis Kuliner','🌭',
+  'Konsistensi kualitas, layanan custom cut, dan jaminan kesegaran menjadi alasan utama resto-resto premium mempercayai Mitloin.',
+  'Restoran premium membutuhkan supplier yang konsisten. Mitloin menyediakan daging dengan kualitas terjaga, layanan custom cut sesuai kebutuhan dapur, serta pengiriman tepat waktu dengan rantai dingin terjaga. Hal inilah yang membuat banyak restoran top mempercayakan kebutuhan dagingnya kepada Mitloin.','6 menit baca','publish');

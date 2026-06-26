@@ -1711,7 +1711,7 @@
     </div>
     <section class="section">
       <div class="container">
-        <div class="artikel-grid">
+        <div class="artikel-grid" id="artikel-grid">
           <div class="artikel-featured reveal" onclick="openArtikel(0)">
             <div class="artikel-img" style="height:320px">🥩</div>
             <div class="artikel-body">
@@ -2057,6 +2057,15 @@
         <span id="checkout-label">Pesan via WhatsApp</span>
       </button>
     </div>
+  </div>
+</div>
+
+<!-- ARTIKEL DETAIL MODAL -->
+<style>#artikel-detail-modal.open{display:flex !important}</style>
+<div id="artikel-detail-modal" onclick="closeArtikelDetail(event)" style="position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:3000;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px">
+  <div style="background:#fff;max-width:760px;width:100%;border-radius:18px;padding:32px 32px 36px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45)">
+    <button onclick="closeArtikelDetail()" aria-label="Tutup" style="position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:none;background:#f0eaea;color:#7a0e15;font-size:18px;cursor:pointer;z-index:5">✕</button>
+    <div id="artikel-detail-content"></div>
   </div>
 </div>
 
@@ -2531,8 +2540,73 @@ function submitKontak() {
 }
 
 // ═══════════════════ ARTIKEL ═══════════════════
-function openArtikel(idx) {
-  showToast('📖 Membuka artikel...');
+let artikelData = [];
+async function loadArtikelPublik(){
+  try{
+    const res = await apiCall('artikel_publik', {});
+    if(res && res.success && Array.isArray(res.data) && res.data.length){
+      artikelData = res.data;
+      renderArtikelGrid();
+    }
+  }catch(e){ /* backend offline — biarkan kartu statis bawaan */ }
+}
+function renderArtikelGrid(){
+  const grid = document.getElementById('artikel-grid');
+  if(!grid || !artikelData.length) return;
+  const mediaBig = a => a.gambar
+    ? `<div class="artikel-img" style="height:320px;background-image:url('${a.gambar}');background-size:cover;background-position:center"></div>`
+    : `<div class="artikel-img" style="height:320px">${a.emoji||'📰'}</div>`;
+  const mediaSm = a => a.gambar
+    ? `<div class="artikel-img artikel-img-sm" style="background-image:url('${a.gambar}');background-size:cover;background-position:center"></div>`
+    : `<div class="artikel-img artikel-img-sm">${a.emoji||'📰'}</div>`;
+  const tgl = a => (a.created_at||'').slice(0,10);
+  const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  let html = '';
+  artikelData.forEach((a,i)=>{
+    if(i===0){
+      html += `<div class="artikel-featured reveal visible" onclick="openArtikel(${a.id})" style="cursor:pointer">
+        ${mediaBig(a)}
+        <div class="artikel-body">
+          <span class="artikel-tag">${esc(a.tag||'Artikel')}</span>
+          <h2 class="artikel-title">${esc(a.judul)}</h2>
+          <p class="artikel-excerpt">${esc(a.ringkasan||'')}</p>
+          <div class="artikel-meta"><span>📅 ${esc(tgl(a))}</span><span>⏱ ${esc(a.waktu_baca||'')}</span></div>
+        </div>
+      </div>`;
+    } else {
+      html += `<div class="artikel-card reveal visible" onclick="openArtikel(${a.id})" style="cursor:pointer">
+        ${mediaSm(a)}
+        <div class="artikel-body" style="padding:24px">
+          <span class="artikel-tag">${esc(a.tag||'Artikel')}</span>
+          <h3 class="artikel-title artikel-title-sm">${esc(a.judul)}</h3>
+          <p class="artikel-excerpt" style="font-size:13px">${esc(a.ringkasan||'')}</p>
+          <div class="artikel-meta" style="font-size:11px;margin-top:16px"><span>📅 ${esc(tgl(a))}</span><span>⏱ ${esc(a.waktu_baca||'')}</span></div>
+        </div>
+      </div>`;
+    }
+  });
+  grid.innerHTML = html;
+}
+function openArtikel(id) {
+  const a = artikelData.find(x => Number(x.id) === Number(id));
+  if(!a){ showToast('📖 Membuka artikel...'); return; }
+  const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const tgl = (a.created_at||'').slice(0,10);
+  const isiHtml = (a.isi||a.ringkasan||'').split(/\n+/).map(p=>p.trim()).filter(Boolean).map(p=>`<p style="margin:0 0 14px;line-height:1.8;color:#333">${esc(p)}</p>`).join('');
+  const media = a.gambar
+    ? `<div style="height:260px;border-radius:14px;background:url('${a.gambar}') center/cover;margin-bottom:22px"></div>`
+    : `<div style="height:200px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:72px;background:linear-gradient(135deg,#1A0505,#3D1010);margin-bottom:22px">${a.emoji||'📰'}</div>`;
+  document.getElementById('artikel-detail-content').innerHTML =
+    `${media}
+     <span class="artikel-tag">${esc(a.tag||'Artikel')}</span>
+     <h1 style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,34px);margin:12px 0 10px;color:var(--charcoal)">${esc(a.judul)}</h1>
+     <div style="display:flex;gap:18px;color:var(--warm-gray);font-size:13px;margin-bottom:22px"><span>📅 ${esc(tgl)}</span><span>⏱ ${esc(a.waktu_baca||'')}</span></div>
+     ${isiHtml}`;
+  document.getElementById('artikel-detail-modal').classList.add('open');
+}
+function closeArtikelDetail(ev){
+  if(ev && ev.target !== document.getElementById('artikel-detail-modal') && ev.type==='click') return;
+  document.getElementById('artikel-detail-modal').classList.remove('open');
 }
 
 // ═══════════════════ TOAST ═══════════════════
@@ -2636,6 +2710,7 @@ document.addEventListener('DOMContentLoaded', () => {
       initReveal();
     });
   loadPayConfig();
+  loadArtikelPublik();
 });
 </script>
 

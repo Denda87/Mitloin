@@ -244,6 +244,7 @@
       <a class="nav-item active" data-sec="ringkasan" onclick="goSec('ringkasan')"><span class="ic">📊</span> Ringkasan</a>
       <a class="nav-item" data-sec="pesanan" onclick="goSec('pesanan')"><span class="ic">🧾</span> Pesanan</a>
       <a class="nav-item" data-sec="produk" onclick="goSec('produk')"><span class="ic">🥩</span> Produk</a>
+      <a class="nav-item" data-sec="artikel" onclick="goSec('artikel')"><span class="ic">📰</span> Artikel</a>
       <a class="nav-item" data-sec="member" onclick="goSec('member')"><span class="ic">👥</span> Member</a>
       <a class="nav-item" data-sec="laporan" onclick="goSec('laporan')"><span class="ic">📈</span> Laporan</a>
       <a class="nav-item" data-sec="pembayaran" onclick="goSec('pembayaran')"><span class="ic">💳</span> Pembayaran</a>
@@ -324,6 +325,22 @@
             <table>
               <thead><tr><th>Foto</th><th>Nama</th><th>Kategori</th><th>Harga</th><th>Stok</th><th>Status</th><th>Aksi</th></tr></thead>
               <tbody id="produk-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── ARTIKEL ───── -->
+      <section class="section" id="sec-artikel">
+        <div class="panel">
+          <h2>
+            <span class="ttl">📰 Daftar Artikel</span>
+            <button class="btn btn-sm" onclick="openArtikelModal()">+ Tambah Artikel</button>
+          </h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Gambar</th><th>Judul</th><th>Tag</th><th>Status</th><th>Tanggal</th><th>Aksi</th></tr></thead>
+              <tbody id="artikel-body"></tbody>
             </table>
           </div>
         </div>
@@ -480,6 +497,40 @@
   </div>
 </div>
 
+<!-- ════════════════ MODAL ARTIKEL ════════════════ -->
+<div class="modal" id="artikel-modal">
+  <div class="modal-box">
+    <h3><span id="artikel-modal-title">Tambah Artikel</span><span class="x" onclick="closeModal('artikel-modal')">&times;</span></h3>
+    <input type="hidden" id="a-id">
+    <div class="field"><label>Judul Artikel *</label><input id="a-judul" placeholder="Judul artikel"></div>
+    <div class="form-row">
+      <div class="field"><label>Tag / Kategori</label><input id="a-tag" placeholder="Contoh: Tips Memasak"></div>
+      <div class="field"><label>Emoji (jika tanpa gambar)</label><input id="a-emoji" placeholder="📰" maxlength="4"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Waktu Baca</label><input id="a-waktu" placeholder="Contoh: 5 menit baca"></div>
+      <div class="field"><label>Status</label><select id="a-status"><option value="publish">Publish (tampil di website)</option><option value="draft">Draft (disembunyikan)</option></select></div>
+    </div>
+    <div class="field"><label>Ringkasan (kutipan singkat di kartu)</label><textarea id="a-ringkasan" rows="2" placeholder="1-2 kalimat ringkasan"></textarea></div>
+    <div class="field"><label>Isi Artikel</label><textarea id="a-isi" rows="6" placeholder="Tulis isi artikel lengkap di sini..."></textarea></div>
+    <div class="field">
+      <label>Gambar Artikel (opsional)</label>
+      <div class="photo-drop" onclick="document.getElementById('a-foto-file').click()">
+        📷 Klik untuk pilih gambar (JPG/PNG, maks 5MB)<br>
+        <small style="color:var(--warm-gray)">atau tempel URL gambar di bawah</small>
+      </div>
+      <input type="file" id="a-foto-file" accept="image/*" class="hidden" onchange="onArtikelPick(event)">
+      <input id="a-foto-url" placeholder="https://... (opsional)" style="width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;margin-top:8px" oninput="onArtikelUrl()">
+      <img id="a-foto-preview" class="photo-preview">
+      <button type="button" class="mini" style="margin-top:8px;display:none" id="a-foto-clear" onclick="clearArtikelFoto()">Hapus gambar</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('artikel-modal')">Batal</button>
+      <button class="btn" id="a-save-btn" onclick="saveArtikel()">Simpan</button>
+    </div>
+  </div>
+</div>
+
 <!-- ════════════════ MODAL DETAIL PESANAN ════════════════ -->
 <div class="modal" id="pesanan-modal">
   <div class="modal-box">
@@ -601,7 +652,7 @@ function logout(silent){
 }
 
 // ═══════════════ NAVIGASI ═══════════════
-const SEC_TITLES = {ringkasan:'Ringkasan',pesanan:'Pesanan',produk:'Produk',member:'Member',laporan:'Laporan',pembayaran:'Pembayaran',staff:'Kelola Staff',log:'Log Aktivitas'};
+const SEC_TITLES = {ringkasan:'Ringkasan',pesanan:'Pesanan',produk:'Produk',artikel:'Artikel',member:'Member',laporan:'Laporan',pembayaran:'Pembayaran',staff:'Kelola Staff',log:'Log Aktivitas'};
 function goSec(sec){
   currentSec = sec;
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.sec===sec));
@@ -612,7 +663,7 @@ function goSec(sec){
   reloadCurrent();
 }
 function reloadCurrent(){
-  ({ringkasan:loadRingkasan,pesanan:()=>loadPesanan(pesananStatus),produk:loadProduk,member:loadMember,laporan:loadLaporan,pembayaran:loadPengaturan,staff:loadStaff,log:loadLog}[currentSec]||(()=>{}))();
+  ({ringkasan:loadRingkasan,pesanan:()=>loadPesanan(pesananStatus),produk:loadProduk,artikel:loadArtikel,member:loadMember,laporan:loadLaporan,pembayaran:loadPengaturan,staff:loadStaff,log:loadLog}[currentSec]||(()=>{}))();
 }
 
 // ═══════════════ RINGKASAN ═══════════════
@@ -826,6 +877,110 @@ function readImage(file, cb){
     img.src = src;
   };
   r.readAsDataURL(file);
+}
+
+// ═══════════════ ARTIKEL ═══════════════
+let artikelCache = [];
+let editingArtikelFoto = undefined; // undefined=tak diubah; null=dihapus; string=baru
+async function loadArtikel(){
+  const body = document.getElementById('artikel-body');
+  body.innerHTML='<tr><td colspan="6"><span class="spinner"></span></td></tr>';
+  try{
+    const res = await api('artikel_list', null, 'GET');
+    if(!res.success) return body.innerHTML=`<tr><td colspan="6" class="empty">${esc(res.message)}</td></tr>`;
+    artikelCache = res.data || [];
+    if(!artikelCache.length){ body.innerHTML='<tr><td colspan="6" class="empty">Belum ada artikel. Klik "+ Tambah Artikel".</td></tr>'; return; }
+    body.innerHTML = artikelCache.map(a=>{
+      const thumb = a.gambar
+        ? `<img class="thumb" src="${esc(a.gambar)}" alt="">`
+        : `<div class="thumb">${esc(a.emoji||'📰')}</div>`;
+      const ring = (a.ringkasan||'');
+      return `<tr data-id="${a.id}">
+        <td>${thumb}</td>
+        <td><b>${esc(a.judul)}</b><br><small style="color:var(--warm-gray)">${esc(ring.slice(0,60))}${ring.length>60?'…':''}</small></td>
+        <td>${esc(a.tag||'-')}</td>
+        <td><span class="badge b-${a.status==='publish'?'aktif':'nonaktif'}">${a.status}</span></td>
+        <td>${esc((a.created_at||'').slice(0,10))}</td>
+        <td><div class="row-actions">
+            <button class="mini" onclick="openArtikelModal(${a.id})">Edit</button>
+            <button class="mini" style="color:var(--red)" onclick="hapusArtikel(${a.id})">Hapus</button>
+          </div></td>
+      </tr>`;
+    }).join('');
+  }catch(e){ body.innerHTML=`<tr><td colspan="6" class="empty">${esc(e.message)}</td></tr>`; }
+}
+function openArtikelModal(id){
+  const a = id ? artikelCache.find(x=>Number(x.id)===Number(id)) : null;
+  const isEdit = !!a;
+  document.getElementById('artikel-modal-title').textContent = isEdit ? 'Edit Artikel' : 'Tambah Artikel';
+  document.getElementById('a-id').value      = isEdit ? a.id : '';
+  document.getElementById('a-judul').value   = isEdit ? (a.judul||'') : '';
+  document.getElementById('a-tag').value     = isEdit ? (a.tag||'') : '';
+  document.getElementById('a-emoji').value   = isEdit ? (a.emoji||'') : '';
+  document.getElementById('a-waktu').value   = isEdit ? (a.waktu_baca||'') : '';
+  document.getElementById('a-status').value  = isEdit ? (a.status||'publish') : 'publish';
+  document.getElementById('a-ringkasan').value = isEdit ? (a.ringkasan||'') : '';
+  document.getElementById('a-isi').value     = isEdit ? (a.isi||'') : '';
+  document.getElementById('a-foto-url').value='';
+  document.getElementById('a-foto-file').value='';
+  editingArtikelFoto = undefined;
+  const prev = document.getElementById('a-foto-preview');
+  const clr = document.getElementById('a-foto-clear');
+  if(isEdit && a.gambar){ prev.src=a.gambar; prev.style.display='block'; clr.style.display='inline-block'; }
+  else { prev.style.display='none'; clr.style.display='none'; }
+  document.getElementById('artikel-modal').classList.add('open');
+}
+function onArtikelPick(ev){
+  const file = ev.target.files[0]; if(!file) return;
+  readImage(file, dataUrl=>{
+    editingArtikelFoto = dataUrl;
+    const prev=document.getElementById('a-foto-preview');
+    prev.src=dataUrl; prev.style.display='block';
+    document.getElementById('a-foto-clear').style.display='inline-block';
+    document.getElementById('a-foto-url').value='';
+  });
+}
+function onArtikelUrl(){
+  const url=document.getElementById('a-foto-url').value.trim();
+  const prev=document.getElementById('a-foto-preview');
+  if(url){ editingArtikelFoto=url; prev.src=url; prev.style.display='block'; document.getElementById('a-foto-clear').style.display='inline-block'; }
+}
+function clearArtikelFoto(){
+  editingArtikelFoto=null;
+  document.getElementById('a-foto-preview').style.display='none';
+  document.getElementById('a-foto-url').value='';
+  document.getElementById('a-foto-file').value='';
+  document.getElementById('a-foto-clear').style.display='none';
+}
+async function saveArtikel(){
+  const payload={
+    judul:      document.getElementById('a-judul').value.trim(),
+    tag:        document.getElementById('a-tag').value.trim(),
+    emoji:      document.getElementById('a-emoji').value.trim(),
+    waktu_baca: document.getElementById('a-waktu').value.trim(),
+    status:     document.getElementById('a-status').value,
+    ringkasan:  document.getElementById('a-ringkasan').value.trim(),
+    isi:        document.getElementById('a-isi').value.trim(),
+  };
+  const id=document.getElementById('a-id').value;
+  if(id) payload.id=Number(id);
+  if(editingArtikelFoto !== undefined) payload.gambar = editingArtikelFoto;
+  if(!payload.judul){ toast('⚠️ Judul artikel wajib diisi.'); return; }
+  const btn=document.getElementById('a-save-btn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>';
+  try{
+    const res=await api('artikel_simpan', payload);
+    toast(res.message);
+    if(res.success){ closeModal('artikel-modal'); loadArtikel(); }
+  }catch(e){ toast(e.message); }
+  btn.disabled=false; btn.textContent='Simpan';
+}
+async function hapusArtikel(id){
+  const a = artikelCache.find(x=>Number(x.id)===Number(id));
+  if(!confirm('Hapus artikel "'+((a&&a.judul)||'ini')+'"? Tindakan ini tidak bisa dibatalkan.')) return;
+  const res=await api('artikel_hapus', {id});
+  toast(res.message);
+  if(res.success) loadArtikel();
 }
 
 // ═══════════════ PENGATURAN PEMBAYARAN ═══════════════
