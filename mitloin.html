@@ -453,6 +453,11 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 28px;
   }
+  /* Produk Unggulan di Home: paksa 4 kolom (8 kartu jadi 2 baris, ukuran lebih ringkas) */
+  #home-product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
   .product-card {
     background: white; border-radius: 12px;
     border: 1px solid var(--border);
@@ -790,16 +795,17 @@
     cursor: pointer; font-size: 18px;
     display: flex; align-items: center; justify-content: center;
   }
-  .cart-items { flex: 1; overflow-y: auto; padding: 24px 32px; }
+  .cart-items { flex: 1; overflow-y: auto; padding: 18px 24px; min-height: 38vh; }
   .cart-empty {
     text-align: center; padding: 60px 20px;
     color: var(--warm-gray);
   }
   .cart-empty-icon { font-size: 56px; margin-bottom: 16px; }
   .cart-item {
-    display: flex; gap: 16px;
-    padding: 16px 0; border-bottom: 1px solid var(--border);
+    display: flex; gap: 14px;
+    padding: 13px 0; border-bottom: 1px solid var(--border);
   }
+  .cart-item:first-child { padding-top: 2px; }
   .cart-item-img {
     width: 72px; height: 72px; border-radius: 8px;
     background: linear-gradient(135deg, #1A0505, #3D1010);
@@ -822,25 +828,27 @@
   }
   .qty-num { font-weight: 700; font-size: 15px; min-width: 20px; text-align: center; }
   .cart-footer {
-    padding: 24px 32px;
-    border-top: 1px solid var(--border);
+    padding: 16px 24px 18px;
+    border-top: 2px solid var(--border);
+    background: var(--off-white);
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
   }
   .cart-total {
     display: flex; justify-content: space-between;
-    align-items: center; margin-bottom: 20px;
+    align-items: center; margin-bottom: 12px;
   }
   .cart-total-label { font-size: 14px; color: var(--warm-gray); font-weight: 600; }
   .cart-total-price {
     font-family: 'Playfair Display', serif;
-    font-size: 28px; font-weight: 700; color: var(--crimson);
+    font-size: 24px; font-weight: 700; color: var(--crimson);
   }
-  .pay-section { margin-bottom: 16px; }
-  .pay-label { font-size: 13px; font-weight: 800; color: var(--ink); margin-bottom: 10px; letter-spacing: 0.02em; }
-  .pay-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .pay-section { margin-bottom: 10px; max-height: 32vh; overflow-y: auto; }
+  .pay-label { font-size: 12px; font-weight: 800; color: var(--ink); margin-bottom: 7px; letter-spacing: 0.02em; }
+  .pay-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 10px; }
   .pay-method {
     display: flex; align-items: center; gap: 8px;
-    padding: 11px 12px; border: 1.6px solid var(--border);
-    border-radius: 11px; cursor: pointer; font-size: 13px; font-weight: 600;
+    padding: 9px 11px; border: 1.6px solid var(--border);
+    border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 600;
     background: #fff; transition: all 0.2s ease; color: var(--ink);
   }
   .pay-method:hover { border-color: var(--crimson); }
@@ -878,7 +886,7 @@
     width: 100%;
     background: #25D366; color: white;
     border: none; border-radius: 8px;
-    padding: 16px; font-size: 14px;
+    padding: 14px; font-size: 14px;
     font-weight: 700; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     gap: 10px; transition: all 0.2s;
@@ -989,6 +997,7 @@
   @media (max-width: 1024px) {
     #kemitraan-grid { grid-template-columns: 1fr; }
     #kemitraan-grid .kmtr-card:nth-child(2) { transform: scale(1); }
+    #home-product-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
   }
 
   @media (max-width: 768px) {
@@ -1007,6 +1016,7 @@
     .section { padding: 70px 24px; }
     .promo-banner { margin-top: 60px; }
     .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    #home-product-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     .form-row { grid-template-columns: 1fr; }
     .hero-content { padding: 60px 24px; }
     #kemitraan-grid { grid-template-columns: 1fr; }
@@ -2203,7 +2213,9 @@ function renderCartItems() {
   }
   footer.style.display = 'block';
   renderPayMethods();
-  container.innerHTML = cart.map(item => `
+  const totalItem = cart.reduce((s,c) => s + c.qty, 0);
+  const header = `<div style="font-size:12px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:10px">🛍️ ${cart.length} produk dipesan (${totalItem} item)</div>`;
+  container.innerHTML = header + cart.map(item => `
     <div class="cart-item">
       <div class="cart-item-img">${item.emoji}</div>
       <div class="cart-item-info">
