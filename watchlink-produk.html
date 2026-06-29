@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semua Produk – Watch Link | Jam Tangan Original</title>
+<meta name="description" content="Temukan ribuan jam tangan original dari brand ternama. Filter berdasarkan brand, kategori, harga, dan fitur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="watchlink.css">
+<style>
+.page-body { display: grid; grid-template-columns: 260px 1fr; gap: 24px; padding: 28px 0 48px; }
+
+/* SIDEBAR */
+.sidebar { flex-shrink: 0; }
+.sidebar-card { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+.sidebar-title { font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.sidebar-title span { font-size: 12px; color: var(--red); font-weight: 500; cursor: pointer; }
+.filter-option { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; }
+.filter-option input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--dark); cursor: pointer; }
+.filter-option label { font-size: 13px; color: #333; cursor: pointer; flex: 1; }
+.filter-option .count { font-size: 11px; color: #aaa; }
+.price-inputs { display: flex; gap: 8px; margin-top: 10px; }
+.price-input { flex: 1; border: 1px solid #ddd; border-radius: 6px; padding: 7px 10px; font-size: 13px; outline: none; }
+.price-input:focus { border-color: var(--gold); }
+
+/* MAIN */
+.products-main { min-width: 0; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px; }
+.result-count { font-size: 14px; color: #666; }
+.result-count strong { color: #111; }
+.toolbar-right { display: flex; gap: 10px; align-items: center; }
+.sort-select { border: 1px solid #ddd; border-radius: 6px; padding: 7px 12px; font-size: 13px; background: #fff; outline: none; cursor: pointer; }
+.view-toggle { display: flex; gap: 4px; }
+.view-btn { width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: .15s; }
+.view-btn.active { border-color: #111; background: #111; color: #fff; }
+
+/* ACTIVE FILTERS */
+.active-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.filter-tag { display: flex; align-items: center; gap: 6px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 20px; padding: 4px 10px 4px 12px; font-size: 12px; font-weight: 500; color: #333; }
+.filter-tag button { background: none; border: none; cursor: pointer; color: #888; font-size: 14px; line-height: 1; padding: 0; }
+
+.products-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.products-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+/* PAGINATION */
+.pagination { display: flex; gap: 6px; justify-content: center; margin-top: 36px; }
+.page-btn { width: 38px; height: 38px; border: 1px solid #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; cursor: pointer; transition: .15s; color: #333; background: #fff; }
+.page-btn:hover { border-color: #111; background: #f5f5f5; }
+.page-btn.active { background: #111; color: #fff; border-color: #111; }
+.page-btn.dots { cursor: default; color: #999; border-color: transparent; background: transparent; }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; padding: 16px 0 0; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+@media (max-width: 900px) {
+  .page-body { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .products-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .products-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .products-grid-4, .products-grid-3 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="wl-nav">
+  <div class="wl-nav-top">
+    <a href="watchlink-home.html" class="wl-logo">
+      <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link Logo">
+      <div class="wl-logo-text">
+        <div class="wl-logo-name">watch link</div>
+        <div class="wl-logo-sub">JAM TANGAN ORIGINAL</div>
+      </div>
+    </a>
+    <div class="wl-search">
+      <svg width="16" height="16" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Cari jam tangan, brand, model...">
+    </div>
+    <div class="wl-nav-right">
+      <div class="wl-cart-btn">
+        <svg width="22" height="22" fill="none" stroke="#333" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="wl-cart-badge">3</div>
+      </div>
+      <a href="#" class="wl-btn wl-btn-outline">Masuk</a>
+      <a href="#" class="wl-btn wl-btn-dark">Daftar</a>
+    </div>
+  </div>
+  <div class="wl-subnav">
+    <div class="wl-subnav-inner">
+      <a href="watchlink-produk.html?cat=promo" class="wl-subnav-link active">Semua Promo</a>
+      <a href="watchlink-produk.html?cat=pria" class="wl-subnav-link">Jam Pria</a>
+      <a href="watchlink-produk.html?cat=wanita" class="wl-subnav-link">Jam Wanita</a>
+      <a href="watchlink-produk.html?cat=luxury" class="wl-subnav-link">Luxury Watches</a>
+      <a href="watchlink-produk.html?cat=aksesoris" class="wl-subnav-link">Strap &amp; Aksesoris</a>
+      <a href="watchlink-produk.html?cat=smart" class="wl-subnav-link">Smartwatch</a>
+      <a href="watchlink-tentang.html" class="wl-subnav-link">Tentang Kami</a>
+      <a href="watchlink-kontak.html" class="wl-subnav-link">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wl-section">
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="watchlink-home.html">Home</a>
+    <span class="sep">›</span>
+    <span class="current">Semua Produk</span>
+  </div>
+
+  <!-- PAGE TITLE -->
+  <div style="padding:20px 0 0;">
+    <h1 style="font-size:26px;font-weight:800;margin-bottom:4px;">Semua Produk</h1>
+    <p style="font-size:14px;color:#666;">Temukan jam tangan original dari brand ternama dengan harga terbaik</p>
+  </div>
+
+  <div class="page-body">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- Category -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Kategori <span>Reset</span></div>
+        <div class="filter-option"><input type="checkbox" id="c1" checked><label for="c1">Jam Pria</label><span class="count">124</span></div>
+        <div class="filter-option"><input type="checkbox" id="c2"><label for="c2">Jam Wanita</label><span class="count">89</span></div>
+        <div class="filter-option"><input type="checkbox" id="c3"><label for="c3">Luxury Watches</label><span class="count">43</span></div>
+        <div class="filter-option"><input type="checkbox" id="c4"><label for="c4">Smartwatch</label><span class="count">37</span></div>
+        <div class="filter-option"><input type="checkbox" id="c5"><label for="c5">Strap &amp; Aksesoris</label><span class="count">56</span></div>
+      </div>
+
+      <!-- Brand -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Brand <span>Reset</span></div>
+        <div class="filter-option"><input type="checkbox" id="b1" checked><label for="b1">Quantum</label><span class="count">42</span></div>
+        <div class="filter-option"><input type="checkbox" id="b2"><label for="b2">Casio / G-Shock</label><span class="count">38</span></div>
+        <div class="filter-option"><input type="checkbox" id="b3"><label for="b3">Seiko</label><span class="count">31</span></div>
+        <div class="filter-option"><input type="checkbox" id="b4"><label for="b4">Garmin</label><span class="count">28</span></div>
+        <div class="filter-option"><input type="checkbox" id="b5"><label for="b5">Orient</label><span class="count">22</span></div>
+        <div class="filter-option"><input type="checkbox" id="b6"><label for="b6">Citizen</label><span class="count">19</span></div>
+        <div class="filter-option"><input type="checkbox" id="b7"><label for="b7">Fossil</label><span class="count">17</span></div>
+      </div>
+
+      <!-- Price -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Harga</div>
+        <div class="filter-option"><input type="radio" name="price" id="p0"><label for="p0">Semua Harga</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p1"><label for="p1">Di bawah Rp 1 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p2" checked><label for="p2">Rp 1–3 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p3"><label for="p3">Rp 3–7 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p4"><label for="p4">Rp 7–20 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p5"><label for="p5">Di atas Rp 20 juta</label></div>
+        <div style="margin-top:12px;font-size:12px;color:#888;margin-bottom:6px;">Atau masukkan rentang harga:</div>
+        <div class="price-inputs">
+          <input class="price-input" type="number" placeholder="Min" min="0">
+          <input class="price-input" type="number" placeholder="Max" min="0">
+        </div>
+      </div>
+
+      <!-- Movement -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Jenis Mesin</div>
+        <div class="filter-option"><input type="checkbox" id="m1" checked><label for="m1">Automatic</label><span class="count">87</span></div>
+        <div class="filter-option"><input type="checkbox" id="m2"><label for="m2">Quartz / Battery</label><span class="count">134</span></div>
+        <div class="filter-option"><input type="checkbox" id="m3"><label for="m3">Solar</label><span class="count">23</span></div>
+        <div class="filter-option"><input type="checkbox" id="m4"><label for="m4">Smart / Digital</label><span class="count">37</span></div>
+      </div>
+
+      <!-- Features -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Fitur</div>
+        <div class="filter-option"><input type="checkbox" id="f1"><label for="f1">Chronograph</label></div>
+        <div class="filter-option"><input type="checkbox" id="f2"><label for="f2">Sapphire Crystal</label></div>
+        <div class="filter-option"><input type="checkbox" id="f3"><label for="f3">Water Resistant 10+ ATM</label></div>
+        <div class="filter-option"><input type="checkbox" id="f4"><label for="f4">Date Display</label></div>
+        <div class="filter-option"><input type="checkbox" id="f5"><label for="f5">GPS</label></div>
+      </div>
+
+      <button class="wl-btn wl-btn-dark" style="width:100%;padding:12px;">Terapkan Filter</button>
+    </aside>
+
+    <!-- MAIN PRODUCTS -->
+    <main class="products-main">
+      <!-- TOOLBAR -->
+      <div class="toolbar">
+        <div class="result-count">Menampilkan <strong>1–12</strong> dari <strong>349 produk</strong></div>
+        <div class="toolbar-right">
+          <select class="sort-select">
+            <option>Paling Relevan</option>
+            <option>Terlaris</option>
+            <option>Harga: Rendah ke Tinggi</option>
+            <option>Harga: Tinggi ke Rendah</option>
+            <option>Ulasan Terbaik</option>
+            <option>Terbaru</option>
+          </select>
+          <div class="view-toggle">
+            <div class="view-btn active" title="Grid">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><rect x="0" y="0" width="7" height="7"/><rect x="9" y="0" width="7" height="7"/><rect x="0" y="9" width="7" height="7"/><rect x="9" y="9" width="7" height="7"/></svg>
+            </div>
+            <div class="view-btn" title="List">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVE FILTERS -->
+      <div class="active-filters">
+        <div class="filter-tag">Jam Pria <button>×</button></div>
+        <div class="filter-tag">Quantum <button>×</button></div>
+        <div class="filter-tag">Rp 1–3 juta <button>×</button></div>
+        <div class="filter-tag">Automatic <button>×</button></div>
+        <a href="watchlink-produk.html" style="font-size:12px;color:var(--red);font-weight:500;display:flex;align-items:center;gap:3px;">Reset Semua</a>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="products-grid-3" id="prodGrid">
+        <!-- Row 1 -->
+        <a href="watchlink-detail.html" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum Big Time" style="height:200px;">
+            <span class="wl-card-badge badge-gold">TERLARIS</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+            <div class="wl-card-name">Quantum Big Time Chronograph 45mm</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(128)</span></div>
+            <div class="wl-card-price">Rp 2.750.000</div>
+            <div class="wl-card-original">Rp 4.250.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="watchlink-detail.html" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda" style="height:200px;">
+            <span class="wl-card-badge badge-green">NEW</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+            <div class="wl-card-name">Quantum Barracuda Automatic 47mm Sapphire</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(94)</span></div>
+            <div class="wl-card-price">Rp 3.950.000</div>
+            <div class="wl-card-original">Rp 5.500.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="watchlink-detail.html" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#0d1a2e,#1a2d4a);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="67" y2="59" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#fff"/></svg>
+            </div>
+            <span class="wl-card-badge badge-red">-42%</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#5566ff;">SEIKO</div>
+            <div class="wl-card-name">Seiko Presage Cocktail Time Automatic</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(89)</span></div>
+            <div class="wl-card-price">Rp 3.100.000</div>
+            <div class="wl-card-original">Rp 5.400.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="watchlink-detail.html" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#001a0a,#003320);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#00cc66" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#009944" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="66" y2="59" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#00cc66"/></svg>
+            </div>
+            <span class="wl-card-badge badge-red">-21%</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#00aa55;">GARMIN</div>
+            <div class="wl-card-name">Garmin Fenix 7 Pro Solar GPS</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(67)</span></div>
+            <div class="wl-card-price">Rp 9.500.000</div>
+            <div class="wl-card-original">Rp 12.000.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="watchlink-detail.html" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#1a0a00,#3d1800);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><rect x="22" y="16" width="56" height="68" rx="12" stroke="#c9a84c" stroke-width="2.5" fill="#1a0800"/><rect x="30" y="24" width="40" height="52" rx="6" stroke="#c9a84c" stroke-width="1.5" fill="#0a0400"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="62" y2="58" stroke="#ff4422" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="50" r="3" fill="#c9a84c"/></svg>
+            </div>
+            <span class="wl-card-badge badge-orange">LIMITED</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#ff9900;">CASIO</div>
+            <div class="wl-card-name">G-Shock GM-6900G Gold Full Metal</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(53)</span></div>
+            <div class="wl-card-price">Rp 1.850.000</div>
+            <div class="wl-card-original">Rp 2.450.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="watchlink-detail.html" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#0a1020,#1e2a40);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#c9a84c" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#a08030" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#f0d080" stroke-width="1" stroke-dasharray="2 3"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="64" y2="58" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#c9a84c"/></svg>
+            </div>
+            <span class="wl-card-badge badge-red">-18%</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#c9a84c;">ORIENT</div>
+            <div class="wl-card-name">Orient Bambino Version 5 Automatic</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(41)</span></div>
+            <div class="wl-card-price">Rp 2.250.000</div>
+            <div class="wl-card-original">Rp 2.750.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <div class="page-btn">‹</div>
+        <div class="page-btn active">1</div>
+        <div class="page-btn">2</div>
+        <div class="page-btn">3</div>
+        <div class="page-btn dots">…</div>
+        <div class="page-btn">29</div>
+        <div class="page-btn">›</div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="wl-footer">
+  <div class="wl-footer-inner">
+    <div class="wl-footer-grid">
+      <div>
+        <div class="wl-footer-logo">
+          <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link">
+          <div>
+            <div class="wl-footer-logo-name">watch link</div>
+            <div class="wl-footer-logo-sub">JAM TANGAN ORIGINAL</div>
+          </div>
+        </div>
+        <p class="wl-footer-desc">Toko jam tangan original terpercaya dengan ribuan pilihan brand ternama. Garansi resmi, harga terbaik, pengiriman seluruh Indonesia.</p>
+      </div>
+      <div><div class="wl-footer-heading">Produk</div><div class="wl-footer-links"><a href="#">Jam Pria</a><a href="#">Jam Wanita</a><a href="#">Luxury Watches</a><a href="#">Smartwatch</a><a href="#">Strap &amp; Aksesoris</a></div></div>
+      <div><div class="wl-footer-heading">Layanan</div><div class="wl-footer-links"><a href="watchlink-tentang.html">Tentang Kami</a><a href="#">Cara Pembelian</a><a href="#">Kebijakan Retur</a><a href="#">Garansi Produk</a><a href="watchlink-kontak.html">Hubungi Kami</a></div></div>
+      <div><div class="wl-footer-heading">Ikuti Kami</div><div class="wl-footer-links"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a><a href="#">YouTube</a><a href="#">WhatsApp</a></div></div>
+    </div>
+    <div class="wl-footer-bottom">
+      <span class="wl-footer-copy">© 2026 Watch Link. All rights reserved.</span>
+      <span class="wl-footer-copy">Garansi Resmi · Gratis Ongkir · COD Tersedia</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kami – Watch Link | Jam Tangan Original Bekasi</title>
+<meta name="description" content="Watch Link adalah toko jam tangan original terpercaya di Mall Metropolitan 2, Bekasi. Ribuan koleksi brand ternama dengan garansi resmi sejak 2015.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="watchlink.css">
+<style>
+/* HERO */
+.about-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+}
+.about-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,.08) 0%, transparent 70%);
+}
+.about-hero-content { position: relative; z-index: 1; }
+.about-hero-label { font-size: 11px; letter-spacing: 4px; color: #c9a84c; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+.about-hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: 56px; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 18px; }
+.about-hero-title span { color: #c9a84c; }
+.about-hero-sub { font-size: 17px; color: #777; max-width: 560px; margin: 0 auto; line-height: 1.75; }
+
+/* STATS */
+.stats-section { background: #111; border-top: 1px solid #1e1e1e; border-bottom: 1px solid #1e1e1e; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat-item { text-align: center; padding: 36px 20px; border-right: 1px solid #1e1e1e; }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: #c9a84c; line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 13px; color: #666; font-weight: 500; line-height: 1.4; }
+
+/* STORY */
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 72px 0; }
+.story-img-wrap { border-radius: 16px; overflow: hidden; position: relative; }
+.story-img-wrap img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.story-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 50%); }
+.story-img-badge {
+  position: absolute; bottom: 20px; left: 20px; right: 20px;
+  background: rgba(201,168,76,.15); backdrop-filter: blur(8px);
+  border: 1px solid rgba(201,168,76,.3); border-radius: 10px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.story-label { font-size: 11px; letter-spacing: 3px; color: #c9a84c; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.story-title { font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 900; color: #111; line-height: 1.2; margin-bottom: 18px; }
+.story-text { font-size: 15px; color: #555; line-height: 1.85; margin-bottom: 16px; }
+
+/* VALUES */
+.values-section { background: #fafafa; padding: 72px 0; }
+.values-title { text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; margin-bottom: 8px; }
+.values-sub { text-align: center; font-size: 15px; color: #888; margin-bottom: 48px; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 32px 28px; transition: .25s; }
+.value-card:hover { border-color: #c9a84c; box-shadow: 0 8px 32px rgba(201,168,76,.1); transform: translateY(-4px); }
+.value-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.value-name { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+.value-desc { font-size: 14px; color: #666; line-height: 1.75; }
+
+/* TEAM */
+.team-section { padding: 72px 0; }
+.team-title { text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; margin-bottom: 8px; }
+.team-sub { text-align: center; font-size: 15px; color: #888; margin-bottom: 48px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.team-card { text-align: center; }
+.team-avatar {
+  width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 42px; font-weight: 900; color: #fff;
+}
+.team-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.team-role { font-size: 13px; color: #888; }
+
+/* MILESTONES */
+.timeline-section { background: linear-gradient(135deg, #0a0a0a, #111); padding: 72px 0; }
+.timeline-title { text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+.timeline-sub { text-align: center; font-size: 15px; color: #666; margin-bottom: 56px; }
+.timeline { position: relative; max-width: 760px; margin: 0 auto; }
+.timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #c9a84c, rgba(201,168,76,.1)); transform: translateX(-50%); }
+.tl-item { display: flex; gap: 32px; margin-bottom: 40px; align-items: flex-start; }
+.tl-item.right { flex-direction: row-reverse; }
+.tl-content { flex: 1; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 20px 22px; }
+.tl-item.right .tl-content { text-align: right; }
+.tl-dot { width: 44px; height: 44px; border-radius: 50%; background: #c9a84c; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800; font-size: 11px; color: #000; z-index: 1; position: relative; margin-top: 4px; }
+.tl-year { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; color: #c9a84c; margin-bottom: 6px; }
+.tl-event { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.tl-desc { font-size: 13px; color: #666; line-height: 1.65; }
+
+/* CTA SECTION */
+.cta-section { background: linear-gradient(135deg, #1a1a0a, #0a0a0a); padding: 72px 0; text-align: center; }
+.cta-title { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: #fff; margin-bottom: 14px; }
+.cta-sub { font-size: 16px; color: #666; max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+/* WA FLOAT */
+.wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.45); cursor: pointer; transition: transform .2s; text-decoration: none; }
+.wa-float:hover { transform: scale(1.1); }
+
+@media (max-width: 900px) {
+  .about-hero-title { font-size: 38px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .story-grid { grid-template-columns: 1fr; }
+  .story-img-wrap { display: none; }
+  .values-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline::before { left: 22px; }
+  .tl-item, .tl-item.right { flex-direction: row; }
+  .tl-item.right .tl-content { text-align: left; }
+}
+@media (max-width: 500px) {
+  .about-hero-title { font-size: 28px; }
+  .stat-num { font-size: 32px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="wl-nav">
+  <div class="wl-nav-top">
+    <a href="watchlink-home.html" class="wl-logo">
+      <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link Logo">
+      <div class="wl-logo-text">
+        <div class="wl-logo-name">watch link</div>
+        <div class="wl-logo-sub">JAM TANGAN ORIGINAL</div>
+      </div>
+    </a>
+    <div class="wl-search">
+      <svg width="16" height="16" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Cari jam tangan, brand, model...">
+    </div>
+    <div class="wl-nav-right">
+      <div class="wl-cart-btn">
+        <svg width="22" height="22" fill="none" stroke="#333" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="wl-cart-badge">3</div>
+      </div>
+      <a href="#" class="wl-btn wl-btn-outline">Masuk</a>
+      <a href="#" class="wl-btn wl-btn-dark">Daftar</a>
+    </div>
+  </div>
+  <div class="wl-subnav">
+    <div class="wl-subnav-inner">
+      <a href="watchlink-home.html" class="wl-subnav-link">Beranda</a>
+      <a href="watchlink-produk.html" class="wl-subnav-link">Produk</a>
+      <a href="watchlink-produk.html?cat=promo" class="wl-subnav-link">Promo</a>
+      <a href="watchlink-produk.html?cat=flash" class="wl-subnav-link">Flash Sale</a>
+      <a href="watchlink-tentang.html" class="wl-subnav-link active">Tentang Kami</a>
+      <a href="watchlink-kontak.html" class="wl-subnav-link">Kontak & Lokasi</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="wl-section" style="padding-top:16px;padding-bottom:0;">
+  <div class="breadcrumb">
+    <a href="watchlink-home.html">Home</a>
+    <span class="sep">›</span>
+    <span class="current">Tentang Kami</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="wl-section">
+    <div class="about-hero-content">
+      <div class="about-hero-label">Tentang Watch Link</div>
+      <h1 class="about-hero-title">Toko Jam Tangan Original<br><span>Terpercaya Sejak 2015</span></h1>
+      <p class="about-hero-sub">Kami hadir untuk memastikan setiap orang mendapatkan jam tangan original berkualitas tinggi dengan harga yang adil dan layanan yang tulus.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="wl-section" style="padding:0;">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Tahun Pengalaman<br>di Industri Jam Tangan</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50K+</div>
+        <div class="stat-label">Pelanggan Puas<br>di Seluruh Indonesia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Koleksi Model<br>dari 30+ Brand</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Rating Kepuasan<br>Pelanggan</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="wl-section">
+  <div class="story-grid">
+    <div class="story-img-wrap">
+      <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Watch Link Store">
+      <div class="story-img-overlay"></div>
+      <div class="story-img-badge">
+        <div style="width:40px;height:40px;background:#c9a84c;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#fff;">Garansi Keaslian</div>
+          <div style="font-size:12px;color:#aaa;">Setiap produk 100% original</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="story-label">Cerita Kami</div>
+      <h2 class="story-title">Berawal dari Passion,<br>Tumbuh dengan Kepercayaan</h2>
+      <p class="story-text">Watch Link lahir dari kecintaan mendalam terhadap dunia horology — seni dan ilmu pembuatan jam tangan. Didirikan pada tahun 2015 di Bekasi, kami memulai perjalanan sebagai distributor resmi beberapa brand ternama dengan visi sederhana: memberikan akses kepada jam tangan original berkualitas tinggi untuk semua.</p>
+      <p class="story-text">Kini, setelah satu dekade, Watch Link telah menjadi salah satu toko jam tangan original terpercaya di Indonesia. Berlokasi di Mall Metropolitan 2, Bekasi Barat, kami hadir tidak hanya sebagai penjual, tetapi sebagai konsultan jam tangan terpercaya bagi ribuan pelanggan setia kami.</p>
+      <p class="story-text">Setiap jam tangan yang kami jual melewati proses verifikasi keaslian yang ketat. Kami berkomitmen bahwa tidak satu pun produk tiruan akan sampai ke tangan pelanggan kami.</p>
+      <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#c9a84c;">30+</div>
+          <div style="font-size:13px;color:#888;">Brand Resmi</div>
+        </div>
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#c9a84c;">2 Tahun</div>
+          <div style="font-size:13px;color:#888;">Garansi Resmi</div>
+        </div>
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#c9a84c;">24 Jam</div>
+          <div style="font-size:13px;color:#888;">Layanan Customer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div class="wl-section">
+    <h2 class="values-title">Nilai-Nilai Kami</h2>
+    <p class="values-sub">Prinsip yang memandu setiap langkah kami dalam melayani pelanggan</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(232,92,45,.1);">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div class="value-name">Keaslian Tanpa Kompromi</div>
+        <div class="value-desc">Setiap produk yang kami jual dijamin 100% original dari distributor resmi. Kami tidak pernah dan tidak akan pernah menjual produk replika atau palsu dalam bentuk apapun.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(201,168,76,.1);">
+          <svg width="28" height="28" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="value-name">Harga yang Adil & Transparan</div>
+        <div class="value-desc">Kami berkomitmen memberikan harga terbaik tanpa biaya tersembunyi. Setiap diskon dan promosi yang kami tawarkan adalah nyata, bukan rekayasa dari harga awal yang dinaikkan.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(0,170,85,.1);">
+          <svg width="28" height="28" fill="none" stroke="#00aa55" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="value-name">Layanan dari Hati</div>
+        <div class="value-desc">Tim kami terdiri dari para enthusiast jam tangan yang siap memberikan konsultasi tulus. Kami tidak sekadar menjual — kami membantu Anda menemukan jam tangan yang benar-benar tepat.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(85,102,255,.1);">
+          <svg width="28" height="28" fill="none" stroke="#5566ff" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="value-name">Kepuasan Pelanggan Utama</div>
+        <div class="value-desc">Garansi 3 hari pengembalian, layanan purna jual, dan after-sales support yang responsif. Hubungan kami dengan pelanggan tidak berakhir saat transaksi selesai.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(201,168,76,.1);">
+          <svg width="28" height="28" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="value-name">Pengiriman Terpercaya</div>
+        <div class="value-desc">Setiap paket dikemas dengan material pelindung premium dan diasuransikan penuh. Kami bekerja sama dengan kurir terpilih untuk memastikan jam tangan Anda tiba dalam kondisi sempurna.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(232,92,45,.1);">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <div class="value-name">Koleksi yang Dikurasi</div>
+        <div class="value-desc">Kami hanya menjual produk yang telah kami percaya kualitasnya. Setiap brand dan model dipilih secara cermat berdasarkan reputasi, kualitas, dan nilai yang diberikan kepada pelanggan.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-section">
+  <div class="wl-section">
+    <h2 class="team-title">Tim Kami</h2>
+    <p class="team-sub">Orang-orang yang berdedikasi di balik Watch Link</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1a1a2e,#2a2a4e);">A</div>
+        <div class="team-name">Arief Santoso</div>
+        <div class="team-role">Founder & CEO</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1a0a00,#3d1500);">D</div>
+        <div class="team-name">Diana Putri</div>
+        <div class="team-role">Head of Operations</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#0a1a0a,#0d3320);">R</div>
+        <div class="team-name">Rizky Pratama</div>
+        <div class="team-role">Watch Specialist</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#0a0a1a,#1a1a3e);">S</div>
+        <div class="team-name">Sari Indah</div>
+        <div class="team-role">Customer Experience</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MILESTONES -->
+<div class="timeline-section">
+  <div class="wl-section">
+    <h2 class="timeline-title">Perjalanan Watch Link</h2>
+    <p class="timeline-sub">Dari toko kecil hingga kepercayaan ribuan pelanggan</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2015</div>
+          <div class="tl-event">Watch Link Berdiri</div>
+          <div class="tl-desc">Membuka toko pertama di Mall Metropolitan 2, Bekasi dengan koleksi awal 50 model dari 5 brand.</div>
+        </div>
+        <div class="tl-dot">📍</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item right">
+        <div class="tl-content">
+          <div class="tl-year">2017</div>
+          <div class="tl-event">Distributor Resmi Quantum</div>
+          <div class="tl-desc">Mendapatkan kepercayaan menjadi distributor resmi Quantum — brand unggulan yang kini menjadi produk terlaris kami.</div>
+        </div>
+        <div class="tl-dot">🏆</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2019</div>
+          <div class="tl-event">Ekspansi Online & 10.000 Pelanggan</div>
+          <div class="tl-desc">Meluncurkan platform online dan mencapai 10.000 pelanggan aktif. Mulai melayani pengiriman ke seluruh Indonesia.</div>
+        </div>
+        <div class="tl-dot">🚀</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item right">
+        <div class="tl-content">
+          <div class="tl-year">2021</div>
+          <div class="tl-event">Penghargaan Best Watch Store</div>
+          <div class="tl-desc">Meraih penghargaan Best Watch Retailer Jawa Barat dan bergabung dengan asosiasi distributor jam tangan nasional.</div>
+        </div>
+        <div class="tl-dot">⭐</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2023</div>
+          <div class="tl-event">50 Brand, 500+ Koleksi</div>
+          <div class="tl-desc">Memperluas portofolio ke 30+ brand internasional dengan lebih dari 500 model, termasuk koleksi luxury watches.</div>
+        </div>
+        <div class="tl-dot">💎</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item right">
+        <div class="tl-content">
+          <div class="tl-year">2026</div>
+          <div class="tl-event">50.000+ Pelanggan Puas</div>
+          <div class="tl-desc">Melayani lebih dari 50.000 pelanggan dengan rating kepuasan 4.9/5 dan terus berinovasi untuk pengalaman belanja terbaik.</div>
+        </div>
+        <div class="tl-dot">🎯</div>
+        <div style="flex:1;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="wl-section">
+    <h2 class="cta-title">Siap Temukan Jam Tangan Impianmu?</h2>
+    <p class="cta-sub">Kunjungi toko kami atau belanja online sekarang. Tim kami siap membantu 24/7.</p>
+    <div class="cta-btns">
+      <a href="watchlink-produk.html" class="wl-btn wl-btn-gold" style="padding:14px 32px;font-size:15px;">Belanja Sekarang</a>
+      <a href="watchlink-kontak.html" class="wl-btn wl-btn-outline" style="padding:14px 32px;font-size:15px;border-color:#555;color:#ccc;">Kunjungi Toko</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="wl-footer">
+  <div class="wl-footer-inner">
+    <div class="wl-footer-grid">
+      <div>
+        <div class="wl-footer-logo"><img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link"><div><div class="wl-footer-logo-name">watch link</div><div class="wl-footer-logo-sub">JAM TANGAN ORIGINAL</div></div></div>
+        <p class="wl-footer-desc">Toko jam tangan original terpercaya sejak 2015. Ribuan koleksi brand ternama dengan garansi resmi.</p>
+      </div>
+      <div><div class="wl-footer-heading">Produk</div><div class="wl-footer-links"><a href="watchlink-produk.html?cat=pria">Jam Pria</a><a href="watchlink-produk.html?cat=wanita">Jam Wanita</a><a href="watchlink-produk.html?cat=luxury">Luxury Watches</a><a href="watchlink-produk.html?cat=smart">Smartwatch</a><a href="watchlink-produk.html?cat=aksesoris">Strap & Aksesoris</a></div></div>
+      <div><div class="wl-footer-heading">Layanan</div><div class="wl-footer-links"><a href="watchlink-tentang.html">Tentang Kami</a><a href="#">Cara Pembelian</a><a href="#">Kebijakan Retur</a><a href="#">Garansi Produk</a><a href="watchlink-kontak.html">Hubungi Kami</a></div></div>
+      <div><div class="wl-footer-heading">Toko Offline</div><p class="wl-footer-desc">Mall Metropolitan 2, Jakasampurna, Bekasi Barat, Jawa Barat 17145</p><a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" class="wl-btn wl-btn-gold" style="margin-top:10px;display:inline-flex;font-size:12px;padding:8px 14px;">Lihat di Google Maps</a></div>
+    </div>
+    <div class="wl-footer-bottom"><span class="wl-footer-copy">© 2026 Watch Link. All rights reserved.</span><span class="wl-footer-copy">Garansi Resmi · Gratis Ongkir · COD Tersedia</span></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+</body>
+</html>

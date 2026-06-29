@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Link – Jam Tangan Original | Mall Metropolitan 2 Bekasi</title>
+<meta name="description" content="Toko jam tangan original terpercaya. Ribuan pilihan brand ternama — Quantum, Seiko, Casio, Garmin, Orient. Garansi resmi, harga terbaik, pengiriman seluruh Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="watchlink.css">
+<style>
+/* ===== HOME-SPECIFIC ===== */
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px 0 0; }
+.hero-banner {
+  border-radius: 14px; overflow: hidden; position: relative;
+  min-height: 270px; display: flex; align-items: center; cursor: pointer;
+  transition: transform .2s;
+}
+.hero-banner:hover { transform: scale(1.01); }
+.hero-banner img.bg {
+  position: absolute; left: 0; top: 0; width: 55%; height: 100%; object-fit: cover; opacity: .88;
+}
+.hero-banner .overlay { position: absolute; inset: 0; }
+.hero-banner .content {
+  position: relative; z-index: 1; margin-left: auto;
+  width: 52%; padding: 32px 28px 32px 0;
+}
+.hero-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 9px; }
+.hero-title { font-size: 26px; font-weight: 900; color: #fff; line-height: 1.18; margin-bottom: 9px; }
+.hero-sub { font-size: 13px; color: #bbb; margin-bottom: 20px; line-height: 1.6; }
+
+/* BRAND STRIP */
+.brand-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 12px; }
+.brand-card {
+  background: #fff; border: 1px solid var(--border-light); border-radius: 10px;
+  padding: 16px 12px; display: flex; flex-direction: column; align-items: center;
+  gap: 8px; cursor: pointer; transition: .2s;
+}
+.brand-card:hover { border-color: var(--gold); box-shadow: 0 4px 12px rgba(201,168,76,.12); }
+.brand-icon { width: 48px; height: 48px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.brand-name { font-size: 12px; font-weight: 700; color: #111; }
+
+/* FLASH SALE */
+.flash-section { background: #111; padding: 36px 0; }
+.flash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.flash-title { font-size: 26px; font-weight: 900; color: var(--red); letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+.flash-timer { display: flex; gap: 4px; align-items: center; }
+.timer-box { background: var(--red); color: #fff; font-weight: 800; font-size: 18px; padding: 5px 10px; border-radius: 5px; min-width: 38px; text-align: center; font-variant-numeric: tabular-nums; }
+.timer-sep { color: var(--red); font-weight: 900; font-size: 18px; }
+.flash-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.flash-card { background: #fff; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform .2s; }
+.flash-card:hover { transform: translateY(-2px); }
+.flash-card-img { position: relative; }
+.flash-card-img img { width: 100%; height: 200px; object-fit: cover; }
+.flash-card-img-ph { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; }
+.flash-card-body { padding: 12px; }
+.flash-brand { font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.flash-name { font-size: 14px; font-weight: 600; color: #111; line-height: 1.3; }
+.flash-price { font-size: 17px; font-weight: 800; color: #111; margin-top: 8px; }
+.flash-original { font-size: 12px; color: #aaa; text-decoration: line-through; margin-top: 2px; }
+.flash-add { margin-top: 9px; background: #111; color: #fff; text-align: center; border-radius: 6px; padding: 8px; font-weight: 700; font-size: 13px; cursor: pointer; transition: background .15s; }
+.flash-add:hover { background: #333; }
+
+/* BENEFITS */
+.benefits-section { background: #fff; padding: 52px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+.benefits-title { text-align: center; font-size: 24px; font-weight: 800; margin-bottom: 36px; }
+.benefits-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; }
+.benefit-item { display: flex; gap: 16px; align-items: flex-start; }
+.benefit-icon { width: 54px; height: 54px; background: #f5f5f5; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.benefit-label { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+.benefit-desc { font-size: 13px; color: #666; line-height: 1.65; }
+
+/* PRODUCTS */
+.products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+
+/* PARTNERSHIPS */
+.partner-section { background: var(--dark); padding: 52px 0; }
+.partner-title { text-align: center; font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 28px; }
+.partner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.partner-card {
+  border-radius: 14px; overflow: hidden; position: relative;
+  min-height: 250px; cursor: pointer; background: linear-gradient(135deg,#1a0a00,#2d1500);
+  transition: transform .2s;
+}
+.partner-card:hover { transform: scale(1.01); }
+.partner-card img.bg { width: 100%; height: 100%; object-fit: cover; opacity: .38; position: absolute; inset: 0; }
+.partner-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 55%); }
+.partner-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; }
+.partner-card-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 7px; }
+.partner-card-desc { font-size: 13px; color: #bbb; margin-bottom: 14px; line-height: 1.6; }
+.partner-btn { display: inline-block; background: transparent; border: 1.5px solid #fff; color: #fff; font-weight: 600; font-size: 12px; padding: 8px 18px; border-radius: 6px; cursor: pointer; transition: .15s; }
+.partner-btn:hover { background: rgba(255,255,255,.12); }
+
+/* NEWSLETTER */
+.newsletter-section { background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); padding: 52px 0; }
+.newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; padding: 0 24px; }
+.newsletter-title { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.newsletter-sub { font-size: 14px; color: #888; margin-bottom: 26px; line-height: 1.6; }
+.newsletter-form { display: flex; gap: 10px; }
+.newsletter-input {
+  flex: 1; background: #1e1e1e; border: 1px solid #333; color: #fff;
+  font-size: 14px; padding: 12px 16px; border-radius: 8px; outline: none;
+  transition: border-color .2s;
+}
+.newsletter-input:focus { border-color: var(--gold); }
+.newsletter-input::placeholder { color: #555; }
+
+/* WHATSAPP FLOAT */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  background: #25d366; color: #fff; width: 56px; height: 56px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,.45); cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,.6); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .brand-grid { grid-template-columns: repeat(3,1fr); }
+  .flash-grid { grid-template-columns: repeat(2,1fr); }
+  .benefits-grid { grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .products-grid { grid-template-columns: repeat(2,1fr); }
+  .partner-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero-grid { gap: 12px; }
+  .brand-grid { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .flash-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="wl-nav">
+  <div class="wl-nav-top">
+    <a href="watchlink-home.html" class="wl-logo">
+      <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link Logo">
+      <div class="wl-logo-text">
+        <div class="wl-logo-name">watch link</div>
+        <div class="wl-logo-sub">JAM TANGAN ORIGINAL</div>
+      </div>
+    </a>
+    <div class="wl-search">
+      <svg width="16" height="16" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Cari jam tangan, brand, model...">
+    </div>
+    <div class="wl-nav-right">
+      <a href="watchlink-kontak.html" style="font-size:13px;color:#555;font-weight:500;display:flex;align-items:center;gap:5px;">
+        <svg width="16" height="16" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Toko
+      </a>
+      <div class="wl-cart-btn">
+        <svg width="22" height="22" fill="none" stroke="#333" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="wl-cart-badge">3</div>
+      </div>
+      <a href="#" class="wl-btn wl-btn-outline">Masuk</a>
+      <a href="#" class="wl-btn wl-btn-dark">Daftar</a>
+    </div>
+  </div>
+  <div class="wl-subnav">
+    <div class="wl-subnav-inner">
+      <a href="watchlink-produk.html?cat=promo" class="wl-subnav-link active">Semua Promo</a>
+      <a href="watchlink-produk.html?cat=pria" class="wl-subnav-link">Jam Pria</a>
+      <a href="watchlink-produk.html?cat=wanita" class="wl-subnav-link">Jam Wanita</a>
+      <a href="watchlink-produk.html?cat=luxury" class="wl-subnav-link">Luxury Watches</a>
+      <a href="watchlink-produk.html?cat=aksesoris" class="wl-subnav-link">Strap &amp; Aksesoris</a>
+      <a href="watchlink-produk.html?cat=smart" class="wl-subnav-link">Smartwatch</a>
+      <a href="watchlink-produk.html?cat=brand" class="wl-subnav-link">Brand</a>
+      <a href="watchlink-produk.html?cat=flash" class="wl-subnav-link">Flash Sale</a>
+      <a href="watchlink-tentang.html" class="wl-subnav-link">Tentang Kami</a>
+      <a href="watchlink-kontak.html" class="wl-subnav-link">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="wl-section">
+  <div class="hero-grid">
+    <!-- Banner 1: Mid Year Sale -->
+    <a href="watchlink-produk.html?cat=promo" class="hero-banner" style="background:linear-gradient(135deg,#1a1a1a 0%,#2d1500 50%,#1a0a00 100%);">
+      <img class="bg" src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum The Big Time">
+      <div class="overlay" style="background:linear-gradient(to right,transparent 25%,rgba(10,5,0,.92) 55%);"></div>
+      <div class="content">
+        <div class="hero-label" style="color:#c9a84c;">Mid Year Sale</div>
+        <div class="hero-title">Diskon s.d.<br><span style="color:#c9a84c;font-size:44px;line-height:1;">70%</span></div>
+        <div class="hero-sub">Produk original bergaransi resmi.<br>Periode 1 – 30 Juni 2026</div>
+        <span class="wl-btn wl-btn-gold" style="display:inline-flex;">Shop Now →</span>
+      </div>
+    </a>
+    <!-- Banner 2: New Arrival -->
+    <a href="watchlink-detail.html" class="hero-banner" style="background:linear-gradient(135deg,#0d1117 0%,#1a2030 50%,#0d1117 100%);">
+      <img class="bg" src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda">
+      <div class="overlay" style="background:linear-gradient(to right,transparent 25%,rgba(5,8,20,.93) 55%);"></div>
+      <div class="content">
+        <div class="hero-label" style="color:#6699ff;">New Arrival</div>
+        <div class="hero-title">Quantum<br><span style="color:#88aaff;">Barracuda</span><br><span style="font-size:14px;font-weight:500;color:#aaa;">Automatic · 47mm</span></div>
+        <div class="hero-sub">Sapphire Crystal · 20 ATM<br>Japan Movement</div>
+        <span class="wl-btn" style="background:#fff;color:#111;font-weight:700;display:inline-flex;">Lihat Selengkapnya →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ===== TRUST BADGES ===== -->
+<div style="background:#fff;border-bottom:1px solid #eee;margin-top:16px;">
+  <div class="wl-section" style="padding-top:14px;padding-bottom:14px;">
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">100% Produk Original</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">Gratis Ongkir Seluruh Indonesia</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">Cicilan 0%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">Garansi Resmi 2 Tahun</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">COD Tersedia</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BRAND TERLARIS ===== -->
+<div class="wl-section mt-32">
+  <div class="wl-section-header">
+    <h2 class="wl-section-title">Brand Terlaris</h2>
+    <a href="watchlink-produk.html" class="wl-section-more">Lihat Semua →</a>
+  </div>
+  <div class="brand-grid">
+    <a href="watchlink-produk.html?brand=gshock" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><rect x="5" y="10" width="50" height="40" rx="6" fill="#111"/><rect x="12" y="17" width="36" height="26" rx="3" fill="#222"/><line x1="30" y1="22" x2="30" y2="30" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="38" y2="34" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="30" r="2.5" fill="#fff"/></svg>
+      </div>
+      <span class="brand-name">G-SHOCK</span>
+    </a>
+    <a href="watchlink-produk.html?brand=seiko" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke="#111" stroke-width="3"/><circle cx="30" cy="30" r="14" stroke="#333" stroke-width="1.5"/><line x1="30" y1="14" x2="30" y2="30" stroke="#111" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="40" y2="36" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <span class="brand-name">SEIKO</span>
+    </a>
+    <a href="watchlink-produk.html?brand=casio" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><rect x="18" y="10" width="24" height="40" rx="5" stroke="#111" stroke-width="2.5" fill="none"/><rect x="23" y="18" width="14" height="18" rx="2" stroke="#333" stroke-width="1.5" fill="none"/><line x1="30" y1="21" x2="30" y2="28" stroke="#111" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="28" x2="34" y2="31" stroke="#e85c2d" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <span class="brand-name">CASIO</span>
+    </a>
+    <a href="watchlink-produk.html?brand=garmin" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#111" stroke-width="2.5"/><circle cx="30" cy="30" r="12" stroke="#555" stroke-width="1"/><line x1="30" y1="14" x2="30" y2="30" stroke="#111" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="30" x2="39" y2="37" stroke="#00aa55" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="30" r="2.5" fill="#00aa55"/></svg>
+      </div>
+      <span class="brand-name">GARMIN</span>
+    </a>
+    <a href="watchlink-produk.html?brand=orient" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#c0932a" stroke-width="2.5"/><circle cx="30" cy="30" r="13" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="3 2"/><line x1="30" y1="15" x2="30" y2="30" stroke="#c0932a" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="30" x2="38" y2="36" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <span class="brand-name">ORIENT</span>
+    </a>
+    <a href="watchlink-produk.html" class="brand-card" style="background:#111;border-color:#111;justify-content:center;">
+      <span style="font-size:24px;color:#c9a84c;font-weight:900;line-height:1;">+</span>
+      <span style="font-size:11px;font-weight:600;color:#fff;text-align:center;">Lihat<br>Semua</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===== FLASH SALE ===== -->
+<div class="flash-section mt-32">
+  <div class="wl-section">
+    <div class="flash-header">
+      <div>
+        <div class="flash-title">⚡ Flash Sale</div>
+        <div class="flash-timer" style="margin-top:6px;">
+          <span style="font-size:13px;color:#aaa;margin-right:6px;">Berakhir dalam:</span>
+          <div class="timer-box" id="fh">05</div>
+          <span class="timer-sep">:</span>
+          <div class="timer-box" id="fm">42</div>
+          <span class="timer-sep">:</span>
+          <div class="timer-box" id="fs">18</div>
+        </div>
+      </div>
+      <a href="watchlink-produk.html?cat=flash" class="wl-section-more" style="color:#c9a84c;">Lihat Semua →</a>
+    </div>
+    <div class="flash-grid">
+      <!-- Card 1 -->
+      <a href="watchlink-detail.html" class="flash-card">
+        <div class="flash-card-img">
+          <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum Big Time">
+          <div class="wl-card-badge badge-red" style="position:absolute;top:10px;left:10px;">-35%</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#e85c2d;">QUANTUM</div>
+          <div class="flash-name">Quantum The Big Time Chronograph 45mm</div>
+          <div class="flash-price">Rp 2.750.000</div>
+          <div class="flash-original">Rp 4.250.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+      <!-- Card 2 -->
+      <a href="watchlink-detail.html" class="flash-card">
+        <div class="flash-card-img">
+          <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda">
+          <div class="wl-card-badge badge-green" style="position:absolute;top:10px;left:10px;">NEW</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#e85c2d;">QUANTUM</div>
+          <div class="flash-name">Quantum Barracuda Automatic 47mm Sapphire</div>
+          <div class="flash-price">Rp 3.950.000</div>
+          <div class="flash-original">Rp 5.500.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+      <!-- Card 3 -->
+      <a href="watchlink-detail.html" class="flash-card">
+        <div class="flash-card-img">
+          <div class="flash-card-img-ph" style="background:linear-gradient(135deg,#0d1a2e,#1a2d4a);">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#7788ff" stroke-width="1" stroke-dasharray="3 2"/><line x1="50" y1="16" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="66" y2="58" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#fff"/></svg>
+          </div>
+          <div class="wl-card-badge badge-red" style="position:absolute;top:10px;left:10px;">-42%</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#5566ff;">SEIKO</div>
+          <div class="flash-name">Seiko Presage Cocktail Time Automatic</div>
+          <div class="flash-price">Rp 3.100.000</div>
+          <div class="flash-original">Rp 5.400.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+      <!-- Card 4 -->
+      <a href="watchlink-detail.html" class="flash-card">
+        <div class="flash-card-img">
+          <div class="flash-card-img-ph" style="background:linear-gradient(135deg,#1a0a00,#3d1800);">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><rect x="22" y="16" width="56" height="68" rx="12" stroke="#c9a84c" stroke-width="2.5" fill="#1a0800"/><rect x="30" y="24" width="40" height="52" rx="6" stroke="#c9a84c" stroke-width="1.5" fill="#0a0400"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="62" y2="58" stroke="#ff4422" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="50" r="3" fill="#c9a84c"/></svg>
+          </div>
+          <div class="wl-card-badge badge-orange" style="position:absolute;top:10px;left:10px;">LIMITED</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#ff9900;">CASIO</div>
+          <div class="flash-name">G-Shock GM-6900G Gold Full Metal</div>
+          <div class="flash-price">Rp 1.850.000</div>
+          <div class="flash-original">Rp 2.450.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEUNTUNGAN BELANJA ===== -->
+<div class="benefits-section">
+  <div class="wl-section">
+    <h2 class="benefits-title">Keuntungan Belanja di Watch Link</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">100% Authentic</div>
+          <div class="benefit-desc">Semua produk Watch Link original, baru, bergaransi resmi dan telah melalui proses quality control ketat.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">Best Price</div>
+          <div class="benefit-desc">Harga terbaik dengan cicilan 0% dan berbagai pilihan pembayaran yang mudah dan aman.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">Excellent Service</div>
+          <div class="benefit-desc">Keamanan dan kenyamanan belanja senantiasa menjadi prioritas. Garansi 3 hari pengembalian.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">Extra Benefits</div>
+          <div class="benefit-desc">Nikmati gratis ongkir seluruh Indonesia, WL Points &amp; Loyalty untuk potongan belanja eksklusif.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRODUK TERLARIS ===== -->
+<div class="wl-section mt-32 mb-32">
+  <div class="wl-section-header">
+    <h2 class="wl-section-title">Produk Terlaris</h2>
+    <a href="watchlink-produk.html" class="wl-section-more">Lihat Semua →</a>
+  </div>
+  <div class="products-grid">
+    <a href="watchlink-detail.html" class="wl-card">
+      <div class="wl-card-img">
+        <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum Big Time">
+        <span class="wl-card-badge badge-gold">TERLARIS</span>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+        <div class="wl-card-name">Quantum Big Time Chronograph 45mm</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(128)</span>
+        </div>
+        <div class="wl-card-price">Rp 2.750.000</div>
+        <div class="wl-card-original">Rp 4.250.000</div>
+      </div>
+    </a>
+    <a href="watchlink-detail.html" class="wl-card">
+      <div class="wl-card-img">
+        <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda">
+        <span class="wl-card-badge badge-green">NEW</span>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+        <div class="wl-card-name">Quantum Barracuda Automatic 47mm</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(94)</span>
+        </div>
+        <div class="wl-card-price">Rp 3.950.000</div>
+        <div class="wl-card-original">Rp 5.500.000</div>
+      </div>
+    </a>
+    <a href="watchlink-detail.html" class="wl-card">
+      <div class="wl-card-img">
+        <div class="wl-card-img-placeholder" style="background:linear-gradient(135deg,#0a1020,#1a2040);">
+          <svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#7788ff" stroke-width="1" stroke-dasharray="3 2"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="67" y2="59" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#fff"/></svg>
+        </div>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#5566ff;">SEIKO</div>
+        <div class="wl-card-name">Seiko Presage Cocktail Time SRPE45</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(89)</span>
+        </div>
+        <div class="wl-card-price">Rp 3.100.000</div>
+        <div class="wl-card-original">Rp 5.400.000</div>
+      </div>
+    </a>
+    <a href="watchlink-detail.html" class="wl-card">
+      <div class="wl-card-img">
+        <div class="wl-card-img-placeholder" style="background:linear-gradient(135deg,#001a0a,#003320);">
+          <svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#00cc66" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#009944" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#00ff88" stroke-width="1" stroke-dasharray="2 3"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="66" y2="59" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#00cc66"/></svg>
+        </div>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#00aa55;">GARMIN</div>
+        <div class="wl-card-name">Garmin Fenix 7 Pro Solar GPS</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(67)</span>
+        </div>
+        <div class="wl-card-price">Rp 9.500.000</div>
+        <div class="wl-card-original">Rp 12.000.000</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ===== BANNER MID ===== -->
+<div style="background:linear-gradient(135deg,#0a0a0a,#1a1a0a);padding:60px 0;">
+  <div class="wl-section" style="text-align:center;">
+    <div style="font-size:12px;letter-spacing:4px;color:#c9a84c;font-weight:700;text-transform:uppercase;margin-bottom:14px;">Koleksi Eksklusif</div>
+    <h2 style="font-size:40px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;">Temukan Jam Tangan<br>Impian Kamu</h2>
+    <p style="font-size:15px;color:#666;max-width:480px;margin:0 auto 30px;line-height:1.75;">Lebih dari 500 model dari 30+ brand ternama dunia. Semua original, bergaransi resmi, dengan harga terbaik.</p>
+    <a href="watchlink-produk.html" class="wl-btn wl-btn-gold" style="font-size:15px;padding:14px 36px;">Belanja Sekarang</a>
+  </div>
+</div>
+
+<!-- ===== BUSINESS & PARTNERSHIPS ===== -->
+<div class="partner-section">
+  <div class="wl-section">
+    <h2 class="partner-title">🤝 Business &amp; Partnerships</h2>
+    <div class="partner-grid">
+      <div class="partner-card" style="background:linear-gradient(135deg,#1a0a00,#2d1500);">
+        <img class="bg" src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Toko Watch Link">
+        <div class="partner-overlay"></div>
+        <div class="partner-content">
+          <div class="partner-card-title">Toko Offline Watch Link</div>
+          <div class="partner-card-desc">Kunjungi toko kami di Mall Metropolitan 2, Bekasi Barat. Lihat langsung koleksi jam tangan original kami.</div>
+          <a href="watchlink-kontak.html" class="partner-btn">Lihat Lokasi Toko</a>
+        </div>
+      </div>
+      <div class="partner-card" style="background:linear-gradient(135deg,#0a0a1a,#1a1a2d);">
+        <img class="bg" src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Corporate Order">
+        <div class="partner-overlay"></div>
+        <div class="partner-content">
+          <div class="partner-card-title">Corporate Order</div>
+          <div class="partner-card-desc">Dapatkan harga khusus untuk corporate order atau pembelian dalam jumlah besar dengan layanan premium.</div>
+          <a href="watchlink-kontak.html" class="partner-btn">Lihat Detail</a>
+        </div>
+      </div>
+      <div class="partner-card" style="background:linear-gradient(135deg,#0a1a0a,#0d2d0d);">
+        <img class="bg" src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Partnership">
+        <div class="partner-overlay"></div>
+        <div class="partner-content">
+          <div class="partner-card-title">Partnership Program</div>
+          <div class="partner-card-desc">Raih keuntungan lebih dengan bergabung menjadi partner bisnis dan supplier resmi kami.</div>
+          <a href="watchlink-kontak.html" class="partner-btn">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NEWSLETTER ===== -->
+<div class="newsletter-section">
+  <div class="newsletter-inner">
+    <div style="font-size:12px;letter-spacing:3px;color:#c9a84c;font-weight:700;margin-bottom:12px;">NEWSLETTER</div>
+    <h2 class="newsletter-title">Dapatkan Penawaran Eksklusif</h2>
+    <p class="newsletter-sub">Daftar sekarang dan jadilah yang pertama tahu tentang promo, new arrival, dan flash sale Watch Link.</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input class="newsletter-input" type="email" placeholder="Masukkan email kamu...">
+      <button class="wl-btn wl-btn-gold" style="white-space:nowrap;padding:12px 24px;">Langganan Gratis</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="wl-footer">
+  <div class="wl-footer-inner">
+    <div class="wl-footer-grid">
+      <div>
+        <div class="wl-footer-logo">
+          <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link">
+          <div>
+            <div class="wl-footer-logo-name">watch link</div>
+            <div class="wl-footer-logo-sub">JAM TANGAN ORIGINAL</div>
+          </div>
+        </div>
+        <p class="wl-footer-desc">Toko jam tangan original terpercaya dengan ribuan pilihan brand ternama. Garansi resmi, harga terbaik, pengiriman seluruh Indonesia.</p>
+        <div style="margin-top:20px;display:flex;gap:12px;">
+          <a href="#" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="Instagram">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="Facebook">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="TikTok">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.08a4.85 4.85 0 0 1-1-.39z"/></svg>
+          </a>
+          <a href="https://wa.me/6281234567890" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="WhatsApp">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="wl-footer-heading">Produk</div>
+        <div class="wl-footer-links">
+          <a href="watchlink-produk.html?cat=pria">Jam Pria</a>
+          <a href="watchlink-produk.html?cat=wanita">Jam Wanita</a>
+          <a href="watchlink-produk.html?cat=luxury">Luxury Watches</a>
+          <a href="watchlink-produk.html?cat=smart">Smartwatch</a>
+          <a href="watchlink-produk.html?cat=aksesoris">Strap &amp; Aksesoris</a>
+        </div>
+      </div>
+      <div>
+        <div class="wl-footer-heading">Layanan</div>
+        <div class="wl-footer-links">
+          <a href="watchlink-tentang.html">Tentang Kami</a>
+          <a href="#">Cara Pembelian</a>
+          <a href="#">Kebijakan Retur</a>
+          <a href="#">Garansi Produk</a>
+          <a href="watchlink-kontak.html">Hubungi Kami</a>
+        </div>
+      </div>
+      <div>
+        <div class="wl-footer-heading">Toko Kami</div>
+        <div style="font-size:13px;color:#555;line-height:1.75;margin-bottom:14px;">
+          Mall Metropolitan 2<br>
+          Jakasampurna, Bekasi Barat<br>
+          Kota Bekasi, Jawa Barat 17145
+        </div>
+        <div style="font-size:13px;color:#555;margin-bottom:8px;">
+          <svg width="13" height="13" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:middle;margin-right:5px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +62 821-2345-6789
+        </div>
+        <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-gold" style="font-size:12px;padding:8px 16px;display:inline-flex;gap:5px;margin-top:4px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Google Maps
+        </a>
+      </div>
+    </div>
+    <div class="wl-footer-bottom">
+      <span class="wl-footer-copy">© 2026 Watch Link. Jam Tangan Original. All rights reserved.</span>
+      <span class="wl-footer-copy">Garansi Resmi · Pengiriman Seluruh Indonesia · COD Tersedia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/6281234567890?text=Halo%20Watch%20Link%2C%20saya%20ingin%20tanya%20tentang%20produk%20jam%20tangan." target="_blank" class="wa-float" title="Chat WhatsApp">
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+
+<script>
+// Flash sale countdown
+(function() {
+  let h = 5, m = 42, s = 18;
+  const fh = document.getElementById('fh');
+  const fm = document.getElementById('fm');
+  const fs = document.getElementById('fs');
+  const fmt = n => String(n).padStart(2,'0');
+  setInterval(() => {
+    s--;
+    if (s < 0) { s = 59; m--; }
+    if (m < 0) { m = 59; h--; }
+    if (h < 0) { h = 0; m = 0; s = 0; }
+    if (fh) fh.textContent = fmt(h);
+    if (fm) fm.textContent = fmt(m);
+    if (fs) fs.textContent = fmt(s);
+  }, 1000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantum The Big Time Chronograph 45mm – Watch Link</title>
+<meta name="description" content="Quantum The Big Time Chronograph 45mm. Japan Battery Movement, Water Resistant 10 ATM, Garansi Resmi 2 Tahun. Harga Rp 2.750.000 di Watch Link.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="watchlink.css">
+<style>
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 32px 0 48px; align-items: start; }
+
+/* GALLERY */
+.gallery-main { border-radius: 14px; overflow: hidden; background: #111; position: relative; cursor: zoom-in; }
+.gallery-main img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.gallery-badges { position: absolute; top: 16px; left: 16px; display: flex; gap: 8px; }
+.gallery-thumb-row { display: flex; gap: 10px; margin-top: 12px; }
+.gallery-thumb {
+  width: 72px; height: 72px; border-radius: 8px; overflow: hidden;
+  border: 2px solid transparent; cursor: pointer; transition: border-color .15s; flex-shrink: 0;
+  background: #111;
+}
+.gallery-thumb.active { border-color: var(--gold); }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+
+/* INFO */
+.detail-info { position: sticky; top: 80px; }
+.detail-brand { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--red); text-transform: uppercase; margin-bottom: 6px; }
+.detail-name { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900; color: #111; line-height: 1.15; margin-bottom: 8px; }
+.detail-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.detail-rating-stars { display: flex; gap: 2px; }
+.detail-rating-num { font-size: 14px; font-weight: 700; color: #111; }
+.detail-rating-count { font-size: 13px; color: #888; }
+.detail-rating-sold { font-size: 13px; color: #888; padding-left: 12px; border-left: 1px solid #ddd; }
+.price-box { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+.price-main { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 900; color: #111; line-height: 1; }
+.price-original { font-size: 15px; color: #aaa; text-decoration: line-through; margin-top: 4px; }
+.price-savings { display: inline-block; margin-top: 8px; background: #ff3c3c; color: #fff; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px; }
+.voucher-strip {
+  display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+  background: linear-gradient(90deg, rgba(201,168,76,.1), rgba(201,168,76,.03));
+  border: 1px solid rgba(201,168,76,.25); border-radius: 8px; margin-bottom: 18px; cursor: pointer;
+}
+.voucher-strip span { font-size: 13px; color: var(--gold); font-weight: 600; }
+
+/* SPECS */
+.specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.spec-item { background: #f5f5f5; border-radius: 10px; padding: 14px; display: flex; align-items: center; gap: 12px; }
+.spec-icon { width: 38px; height: 38px; background: rgba(201,168,76,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.spec-label { font-size: 11px; color: #888; margin-bottom: 2px; }
+.spec-value { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: #111; }
+
+/* COLOR */
+.color-section { margin-bottom: 20px; }
+.color-title { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+.color-options { display: flex; gap: 12px; }
+.color-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
+.color-ring {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 2px solid #ddd; display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s;
+}
+.color-ring.active { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,.2); }
+.color-swatch { width: 30px; height: 30px; border-radius: 50%; }
+.color-label { font-size: 11px; color: #888; font-weight: 500; }
+.color-btn.active .color-label { color: #111; font-weight: 600; }
+
+/* QTY + CTA */
+.qty-row { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.qty-ctrl { display: flex; align-items: center; gap: 0; background: #f0f0f0; border-radius: 8px; overflow: hidden; }
+.qty-btn { background: none; border: none; color: #333; font-size: 20px; width: 40px; height: 44px; cursor: pointer; font-weight: 700; transition: background .15s; }
+.qty-btn:hover { background: #e0e0e0; }
+.qty-val { font-size: 16px; font-weight: 700; color: #111; min-width: 32px; text-align: center; }
+.cta-row { display: flex; gap: 12px; }
+.cta-cart { flex: 1; background: #fff; border: 2px solid #111; color: #111; font-weight: 700; font-size: 15px; padding: 13px; border-radius: 10px; cursor: pointer; transition: .15s; }
+.cta-cart:hover { background: #f5f5f5; }
+.cta-buy { flex: 1.4; background: #111; border: none; color: #fff; font-weight: 700; font-size: 15px; padding: 13px; border-radius: 10px; cursor: pointer; transition: background .15s; }
+.cta-buy:hover { background: #333; }
+
+/* GUARANTEE STRIP */
+.guarantee-row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.guarantee-badge { display: flex; align-items: center; gap: 6px; background: #f5f5f5; border-radius: 6px; padding: 7px 10px; font-size: 12px; color: #444; font-weight: 500; }
+
+/* TABS */
+.tabs { margin-top: 48px; border-bottom: 2px solid #eee; }
+.tab-list { display: flex; gap: 0; }
+.tab-btn { padding: 14px 24px; font-size: 15px; font-weight: 600; color: #888; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: .15s; background: none; border-top: none; border-left: none; border-right: none; }
+.tab-btn:hover { color: #111; }
+.tab-btn.active { color: #111; border-bottom-color: #111; }
+.tab-content { display: none; padding: 28px 0; }
+.tab-content.active { display: block; }
+
+/* REVIEWS */
+.review-summary { display: flex; gap: 36px; margin-bottom: 28px; align-items: flex-start; }
+.review-avg { text-align: center; flex-shrink: 0; }
+.review-avg-num { font-size: 60px; font-weight: 900; font-family: 'Barlow Condensed', sans-serif; color: #111; line-height: 1; }
+.review-avg-max { font-size: 16px; color: #888; }
+.review-bars { flex: 1; }
+.review-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.review-bar-row span { font-size: 13px; color: #666; width: 40px; flex-shrink: 0; }
+.review-bar-track { flex: 1; height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden; }
+.review-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; }
+.review-bar-count { font-size: 12px; color: #888; width: 30px; flex-shrink: 0; }
+.review-card { border: 1px solid #eee; border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.reviewer-name { font-weight: 700; font-size: 14px; }
+.review-date { font-size: 12px; color: #aaa; }
+.review-text { font-size: 14px; color: #555; line-height: 1.7; }
+.review-helpful { margin-top: 10px; font-size: 12px; color: #888; display: flex; align-items: center; gap: 8px; }
+.helpful-btn { background: #f0f0f0; border: none; border-radius: 4px; padding: 3px 10px; font-size: 12px; cursor: pointer; }
+
+/* RELATED */
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; padding: 16px 0 0; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr; gap: 24px; }
+  .detail-info { position: static; }
+  .gallery-main img { height: 350px; }
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .specs-grid { grid-template-columns: 1fr 1fr; }
+  .cta-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="wl-nav">
+  <div class="wl-nav-top">
+    <a href="watchlink-home.html" class="wl-logo">
+      <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link Logo">
+      <div class="wl-logo-text">
+        <div class="wl-logo-name">watch link</div>
+        <div class="wl-logo-sub">JAM TANGAN ORIGINAL</div>
+      </div>
+    </a>
+    <div class="wl-search">
+      <svg width="16" height="16" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Cari jam tangan, brand, model...">
+    </div>
+    <div class="wl-nav-right">
+      <div class="wl-cart-btn">
+        <svg width="22" height="22" fill="none" stroke="#333" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="wl-cart-badge" id="cartCount">3</div>
+      </div>
+      <a href="#" class="wl-btn wl-btn-outline">Masuk</a>
+      <a href="#" class="wl-btn wl-btn-dark">Daftar</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wl-section">
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="watchlink-home.html">Home</a>
+    <span class="sep">›</span>
+    <a href="watchlink-produk.html">Jam Pria</a>
+    <span class="sep">›</span>
+    <a href="watchlink-produk.html?brand=quantum">Quantum</a>
+    <span class="sep">›</span>
+    <span class="current">Quantum The Big Time Chronograph 45mm</span>
+  </div>
+
+  <div class="detail-grid">
+    <!-- GALLERY -->
+    <div>
+      <div class="gallery-main">
+        <img id="mainImg" src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum The Big Time">
+        <div class="gallery-badges">
+          <span class="wl-card-badge badge-red">-35%</span>
+          <span class="wl-card-badge badge-gold">ORIGINAL</span>
+        </div>
+      </div>
+      <div class="gallery-thumb-row">
+        <div class="gallery-thumb active" onclick="switchImg(this,'wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg')">
+          <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="View 1">
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg')">
+          <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="View 2">
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'')">
+          <div class="gallery-thumb-ph" style="background:linear-gradient(135deg,#1a0a00,#2d1500);">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="38" stroke="#c9a84c" stroke-width="3"/><line x1="50" y1="20" x2="50" y2="50" stroke="#fff" stroke-width="3" stroke-linecap="round"/><line x1="50" y1="50" x2="65" y2="60" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'')">
+          <div class="gallery-thumb-ph" style="background:linear-gradient(135deg,#0a0a0a,#222);">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><rect x="20" y="10" width="60" height="80" rx="10" stroke="#888" stroke-width="3" fill="#111"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT INFO -->
+    <div class="detail-info">
+      <div class="detail-brand">QUANTUM · JAM PRIA</div>
+      <h1 class="detail-name">Quantum The Big Time<br>Chronograph 45mm</h1>
+
+      <div class="detail-rating">
+        <div class="detail-rating-stars">
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="detail-rating-num">4.8</span>
+        <span class="detail-rating-count">(128 ulasan)</span>
+        <span class="detail-rating-sold">1.240 terjual</span>
+      </div>
+
+      <div class="price-box">
+        <div class="price-main">Rp 2.750.000</div>
+        <div class="price-original">Rp 4.250.000</div>
+        <span class="price-savings">Hemat Rp 1.500.000 (35%)</span>
+        <div style="margin-top:12px;font-size:12px;color:#888;">Harga sudah termasuk PPN</div>
+      </div>
+
+      <div class="voucher-strip">
+        <svg width="16" height="16" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <span>Voucher tersedia — hemat s.d. Rp 500.000 →</span>
+      </div>
+
+      <!-- SPECS -->
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3.6" y1="3.6" x2="20.4" y2="20.4"/></svg></div>
+          <div><div class="spec-label">Diameter</div><div class="spec-value">45 mm</div></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div class="spec-label">Garansi Resmi</div><div class="spec-value">2 Tahun</div></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div><div class="spec-label">Water Resistance</div><div class="spec-value">10 ATM</div></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+          <div><div class="spec-label">Movement</div><div class="spec-value">Japan Battery</div></div>
+        </div>
+      </div>
+
+      <!-- COLOR -->
+      <div class="color-section">
+        <div class="color-title">Pilih Warna: <span style="font-weight:400;color:#888;" id="selectedColor">Hitam / Merah</span></div>
+        <div class="color-options">
+          <div class="color-btn active" onclick="selectColor(this,'Hitam / Merah')">
+            <div class="color-ring active"><div class="color-swatch" style="background:#111;border:2px solid #333;"></div></div>
+            <span class="color-label">Hitam</span>
+          </div>
+          <div class="color-btn" onclick="selectColor(this,'Gold')">
+            <div class="color-ring"><div class="color-swatch" style="background:linear-gradient(135deg,#c9a84c,#f0d080);"></div></div>
+            <span class="color-label">Gold</span>
+          </div>
+          <div class="color-btn" onclick="selectColor(this,'Merah')">
+            <div class="color-ring"><div class="color-swatch" style="background:linear-gradient(135deg,#cc2200,#ff4422);"></div></div>
+            <span class="color-label">Merah</span>
+          </div>
+          <div class="color-btn" onclick="selectColor(this,'Biru')">
+            <div class="color-ring"><div class="color-swatch" style="background:linear-gradient(135deg,#2244cc,#4466ff);"></div></div>
+            <span class="color-label">Biru</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QTY + CTA -->
+      <div class="qty-row">
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-val" id="qtyVal">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+        <span style="font-size:13px;color:#888;">Stok: <strong style="color:#00aa55;">42 unit tersedia</strong></span>
+      </div>
+      <div class="cta-row">
+        <button class="cta-cart" onclick="addCart()">🛒 + Keranjang</button>
+        <button class="cta-buy" style="background:#c9a84c;color:#000;">⚡ Beli Sekarang</button>
+      </div>
+
+      <!-- GUARANTEES -->
+      <div class="guarantee-row">
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#00aa55" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          100% Original
+        </div>
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#5566ff" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Gratis Ongkir
+        </div>
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          3 Hari Retur
+        </div>
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Cicilan 0%
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div style="margin-top:20px;display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #eee;">
+        <span style="font-size:13px;color:#888;font-weight:500;">Bagikan:</span>
+        <a href="#" style="width:30px;height:30px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#555;">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" style="width:30px;height:30px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#555;">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href)" style="background:none;border:none;font-size:13px;color:#888;cursor:pointer;text-decoration:underline;">Salin Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS: DESCRIPTION / SPECS / REVIEWS -->
+  <div class="tabs">
+    <div class="tab-list">
+      <button class="tab-btn active" onclick="switchTab(this,'desc')">Deskripsi</button>
+      <button class="tab-btn" onclick="switchTab(this,'spec')">Spesifikasi Lengkap</button>
+      <button class="tab-btn" onclick="switchTab(this,'rev')">Ulasan (128)</button>
+      <button class="tab-btn" onclick="switchTab(this,'qa')">Tanya Jawab</button>
+    </div>
+  </div>
+
+  <!-- DESC -->
+  <div class="tab-content active" id="tab-desc">
+    <div style="max-width:720px;">
+      <h2 style="font-size:20px;font-weight:800;margin-bottom:14px;">Quantum The Big Time Chronograph 45mm</h2>
+      <p style="font-size:15px;color:#444;line-height:1.8;margin-bottom:16px;">Quantum The Big Time hadir dengan desain kronograf yang gagah dan berani, sempurna untuk pria yang tidak takut tampil percaya diri. Dilengkapi dengan mesin <strong>Japan Battery Movement</strong> yang presisi dan andal, jam tangan ini merupakan perpaduan sempurna antara performa tinggi dan estetika yang memukau.</p>
+      <p style="font-size:15px;color:#444;line-height:1.8;margin-bottom:16px;">Casing berdiameter 45mm dengan material anti-scratch memberikan ketahanan ekstra, sementara tali silikon premium memastikan kenyamanan di pergelangan tangan sepanjang hari. Fitur kronograf multi-fungsi memudahkan pengukuran waktu secara presisi.</p>
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Fitur Unggulan:</h3>
+      <ul style="font-size:14px;color:#444;line-height:2;padding-left:20px;">
+        <li>Mesin Japan Battery Movement – akurasi tinggi</li>
+        <li>Kronograf 3 sub-dial dengan date display</li>
+        <li>Water resistant 10 ATM (100 meter)</li>
+        <li>Casing stainless steel + resin anti-scratch</li>
+        <li>Tali silikon premium dengan quick-release</li>
+        <li>Kaca mineral anti-gores</li>
+        <li>Diameter 45mm · Ketebalan 14mm</li>
+        <li>Garansi resmi Quantum 2 tahun</li>
+      </ul>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Chronograph</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Date Display</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Tahan Air 10 ATM</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Anti-Scratch</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Japan Movement</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPEC TABLE -->
+  <div class="tab-content" id="tab-spec">
+    <div style="max-width:640px;">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <tbody>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;width:200px;">Brand</td><td style="padding:12px 0;font-weight:600;">Quantum</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Model</td><td style="padding:12px 0;font-weight:600;">The Big Time QHG.487.51.592.21.R</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Tipe</td><td style="padding:12px 0;font-weight:600;">Jam Pria Chronograph</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Mesin</td><td style="padding:12px 0;font-weight:600;">Japan Battery Movement (Miyota)</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Diameter Casing</td><td style="padding:12px 0;font-weight:600;">45 mm</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Ketebalan</td><td style="padding:12px 0;font-weight:600;">14 mm</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Material Casing</td><td style="padding:12px 0;font-weight:600;">Stainless Steel + Resin</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Kaca</td><td style="padding:12px 0;font-weight:600;">Mineral Anti-Gores</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Tali</td><td style="padding:12px 0;font-weight:600;">Silikon Premium</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Water Resistance</td><td style="padding:12px 0;font-weight:600;">10 ATM (100 meter)</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Fitur</td><td style="padding:12px 0;font-weight:600;">Chronograph, Date, Sub-dial</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Warna</td><td style="padding:12px 0;font-weight:600;">Hitam/Merah, Gold, Biru</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Garansi</td><td style="padding:12px 0;font-weight:600;">2 Tahun Garansi Resmi</td></tr>
+          <tr><td style="padding:12px 0;color:#888;">Isi Kotak</td><td style="padding:12px 0;font-weight:600;">Jam tangan, box, kartu garansi, buku panduan</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="tab-content" id="tab-rev">
+    <div class="review-summary">
+      <div class="review-avg">
+        <div class="review-avg-num">4.8</div>
+        <div style="display:flex;gap:2px;justify-content:center;margin:4px 0;">
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="review-avg-max">dari 5 bintang</div>
+        <div style="font-size:12px;color:#888;margin-top:4px;">128 ulasan</div>
+      </div>
+      <div class="review-bars">
+        <div class="review-bar-row"><span>5 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:68%;"></div></div><span class="review-bar-count">87</span></div>
+        <div class="review-bar-row"><span>4 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:22%;"></div></div><span class="review-bar-count">28</span></div>
+        <div class="review-bar-row"><span>3 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:7%;"></div></div><span class="review-bar-count">9</span></div>
+        <div class="review-bar-row"><span>2 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:2%;"></div></div><span class="review-bar-count">3</span></div>
+        <div class="review-bar-row"><span>1 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:1%;"></div></div><span class="review-bar-count">1</span></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div>
+          <div class="reviewer-name">Budi S. ✓ Pembeli Terverifikasi</div>
+          <div style="display:flex;gap:2px;margin-top:4px;"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
+        <div class="review-date">15 Juni 2026</div>
+      </div>
+      <div class="review-text">Jam tangannya keren banget! Desain sporty dan gagah, cocok buat daily wear maupun acara formal. Packaging-nya juga mewah, datang dengan kondisi sempurna. Pengiriman cepat dari Watch Link, cuma 2 hari sampai ke Surabaya. Recommended banget!</div>
+      <div class="review-helpful">Apakah ulasan ini membantu? <button class="helpful-btn">👍 Ya (24)</button> <button class="helpful-btn">Tidak</button></div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div>
+          <div class="reviewer-name">Rian M. ✓ Pembeli Terverifikasi</div>
+          <div style="display:flex;gap:2px;margin-top:4px;"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
+        <div class="review-date">8 Juni 2026</div>
+      </div>
+      <div class="review-text">Produk original 100%, ada sertifikat garansi resminya. Desain besar dan bold, sesuai namanya "The Big Time". Mesinnya presisi, sudah pakai 3 minggu dan masih akurat. Tali silikon nyaman di kulit. Harga juga lebih murah dibanding toko lain.</div>
+      <div class="review-helpful">Apakah ulasan ini membantu? <button class="helpful-btn">👍 Ya (18)</button> <button class="helpful-btn">Tidak</button></div>
+    </div>
+  </div>
+
+  <!-- QA -->
+  <div class="tab-content" id="tab-qa">
+    <div style="max-width:680px;">
+      <div style="background:#f5f5f5;border-radius:12px;padding:20px;margin-bottom:16px;">
+        <div style="font-weight:700;margin-bottom:8px;">❓ Apakah tersedia layanan penggantian baterai?</div>
+        <div style="font-size:14px;color:#444;line-height:1.7;">Jawaban dari Watch Link: Ya, kami menyediakan layanan penggantian baterai di toko offline kami di Mall Metropolitan 2, Bekasi. Hubungi kami via WhatsApp untuk informasi lebih lanjut.</div>
+        <div style="font-size:12px;color:#aaa;margin-top:8px;">Dijawab 20 Juni 2026</div>
+      </div>
+      <div style="background:#f5f5f5;border-radius:12px;padding:20px;margin-bottom:16px;">
+        <div style="font-weight:700;margin-bottom:8px;">❓ Apakah bisa cicilan tanpa kartu kredit?</div>
+        <div style="font-size:14px;color:#444;line-height:1.7;">Jawaban dari Watch Link: Ya! Kami bekerja sama dengan Kredivo, Akulaku, dan GoPay PayLater untuk cicilan 0% tanpa kartu kredit, tergantung limit yang disetujui oleh penyedia layanan.</div>
+        <div style="font-size:12px;color:#aaa;margin-top:8px;">Dijawab 14 Juni 2026</div>
+      </div>
+      <button class="wl-btn wl-btn-outline" style="margin-top:8px;">Ajukan Pertanyaan</button>
+    </div>
+  </div>
+
+  <!-- RELATED PRODUCTS -->
+  <div style="margin-top:48px;padding-bottom:48px;">
+    <div class="wl-section-header">
+      <h2 class="wl-section-title">Produk Serupa</h2>
+      <a href="watchlink-produk.html?brand=quantum" class="wl-section-more">Lihat Semua →</a>
+    </div>
+    <div class="related-grid">
+      <a href="watchlink-detail.html" class="wl-card">
+        <div class="wl-card-img"><img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Barracuda" style="height:180px;"><span class="wl-card-badge badge-green">NEW</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div><div class="wl-card-name">Quantum Barracuda Automatic 47mm</div><div class="wl-card-price">Rp 3.950.000</div><div class="wl-card-original">Rp 5.500.000</div></div>
+      </a>
+      <a href="watchlink-detail.html" class="wl-card">
+        <div class="wl-card-img"><div class="wl-card-img-placeholder" style="height:180px;background:linear-gradient(135deg,#1a0a00,#3d1800);"><svg width="80" height="80" viewBox="0 0 100 100" fill="none"><rect x="22" y="16" width="56" height="68" rx="12" stroke="#c9a84c" stroke-width="2.5" fill="#1a0800"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="62" y2="58" stroke="#ff4422" stroke-width="2" stroke-linecap="round"/></svg></div><span class="wl-card-badge badge-orange">-28%</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#ff9900;">CASIO</div><div class="wl-card-name">G-Shock GM-6900G Gold</div><div class="wl-card-price">Rp 1.850.000</div><div class="wl-card-original">Rp 2.450.000</div></div>
+      </a>
+      <a href="watchlink-detail.html" class="wl-card">
+        <div class="wl-card-img"><div class="wl-card-img-placeholder" style="height:180px;background:linear-gradient(135deg,#0d1a2e,#1a2d4a);"><svg width="80" height="80" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="67" y2="59" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/></svg></div><span class="wl-card-badge badge-blue">NEW</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#5566ff;">SEIKO</div><div class="wl-card-name">Seiko Presage Cocktail Time</div><div class="wl-card-price">Rp 3.100.000</div><div class="wl-card-original">Rp 5.400.000</div></div>
+      </a>
+      <a href="watchlink-detail.html" class="wl-card">
+        <div class="wl-card-img"><div class="wl-card-img-placeholder" style="height:180px;background:linear-gradient(135deg,#0a1020,#1e2a40);"><svg width="80" height="80" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#c9a84c" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#a08030" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="64" y2="58" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/></svg></div><span class="wl-card-badge badge-red">-18%</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#c9a84c;">ORIENT</div><div class="wl-card-name">Orient Bambino Version 5 Auto</div><div class="wl-card-price">Rp 2.250.000</div><div class="wl-card-original">Rp 2.750.000</div></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="wl-footer">
+  <div class="wl-footer-inner">
+    <div class="wl-footer-grid">
+      <div>
+        <div class="wl-footer-logo"><img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link"><div><div class="wl-footer-logo-name">watch link</div><div class="wl-footer-logo-sub">JAM TANGAN ORIGINAL</div></div></div>
+        <p class="wl-footer-desc">Toko jam tangan original terpercaya. Garansi resmi, harga terbaik, pengiriman seluruh Indonesia.</p>
+      </div>
+      <div><div class="wl-footer-heading">Produk</div><div class="wl-footer-links"><a href="#">Jam Pria</a><a href="#">Jam Wanita</a><a href="#">Luxury Watches</a><a href="#">Smartwatch</a></div></div>
+      <div><div class="wl-footer-heading">Layanan</div><div class="wl-footer-links"><a href="watchlink-tentang.html">Tentang Kami</a><a href="#">Cara Pembelian</a><a href="#">Kebijakan Retur</a><a href="watchlink-kontak.html">Hubungi Kami</a></div></div>
+      <div><div class="wl-footer-heading">Toko Offline</div><p class="wl-footer-desc">Mall Metropolitan 2, Jakasampurna, Bekasi Barat 17145</p><a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" class="wl-btn wl-btn-gold" style="margin-top:10px;display:inline-flex;font-size:12px;padding:8px 14px;">Google Maps</a></div>
+    </div>
+    <div class="wl-footer-bottom"><span class="wl-footer-copy">© 2026 Watch Link. All rights reserved.</span><span class="wl-footer-copy">Garansi Resmi · Gratis Ongkir · COD Tersedia</span></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+
+<script>
+let qty = 1;
+function changeQty(d) { qty = Math.max(1, qty + d); document.getElementById('qtyVal').textContent = qty; }
+function selectColor(el, name) {
+  document.querySelectorAll('.color-btn').forEach(b => { b.classList.remove('active'); b.querySelector('.color-ring').classList.remove('active'); });
+  el.classList.add('active'); el.querySelector('.color-ring').classList.add('active');
+  document.getElementById('selectedColor').textContent = name;
+}
+function switchTab(btn, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+function switchImg(thumb, src) {
+  document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+  if (src) document.getElementById('mainImg').src = src;
+}
+function addCart() {
+  const badge = document.getElementById('cartCount');
+  const cur = parseInt(badge.textContent);
+  badge.textContent = cur + qty;
+  badge.style.transform = 'scale(1.4)';
+  setTimeout(() => badge.style.transform = '', 300);
+}
+</script>
+</body>
+</html>

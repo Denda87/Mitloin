@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak & Lokasi Toko – Watch Link | Mall Metropolitan 2 Bekasi</title>
+<meta name="description" content="Kunjungi Watch Link di Mall Metropolitan 2, Jakasampurna, Bekasi Barat. Hubungi kami via WhatsApp, email, atau datang langsung ke toko kami.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="watchlink.css">
+<style>
+/* PAGE HERO */
+.kontak-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #111 60%, #0a0a0a 100%);
+  padding: 64px 0; text-align: center; border-bottom: 1px solid #1e1e1e;
+}
+.kontak-hero-label { font-size: 11px; letter-spacing: 4px; color: #c9a84c; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; }
+.kontak-hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 14px; }
+.kontak-hero-sub { font-size: 16px; color: #666; max-width: 480px; margin: 0 auto; line-height: 1.75; }
+
+/* CONTACT GRID */
+.kontak-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 56px 0; align-items: start; }
+
+/* CONTACT CARDS */
+.contact-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 16px;
+  padding: 28px; display: flex; gap: 18px; align-items: flex-start;
+  transition: .2s; margin-bottom: 16px;
+}
+.contact-card:hover { border-color: #c9a84c; box-shadow: 0 4px 20px rgba(201,168,76,.1); }
+.contact-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-label { font-size: 12px; font-weight: 600; color: #aaa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+.contact-value { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.contact-note { font-size: 13px; color: #888; line-height: 1.6; }
+
+/* HOURS TABLE */
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table tr { border-bottom: 1px solid #f0f0f0; }
+.hours-table td { padding: 10px 0; font-size: 14px; color: #555; }
+.hours-table td:first-child { font-weight: 500; color: #333; }
+.hours-table td:last-child { text-align: right; font-weight: 600; }
+.hours-table tr.today td { color: #00aa55; font-weight: 700; }
+.open-badge { display: inline-block; background: #00aa55; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+.closed-badge { display: inline-block; background: #e85c2d; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+
+/* MAP SECTION */
+.map-section { background: #f5f5f5; padding: 0; }
+.map-container { position: relative; width: 100%; height: 480px; background: #e0e0e0; overflow: hidden; }
+.map-container iframe { width: 100%; height: 100%; border: none; display: block; }
+.map-overlay {
+  position: absolute; top: 20px; left: 20px;
+  background: #fff; border-radius: 12px; padding: 18px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15); max-width: 300px; z-index: 10;
+}
+.map-store-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+.map-store-addr { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px; }
+
+/* FORM */
+.form-section { padding: 56px 0; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.form-left h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; margin-bottom: 14px; }
+.form-left p { font-size: 15px; color: #666; line-height: 1.75; margin-bottom: 24px; }
+.form-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 32px; }
+.form-row { margin-bottom: 18px; }
+.form-row label { display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px; }
+.form-input {
+  width: 100%; border: 1.5px solid #e0e0e0; border-radius: 8px;
+  padding: 11px 14px; font-size: 14px; color: #111; outline: none;
+  transition: border-color .2s; background: #fff;
+}
+.form-input:focus { border-color: #c9a84c; }
+.form-input::placeholder { color: #bbb; }
+textarea.form-input { resize: vertical; min-height: 120px; }
+.form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-select { width: 100%; border: 1.5px solid #e0e0e0; border-radius: 8px; padding: 11px 14px; font-size: 14px; color: #111; outline: none; background: #fff; cursor: pointer; transition: border-color .2s; }
+.form-select:focus { border-color: #c9a84c; }
+
+/* CHANNEL CARDS */
+.channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+.channel-card {
+  border-radius: 14px; padding: 24px; text-align: center; cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none; display: block;
+}
+.channel-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+.channel-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+.channel-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.channel-desc { font-size: 13px; opacity: .75; line-height: 1.5; }
+
+/* FAQ */
+.faq-section { background: #fafafa; padding: 56px 0; }
+.faq-title { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; margin-bottom: 32px; }
+.faq-item { background: #fff; border: 1px solid #eee; border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+.faq-question { padding: 18px 20px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background .15s; }
+.faq-question:hover { background: #fafafa; }
+.faq-arrow { font-size: 18px; color: #888; transition: transform .2s; }
+.faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s; font-size: 14px; color: #555; line-height: 1.75; }
+.faq-item.open .faq-answer { max-height: 200px; padding: 0 20px 18px; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+/* WA FLOAT */
+.wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.45); cursor: pointer; transition: transform .2s; text-decoration: none; }
+.wa-float:hover { transform: scale(1.1); }
+
+@media (max-width: 900px) {
+  .kontak-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .channel-grid { grid-template-columns: 1fr; }
+  .map-container { height: 340px; }
+  .map-overlay { display: none; }
+  .form-2col { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .kontak-hero-title { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="wl-nav">
+  <div class="wl-nav-top">
+    <a href="watchlink-home.html" class="wl-logo">
+      <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link Logo">
+      <div class="wl-logo-text">
+        <div class="wl-logo-name">watch link</div>
+        <div class="wl-logo-sub">JAM TANGAN ORIGINAL</div>
+      </div>
+    </a>
+    <div class="wl-search">
+      <svg width="16" height="16" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Cari jam tangan, brand, model...">
+    </div>
+    <div class="wl-nav-right">
+      <div class="wl-cart-btn">
+        <svg width="22" height="22" fill="none" stroke="#333" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="wl-cart-badge">3</div>
+      </div>
+      <a href="#" class="wl-btn wl-btn-outline">Masuk</a>
+      <a href="#" class="wl-btn wl-btn-dark">Daftar</a>
+    </div>
+  </div>
+  <div class="wl-subnav">
+    <div class="wl-subnav-inner">
+      <a href="watchlink-home.html" class="wl-subnav-link">Beranda</a>
+      <a href="watchlink-produk.html" class="wl-subnav-link">Produk</a>
+      <a href="watchlink-produk.html?cat=promo" class="wl-subnav-link">Promo</a>
+      <a href="watchlink-produk.html?cat=flash" class="wl-subnav-link">Flash Sale</a>
+      <a href="watchlink-tentang.html" class="wl-subnav-link">Tentang Kami</a>
+      <a href="watchlink-kontak.html" class="wl-subnav-link active">Kontak & Lokasi</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="wl-section" style="padding-top:16px;padding-bottom:0;">
+  <div class="breadcrumb">
+    <a href="watchlink-home.html">Home</a>
+    <span class="sep">›</span>
+    <span class="current">Kontak & Lokasi</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="kontak-hero">
+  <div class="wl-section">
+    <div class="kontak-hero-label">Kontak & Lokasi</div>
+    <h1 class="kontak-hero-title">Kami Siap Melayani Kamu</h1>
+    <p class="kontak-hero-sub">Kunjungi toko kami langsung atau hubungi via channel pilihan kamu. Tim kami siap membantu 7 hari seminggu.</p>
+  </div>
+</div>
+
+<!-- CONTACT INFO + HOURS -->
+<div class="wl-section">
+  <div class="kontak-grid">
+    <!-- LEFT: Contact Info -->
+    <div>
+      <h2 style="font-size:22px;font-weight:800;margin-bottom:20px;">Informasi Kontak</h2>
+
+      <!-- Address -->
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#fff3f0;">
+          <svg width="26" height="26" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Alamat Toko</div>
+          <div class="contact-value">Mall Metropolitan 2</div>
+          <div class="contact-note">
+            RT.002/RW.003, Jakasampurna<br>
+            Kec. Bekasi Barat, Kota Bekasi<br>
+            Jawa Barat 17145, Indonesia
+          </div>
+          <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-gold" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:8px 14px;">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Buka di Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/6281234567890?text=Halo%20Watch%20Link%2C%20saya%20ingin%20bertanya%20tentang%20produk." target="_blank" class="contact-card" style="display:flex;text-decoration:none;color:inherit;">
+        <div class="contact-icon" style="background:#e8fdf0;">
+          <svg width="26" height="26" fill="#25d366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">+62 821-2345-6789</div>
+          <div class="contact-note">Respons cepat · Aktif 08.00–22.00 WIB <span class="open-badge">AKTIF</span></div>
+        </div>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:hello@watchlink.id" class="contact-card" style="display:flex;text-decoration:none;color:inherit;">
+        <div class="contact-icon" style="background:#f0f4ff;">
+          <svg width="26" height="26" fill="none" stroke="#5566ff" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">hello@watchlink.id</div>
+          <div class="contact-note">Balasan dalam 1×24 jam kerja</div>
+        </div>
+      </a>
+
+      <!-- Instagram -->
+      <a href="#" class="contact-card" style="display:flex;text-decoration:none;color:inherit;">
+        <div class="contact-icon" style="background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);border-radius:14px;">
+          <svg width="26" height="26" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">@watchlink.id</div>
+          <div class="contact-note">Follow untuk update produk & promo terbaru</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- RIGHT: Hours + How to Get There -->
+    <div>
+      <!-- JAM BUKA -->
+      <div style="background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:28px;margin-bottom:20px;">
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:10px;">
+          <svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Jam Operasional
+        </h3>
+        <table class="hours-table">
+          <tr><td>Senin</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Selasa</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Rabu</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Kamis</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr class="today"><td>Minggu ini <span class="open-badge">BUKA</span></td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Sabtu</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Minggu & Hari Libur</td><td>11:00 – 21:00 WIB</td></tr>
+        </table>
+        <div style="margin-top:16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;font-size:13px;color:#166534;display:flex;align-items:center;gap:8px;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          Toko kami buka setiap hari termasuk hari libur nasional.
+        </div>
+      </div>
+
+      <!-- CARA KE SANA -->
+      <div style="background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:28px;">
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:10px;">
+          <svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Cara Menuju Toko
+        </h3>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:#fff3f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🚗</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;margin-bottom:3px;">Kendaraan Pribadi</div>
+              <div style="font-size:13px;color:#666;line-height:1.65;">Masuk dari pintu utama Mall Metropolitan 2. Toko Watch Link berada di lantai dasar area elektronik & aksesori. Tersedia parkir luas di basement dan rooftop.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:#f0f4ff;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🚌</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;margin-bottom:3px;">Transportasi Umum</div>
+              <div style="font-size:13px;color:#666;line-height:1.65;">Naik TransJakarta atau Angkot jurusan Bekasi Barat. Turun di halte Mall Metropolitan. Juga tersedia ojek online dari Stasiun Bekasi (±10 menit).</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:#e8fdf0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🛵</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;margin-bottom:3px;">Ojek Online</div>
+              <div style="font-size:13px;color:#666;line-height:1.65;">Tersedia drop-off khusus ojek online di pintu samping Mall Metropolitan 2. Cari "Watch Link — Mall Metropolitan 2" di aplikasi navigasi kamu.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <div style="position:relative;">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0504855!2d106.9862!3d-6.2201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c0000000001%3A0x1!2sMall%20Metropolitan%202%2C%20Bekasi!5e0!3m2!1sid!2sid!4v1234567890"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Lokasi Watch Link - Mall Metropolitan 2 Bekasi">
+      </iframe>
+    </div>
+    <div class="map-overlay">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link" style="width:36px;height:36px;object-fit:cover;border-radius:6px;">
+        <div>
+          <div class="map-store-name">Watch Link</div>
+          <div style="font-size:11px;color:#888;">Jam Tangan Original</div>
+        </div>
+      </div>
+      <div class="map-store-addr">Mall Metropolitan 2, Jakasampurna, Bekasi Barat, Jawa Barat 17145</div>
+      <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-dark" style="width:100%;justify-content:center;font-size:13px;padding:9px;">
+        Buka Google Maps →
+      </a>
+    </div>
+  </div>
+  <!-- Map CTA Strip -->
+  <div style="background:#111;padding:20px 0;">
+    <div class="wl-section" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <svg width="24" height="24" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <div style="font-weight:700;color:#fff;font-size:15px;">Mall Metropolitan 2, Bekasi Barat</div>
+          <div style="font-size:13px;color:#666;">RT.002/RW.003, Jakasampurna, Kec. Bekasi Barat, Kota Bekasi 17145</div>
+        </div>
+      </div>
+      <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-gold" style="padding:11px 24px;">
+        Petunjuk Arah →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK CONTACT CHANNELS -->
+<div class="wl-section" style="padding-top:48px;padding-bottom:0;">
+  <h2 style="font-size:22px;font-weight:800;text-align:center;margin-bottom:8px;">Hubungi Kami Sekarang</h2>
+  <p style="text-align:center;font-size:14px;color:#888;margin-bottom:8px;">Pilih channel yang paling nyaman untukmu</p>
+  <div class="channel-grid">
+    <a href="https://wa.me/6281234567890?text=Halo%20Watch%20Link%2C%20saya%20ingin%20bertanya." target="_blank" class="channel-card" style="background:#e8fdf0;color:#1a6a2a;">
+      <div class="channel-icon" style="background:#25d366;">
+        <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+      </div>
+      <div class="channel-name">WhatsApp</div>
+      <div class="channel-desc">+62 821-2345-6789<br>Respons dalam hitungan menit</div>
+    </a>
+    <a href="mailto:hello@watchlink.id" class="channel-card" style="background:#f0f4ff;color:#1a2a6a;">
+      <div class="channel-icon" style="background:#5566ff;">
+        <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="channel-name">Email</div>
+      <div class="channel-desc">hello@watchlink.id<br>Balasan dalam 1×24 jam</div>
+    </a>
+    <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" class="channel-card" style="background:#fff3f0;color:#6a1a0a;">
+      <div class="channel-icon" style="background:#e85c2d;">
+        <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="channel-name">Toko Offline</div>
+      <div class="channel-desc">Mall Metropolitan 2<br>Buka setiap hari</div>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="form-section">
+  <div class="wl-section">
+    <div class="form-grid">
+      <div class="form-left">
+        <h2>Kirim Pesan kepada Kami</h2>
+        <p>Punya pertanyaan tentang produk, pesanan, atau ingin kerja sama? Isi formulir di samping dan tim kami akan segera merespons.</p>
+        <div style="background:#fafafa;border:1px solid #eee;border-radius:12px;padding:20px;margin-top:24px;">
+          <div style="font-weight:700;font-size:15px;margin-bottom:12px;">Pertanyaan Umum</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Cara Pembelian Online</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Cek Status Pesanan</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Garansi & Pengembalian</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Corporate / Bulk Order</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Program Kemitraan</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <form onsubmit="submitForm(event)">
+          <div class="form-2col">
+            <div class="form-row">
+              <label for="nama">Nama Lengkap *</label>
+              <input class="form-input" type="text" id="nama" placeholder="Nama kamu" required>
+            </div>
+            <div class="form-row">
+              <label for="hp">Nomor HP / WhatsApp *</label>
+              <input class="form-input" type="tel" id="hp" placeholder="+62 8xx xxxx xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input class="form-input" type="email" id="email" placeholder="email@example.com">
+          </div>
+          <div class="form-row">
+            <label for="topik">Topik Pesan</label>
+            <select class="form-select" id="topik">
+              <option value="">Pilih topik...</option>
+              <option>Pertanyaan Produk</option>
+              <option>Cek Stok</option>
+              <option>Status Pesanan</option>
+              <option>Garansi / Servis</option>
+              <option>Corporate Order</option>
+              <option>Kerjasama / Partnership</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="pesan">Pesan *</label>
+            <textarea class="form-input" id="pesan" placeholder="Tulis pertanyaan atau pesan kamu di sini..." required></textarea>
+          </div>
+          <button type="submit" class="wl-btn wl-btn-gold" style="width:100%;padding:13px;font-size:15px;justify-content:center;" id="submitBtn">
+            Kirim Pesan
+          </button>
+          <div id="formSuccess" style="display:none;margin-top:14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;font-size:14px;color:#166534;text-align:center;">
+            ✅ Pesan berhasil dikirim! Tim kami akan menghubungi kamu segera.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="wl-section">
+    <h2 class="faq-title">Pertanyaan Sering Ditanyakan</h2>
+    <div style="max-width:760px;">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Apakah produk Watch Link 100% original?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Ya, 100% original dan bergaransi resmi. Kami adalah distributor resmi dari semua brand yang kami jual. Setiap produk dilengkapi kartu garansi resmi dari brand, buku panduan, dan packaging original. Kami tidak pernah dan tidak akan menjual produk replika.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Bagaimana jika produk yang saya terima rusak atau tidak sesuai?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Kami memberikan garansi 3 hari pengembalian barang sejak diterima. Jika produk rusak saat diterima atau tidak sesuai deskripsi, hubungi kami via WhatsApp dengan foto/video kondisi produk dan kami akan memproses pengembalian atau penggantian segera.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Apakah ada layanan cicilan?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Ya! Kami bekerja sama dengan berbagai platform cicilan: kartu kredit semua bank (0% s.d. 24 bulan), Kredivo, Akulaku, dan GoPay PayLater. Untuk pembelian di toko offline, tersedia cicilan melalui BCA, Mandiri, BNI, dan BRI.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Berapa lama proses pengiriman?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Pengiriman regular: 2-4 hari kerja. Pengiriman express: 1-2 hari kerja. Same-day delivery untuk area Bekasi dan sekitarnya (order sebelum jam 12.00 WIB). Setiap paket dikemas dengan bubble wrap tebal dan diasuransikan penuh.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Apakah bisa beli langsung di toko?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Tentu! Toko offline kami berlokasi di Mall Metropolitan 2, Bekasi Barat. Kamu bisa datang langsung untuk melihat koleksi, mencoba jam tangan, dan berkonsultasi dengan tim ahli kami. Toko buka setiap hari dari jam 10.00–22.00 WIB.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="wl-footer">
+  <div class="wl-footer-inner">
+    <div class="wl-footer-grid">
+      <div>
+        <div class="wl-footer-logo"><img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link"><div><div class="wl-footer-logo-name">watch link</div><div class="wl-footer-logo-sub">JAM TANGAN ORIGINAL</div></div></div>
+        <p class="wl-footer-desc">Toko jam tangan original terpercaya sejak 2015. Ribuan koleksi brand ternama dengan garansi resmi.</p>
+      </div>
+      <div><div class="wl-footer-heading">Produk</div><div class="wl-footer-links"><a href="watchlink-produk.html?cat=pria">Jam Pria</a><a href="watchlink-produk.html?cat=wanita">Jam Wanita</a><a href="watchlink-produk.html?cat=luxury">Luxury Watches</a><a href="watchlink-produk.html?cat=smart">Smartwatch</a></div></div>
+      <div><div class="wl-footer-heading">Layanan</div><div class="wl-footer-links"><a href="watchlink-tentang.html">Tentang Kami</a><a href="#">Cara Pembelian</a><a href="#">Kebijakan Retur</a><a href="watchlink-kontak.html">Hubungi Kami</a></div></div>
+      <div>
+        <div class="wl-footer-heading">Toko Offline</div>
+        <p class="wl-footer-desc">Mall Metropolitan 2, Jakasampurna, Bekasi Barat, Jawa Barat 17145</p>
+        <div style="margin-top:10px;font-size:13px;color:#555;">Buka setiap hari · 10:00–22:00 WIB</div>
+        <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" class="wl-btn wl-btn-gold" style="margin-top:10px;display:inline-flex;font-size:12px;padding:8px 14px;">Google Maps</a>
+      </div>
+    </div>
+    <div class="wl-footer-bottom"><span class="wl-footer-copy">© 2026 Watch Link. All rights reserved.</span><span class="wl-footer-copy">Garansi Resmi · Gratis Ongkir · COD Tersedia</span></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Mengirim...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('formSuccess').style.display = 'block';
+    btn.style.display = 'none';
+    e.target.reset();
+  }, 1200);
+}
+</script>
+</body>
+</html>
