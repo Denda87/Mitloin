@@ -1,0 +1,2643 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Link – Jam Tangan Original | Mall Metropolitan 2 Bekasi</title>
+<meta name="description" content="Toko jam tangan original terpercaya. Ribuan pilihan brand ternama — Quantum, Seiko, Casio, Garmin, Orient. Garansi resmi, harga terbaik, pengiriman seluruh Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* Watch Link - Shared Styles */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #c9a84c;
+  --gold-light: #f0d080;
+  --gold-dark: #a08030;
+  --red: #e85c2d;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --dark2: #1a1a1a;
+  --border: #1e1e1e;
+  --border-light: #e8e8e8;
+  --text-muted: #666;
+  --text-dim: #888;
+  --text-body: #444;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* NAV */
+.wl-nav {
+  position: sticky; top: 0; z-index: 500;
+  background: #fff;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+.wl-nav-top {
+  max-width: 1280px; margin: 0 auto; padding: 0 24px;
+  height: 64px; display: flex; align-items: center; gap: 20px;
+}
+.wl-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.wl-logo img { height: 38px; width: 38px; object-fit: cover; border-radius: 5px; background: #000; }
+.wl-logo-text { line-height: 1; }
+.wl-logo-name { font-weight: 900; font-size: 16px; letter-spacing: -0.5px; color: #111; }
+.wl-logo-sub { font-size: 8px; letter-spacing: 2.5px; color: #888; font-weight: 500; margin-top: 2px; }
+.wl-search {
+  flex: 1; max-width: 560px; display: flex; align-items: center;
+  background: #f5f5f5; border: 1.5px solid #e0e0e0; border-radius: 8px;
+  padding: 0 14px; height: 40px; gap: 10px; cursor: text;
+  transition: border-color .2s;
+}
+.wl-search:focus-within { border-color: var(--gold); background: #fff; }
+.wl-search input { border: none; background: transparent; font-size: 14px; color: #111; width: 100%; outline: none; }
+.wl-search input::placeholder { color: #aaa; }
+.wl-nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.wl-cart-btn { position: relative; cursor: pointer; padding: 8px; }
+.wl-cart-badge {
+  position: absolute; top: 2px; right: 2px;
+  background: var(--red); color: #fff; font-size: 9px; font-weight: 700;
+  width: 16px; height: 16px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.wl-btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; padding: 8px 20px; border-radius: 6px; cursor: pointer; transition: .15s; }
+.wl-btn-outline { background: #fff; border: 1.5px solid #333; color: #111; }
+.wl-btn-outline:hover { background: #f5f5f5; }
+.wl-btn-dark { background: #111; border: 1.5px solid #111; color: #fff; }
+.wl-btn-dark:hover { background: #333; }
+.wl-btn-gold { background: var(--gold); border: none; color: #000; font-weight: 700; }
+.wl-btn-gold:hover { background: var(--gold-light); }
+
+.wl-subnav {
+  background: #f8f8f8; border-top: 1px solid #eee;
+}
+.wl-subnav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 24px;
+  display: flex; gap: 28px; height: 38px; align-items: center;
+  overflow-x: auto; scrollbar-width: none;
+}
+.wl-subnav-inner::-webkit-scrollbar { display: none; }
+.wl-subnav-link { font-size: 13px; color: #444; cursor: pointer; white-space: nowrap; transition: color .15s; }
+.wl-subnav-link:hover { color: #111; }
+.wl-subnav-link.active { color: var(--red); font-weight: 600; }
+
+/* FOOTER */
+.wl-footer { background: #0a0a0a; padding: 48px 0 24px; border-top: 1px solid #1e1e1e; }
+.wl-footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.wl-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+.wl-footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.wl-footer-logo img { height: 32px; width: 32px; object-fit: cover; border-radius: 4px; }
+.wl-footer-logo-name { font-weight: 900; font-size: 16px; color: #fff; }
+.wl-footer-logo-sub { font-size: 8px; letter-spacing: 2px; color: var(--gold); }
+.wl-footer-desc { font-size: 13px; color: #555; line-height: 1.75; max-width: 280px; }
+.wl-footer-heading { font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 14px; }
+.wl-footer-links { display: flex; flex-direction: column; gap: 9px; }
+.wl-footer-links a { font-size: 13px; color: #555; transition: color .15s; }
+.wl-footer-links a:hover { color: var(--gold); }
+.wl-footer-bottom {
+  border-top: 1px solid #1e1e1e; padding-top: 20px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+}
+.wl-footer-copy { font-size: 12px; color: #444; }
+
+/* SECTION */
+.wl-section { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.wl-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.wl-section-title { font-size: 22px; font-weight: 800; }
+.wl-section-more { font-size: 13px; color: var(--red); font-weight: 600; cursor: pointer; }
+.wl-section-more:hover { text-decoration: underline; }
+
+/* PRODUCT CARD */
+.wl-card {
+  background: #fff; border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--border-light); display: block;
+  transition: transform .2s, box-shadow .2s;
+}
+.wl-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.wl-card-img { position: relative; }
+.wl-card-img img { width: 100%; height: 220px; object-fit: cover; }
+.wl-card-img-placeholder { width: 100%; height: 220px; display: flex; align-items: center; justify-content: center; }
+.wl-card-badge {
+  position: absolute; top: 10px; left: 10px;
+  font-size: 10px; font-weight: 800; padding: 3px 9px; border-radius: 4px; letter-spacing: 0.3px;
+}
+.wl-card-wish {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(255,255,255,0.92); border-radius: 50%; width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: .15s;
+}
+.wl-card-wish:hover { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.wl-card-body { padding: 14px; }
+.wl-card-brand { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.wl-card-name { font-size: 14px; font-weight: 600; color: #111; line-height: 1.35; }
+.wl-stars { display: flex; align-items: center; gap: 2px; margin-top: 7px; }
+.wl-stars .count { font-size: 11px; color: #888; margin-left: 2px; }
+.wl-card-price { font-size: 18px; font-weight: 800; color: #111; margin-top: 9px; }
+.wl-card-original { font-size: 12px; color: #aaa; text-decoration: line-through; margin-top: 2px; }
+.wl-card-add {
+  margin-top: 10px; background: #111; color: #fff; text-align: center;
+  border-radius: 6px; padding: 9px; font-weight: 700; font-size: 13px; cursor: pointer;
+  transition: background .15s;
+}
+.wl-card-add:hover { background: #333; }
+
+/* BADGE COLORS */
+.badge-red { background: var(--red); color: #fff; }
+.badge-gold { background: var(--gold); color: #000; }
+.badge-green { background: #00aa55; color: #fff; }
+.badge-orange { background: #ff9900; color: #000; }
+.badge-blue { background: #5566ff; color: #fff; }
+
+/* UTILS */
+.mt-20 { margin-top: 20px; }
+.mt-32 { margin-top: 32px; }
+.mb-32 { margin-bottom: 32px; }
+.py-48 { padding: 48px 0; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .wl-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+@media (max-width: 768px) {
+  .wl-nav-top { padding: 0 16px; height: 56px; }
+  .wl-search { display: none; }
+  .wl-section { padding: 0 16px; }
+  .wl-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .wl-section-title { font-size: 18px; }
+}
+@media (max-width: 480px) {
+  .wl-footer-grid { grid-template-columns: 1fr; }
+  .wl-footer-bottom { flex-direction: column; text-align: center; }
+}
+
+
+/* ===== SPA PAGE ROUTING ===== */
+.wl-page { display: none; }
+.wl-page.active { display: block; }
+
+
+/* ===== HOME PAGE STYLES ===== */
+
+/* ===== HOME-SPECIFIC ===== */
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px 0 0; }
+.hero-banner {
+  border-radius: 14px; overflow: hidden; position: relative;
+  min-height: 270px; display: flex; align-items: center; cursor: pointer;
+  transition: transform .2s;
+}
+.hero-banner:hover { transform: scale(1.01); }
+.hero-banner img.bg {
+  position: absolute; left: 0; top: 0; width: 55%; height: 100%; object-fit: cover; opacity: .88;
+}
+.hero-banner .overlay { position: absolute; inset: 0; }
+.hero-banner .content {
+  position: relative; z-index: 1; margin-left: auto;
+  width: 52%; padding: 32px 28px 32px 0;
+}
+.hero-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 9px; }
+.hero-title { font-size: 26px; font-weight: 900; color: #fff; line-height: 1.18; margin-bottom: 9px; }
+.hero-sub { font-size: 13px; color: #bbb; margin-bottom: 20px; line-height: 1.6; }
+
+/* BRAND STRIP */
+.brand-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 12px; }
+.brand-card {
+  background: #fff; border: 1px solid var(--border-light); border-radius: 10px;
+  padding: 16px 12px; display: flex; flex-direction: column; align-items: center;
+  gap: 8px; cursor: pointer; transition: .2s;
+}
+.brand-card:hover { border-color: var(--gold); box-shadow: 0 4px 12px rgba(201,168,76,.12); }
+.brand-icon { width: 48px; height: 48px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.brand-name { font-size: 12px; font-weight: 700; color: #111; }
+
+/* FLASH SALE */
+.flash-section { background: #111; padding: 36px 0; }
+.flash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.flash-title { font-size: 26px; font-weight: 900; color: var(--red); letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+.flash-timer { display: flex; gap: 4px; align-items: center; }
+.timer-box { background: var(--red); color: #fff; font-weight: 800; font-size: 18px; padding: 5px 10px; border-radius: 5px; min-width: 38px; text-align: center; font-variant-numeric: tabular-nums; }
+.timer-sep { color: var(--red); font-weight: 900; font-size: 18px; }
+.flash-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.flash-card { background: #fff; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform .2s; }
+.flash-card:hover { transform: translateY(-2px); }
+.flash-card-img { position: relative; }
+.flash-card-img img { width: 100%; height: 200px; object-fit: cover; }
+.flash-card-img-ph { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; }
+.flash-card-body { padding: 12px; }
+.flash-brand { font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.flash-name { font-size: 14px; font-weight: 600; color: #111; line-height: 1.3; }
+.flash-price { font-size: 17px; font-weight: 800; color: #111; margin-top: 8px; }
+.flash-original { font-size: 12px; color: #aaa; text-decoration: line-through; margin-top: 2px; }
+.flash-add { margin-top: 9px; background: #111; color: #fff; text-align: center; border-radius: 6px; padding: 8px; font-weight: 700; font-size: 13px; cursor: pointer; transition: background .15s; }
+.flash-add:hover { background: #333; }
+
+/* BENEFITS */
+.benefits-section { background: #fff; padding: 52px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+.benefits-title { text-align: center; font-size: 24px; font-weight: 800; margin-bottom: 36px; }
+.benefits-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; }
+.benefit-item { display: flex; gap: 16px; align-items: flex-start; }
+.benefit-icon { width: 54px; height: 54px; background: #f5f5f5; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.benefit-label { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+.benefit-desc { font-size: 13px; color: #666; line-height: 1.65; }
+
+/* PRODUCTS */
+.products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+
+/* PARTNERSHIPS */
+.partner-section { background: var(--dark); padding: 52px 0; }
+.partner-title { text-align: center; font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 28px; }
+.partner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.partner-card {
+  border-radius: 14px; overflow: hidden; position: relative;
+  min-height: 250px; cursor: pointer; background: linear-gradient(135deg,#1a0a00,#2d1500);
+  transition: transform .2s;
+}
+.partner-card:hover { transform: scale(1.01); }
+.partner-card img.bg { width: 100%; height: 100%; object-fit: cover; opacity: .38; position: absolute; inset: 0; }
+.partner-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 55%); }
+.partner-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; }
+.partner-card-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 7px; }
+.partner-card-desc { font-size: 13px; color: #bbb; margin-bottom: 14px; line-height: 1.6; }
+.partner-btn { display: inline-block; background: transparent; border: 1.5px solid #fff; color: #fff; font-weight: 600; font-size: 12px; padding: 8px 18px; border-radius: 6px; cursor: pointer; transition: .15s; }
+.partner-btn:hover { background: rgba(255,255,255,.12); }
+
+/* NEWSLETTER */
+.newsletter-section { background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); padding: 52px 0; }
+.newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; padding: 0 24px; }
+.newsletter-title { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.newsletter-sub { font-size: 14px; color: #888; margin-bottom: 26px; line-height: 1.6; }
+.newsletter-form { display: flex; gap: 10px; }
+.newsletter-input {
+  flex: 1; background: #1e1e1e; border: 1px solid #333; color: #fff;
+  font-size: 14px; padding: 12px 16px; border-radius: 8px; outline: none;
+  transition: border-color .2s;
+}
+.newsletter-input:focus { border-color: var(--gold); }
+.newsletter-input::placeholder { color: #555; }
+
+/* WHATSAPP FLOAT */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  background: #25d366; color: #fff; width: 56px; height: 56px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,.45); cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,.6); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .brand-grid { grid-template-columns: repeat(3,1fr); }
+  .flash-grid { grid-template-columns: repeat(2,1fr); }
+  .benefits-grid { grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .products-grid { grid-template-columns: repeat(2,1fr); }
+  .partner-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero-grid { gap: 12px; }
+  .brand-grid { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .flash-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+}
+
+
+/* ===== PRODUK PAGE STYLES ===== */
+
+.page-body { display: grid; grid-template-columns: 260px 1fr; gap: 24px; padding: 28px 0 48px; }
+
+/* SIDEBAR */
+.sidebar { flex-shrink: 0; }
+.sidebar-card { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+.sidebar-title { font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.sidebar-title span { font-size: 12px; color: var(--red); font-weight: 500; cursor: pointer; }
+.filter-option { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; }
+.filter-option input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--dark); cursor: pointer; }
+.filter-option label { font-size: 13px; color: #333; cursor: pointer; flex: 1; }
+.filter-option .count { font-size: 11px; color: #aaa; }
+.price-inputs { display: flex; gap: 8px; margin-top: 10px; }
+.price-input { flex: 1; border: 1px solid #ddd; border-radius: 6px; padding: 7px 10px; font-size: 13px; outline: none; }
+.price-input:focus { border-color: var(--gold); }
+
+/* MAIN */
+.products-main { min-width: 0; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px; }
+.result-count { font-size: 14px; color: #666; }
+.result-count strong { color: #111; }
+.toolbar-right { display: flex; gap: 10px; align-items: center; }
+.sort-select { border: 1px solid #ddd; border-radius: 6px; padding: 7px 12px; font-size: 13px; background: #fff; outline: none; cursor: pointer; }
+.view-toggle { display: flex; gap: 4px; }
+.view-btn { width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: .15s; }
+.view-btn.active { border-color: #111; background: #111; color: #fff; }
+
+/* ACTIVE FILTERS */
+.active-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.filter-tag { display: flex; align-items: center; gap: 6px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 20px; padding: 4px 10px 4px 12px; font-size: 12px; font-weight: 500; color: #333; }
+.filter-tag button { background: none; border: none; cursor: pointer; color: #888; font-size: 14px; line-height: 1; padding: 0; }
+
+.products-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.products-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+/* PAGINATION */
+.pagination { display: flex; gap: 6px; justify-content: center; margin-top: 36px; }
+.page-btn { width: 38px; height: 38px; border: 1px solid #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; cursor: pointer; transition: .15s; color: #333; background: #fff; }
+.page-btn:hover { border-color: #111; background: #f5f5f5; }
+.page-btn.active { background: #111; color: #fff; border-color: #111; }
+.page-btn.dots { cursor: default; color: #999; border-color: transparent; background: transparent; }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; padding: 16px 0 0; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+@media (max-width: 900px) {
+  .page-body { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .products-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .products-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .products-grid-4, .products-grid-3 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+
+
+/* ===== DETAIL PAGE STYLES ===== */
+
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 32px 0 48px; align-items: start; }
+
+/* GALLERY */
+.gallery-main { border-radius: 14px; overflow: hidden; background: #111; position: relative; cursor: zoom-in; }
+.gallery-main img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.gallery-badges { position: absolute; top: 16px; left: 16px; display: flex; gap: 8px; }
+.gallery-thumb-row { display: flex; gap: 10px; margin-top: 12px; }
+.gallery-thumb {
+  width: 72px; height: 72px; border-radius: 8px; overflow: hidden;
+  border: 2px solid transparent; cursor: pointer; transition: border-color .15s; flex-shrink: 0;
+  background: #111;
+}
+.gallery-thumb.active { border-color: var(--gold); }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+
+/* INFO */
+.detail-info { position: sticky; top: 80px; }
+.detail-brand { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--red); text-transform: uppercase; margin-bottom: 6px; }
+.detail-name { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900; color: #111; line-height: 1.15; margin-bottom: 8px; }
+.detail-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.detail-rating-stars { display: flex; gap: 2px; }
+.detail-rating-num { font-size: 14px; font-weight: 700; color: #111; }
+.detail-rating-count { font-size: 13px; color: #888; }
+.detail-rating-sold { font-size: 13px; color: #888; padding-left: 12px; border-left: 1px solid #ddd; }
+.price-box { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+.price-main { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 900; color: #111; line-height: 1; }
+.price-original { font-size: 15px; color: #aaa; text-decoration: line-through; margin-top: 4px; }
+.price-savings { display: inline-block; margin-top: 8px; background: #ff3c3c; color: #fff; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px; }
+.voucher-strip {
+  display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+  background: linear-gradient(90deg, rgba(201,168,76,.1), rgba(201,168,76,.03));
+  border: 1px solid rgba(201,168,76,.25); border-radius: 8px; margin-bottom: 18px; cursor: pointer;
+}
+.voucher-strip span { font-size: 13px; color: var(--gold); font-weight: 600; }
+
+/* SPECS */
+.specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.spec-item { background: #f5f5f5; border-radius: 10px; padding: 14px; display: flex; align-items: center; gap: 12px; }
+.spec-icon { width: 38px; height: 38px; background: rgba(201,168,76,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.spec-label { font-size: 11px; color: #888; margin-bottom: 2px; }
+.spec-value { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: #111; }
+
+/* COLOR */
+.color-section { margin-bottom: 20px; }
+.color-title { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+.color-options { display: flex; gap: 12px; }
+.color-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
+.color-ring {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 2px solid #ddd; display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s;
+}
+.color-ring.active { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,.2); }
+.color-swatch { width: 30px; height: 30px; border-radius: 50%; }
+.color-label { font-size: 11px; color: #888; font-weight: 500; }
+.color-btn.active .color-label { color: #111; font-weight: 600; }
+
+/* QTY + CTA */
+.qty-row { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.qty-ctrl { display: flex; align-items: center; gap: 0; background: #f0f0f0; border-radius: 8px; overflow: hidden; }
+.qty-btn { background: none; border: none; color: #333; font-size: 20px; width: 40px; height: 44px; cursor: pointer; font-weight: 700; transition: background .15s; }
+.qty-btn:hover { background: #e0e0e0; }
+.qty-val { font-size: 16px; font-weight: 700; color: #111; min-width: 32px; text-align: center; }
+.cta-row { display: flex; gap: 12px; }
+.cta-cart { flex: 1; background: #fff; border: 2px solid #111; color: #111; font-weight: 700; font-size: 15px; padding: 13px; border-radius: 10px; cursor: pointer; transition: .15s; }
+.cta-cart:hover { background: #f5f5f5; }
+.cta-buy { flex: 1.4; background: #111; border: none; color: #fff; font-weight: 700; font-size: 15px; padding: 13px; border-radius: 10px; cursor: pointer; transition: background .15s; }
+.cta-buy:hover { background: #333; }
+
+/* GUARANTEE STRIP */
+.guarantee-row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.guarantee-badge { display: flex; align-items: center; gap: 6px; background: #f5f5f5; border-radius: 6px; padding: 7px 10px; font-size: 12px; color: #444; font-weight: 500; }
+
+/* TABS */
+.tabs { margin-top: 48px; border-bottom: 2px solid #eee; }
+.tab-list { display: flex; gap: 0; }
+.tab-btn { padding: 14px 24px; font-size: 15px; font-weight: 600; color: #888; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: .15s; background: none; border-top: none; border-left: none; border-right: none; }
+.tab-btn:hover { color: #111; }
+.tab-btn.active { color: #111; border-bottom-color: #111; }
+.tab-content { display: none; padding: 28px 0; }
+.tab-content.active { display: block; }
+
+/* REVIEWS */
+.review-summary { display: flex; gap: 36px; margin-bottom: 28px; align-items: flex-start; }
+.review-avg { text-align: center; flex-shrink: 0; }
+.review-avg-num { font-size: 60px; font-weight: 900; font-family: 'Barlow Condensed', sans-serif; color: #111; line-height: 1; }
+.review-avg-max { font-size: 16px; color: #888; }
+.review-bars { flex: 1; }
+.review-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.review-bar-row span { font-size: 13px; color: #666; width: 40px; flex-shrink: 0; }
+.review-bar-track { flex: 1; height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden; }
+.review-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; }
+.review-bar-count { font-size: 12px; color: #888; width: 30px; flex-shrink: 0; }
+.review-card { border: 1px solid #eee; border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.reviewer-name { font-weight: 700; font-size: 14px; }
+.review-date { font-size: 12px; color: #aaa; }
+.review-text { font-size: 14px; color: #555; line-height: 1.7; }
+.review-helpful { margin-top: 10px; font-size: 12px; color: #888; display: flex; align-items: center; gap: 8px; }
+.helpful-btn { background: #f0f0f0; border: none; border-radius: 4px; padding: 3px 10px; font-size: 12px; cursor: pointer; }
+
+/* RELATED */
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; padding: 16px 0 0; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr; gap: 24px; }
+  .detail-info { position: static; }
+  .gallery-main img { height: 350px; }
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .specs-grid { grid-template-columns: 1fr 1fr; }
+  .cta-row { flex-direction: column; }
+}
+
+
+/* ===== TENTANG PAGE STYLES ===== */
+
+/* HERO */
+.about-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+}
+.about-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,.08) 0%, transparent 70%);
+}
+.about-hero-content { position: relative; z-index: 1; }
+.about-hero-label { font-size: 11px; letter-spacing: 4px; color: #c9a84c; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+.about-hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: 56px; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 18px; }
+.about-hero-title span { color: #c9a84c; }
+.about-hero-sub { font-size: 17px; color: #777; max-width: 560px; margin: 0 auto; line-height: 1.75; }
+
+/* STATS */
+.stats-section { background: #111; border-top: 1px solid #1e1e1e; border-bottom: 1px solid #1e1e1e; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat-item { text-align: center; padding: 36px 20px; border-right: 1px solid #1e1e1e; }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: #c9a84c; line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 13px; color: #666; font-weight: 500; line-height: 1.4; }
+
+/* STORY */
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 72px 0; }
+.story-img-wrap { border-radius: 16px; overflow: hidden; position: relative; }
+.story-img-wrap img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.story-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 50%); }
+.story-img-badge {
+  position: absolute; bottom: 20px; left: 20px; right: 20px;
+  background: rgba(201,168,76,.15); backdrop-filter: blur(8px);
+  border: 1px solid rgba(201,168,76,.3); border-radius: 10px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.story-label { font-size: 11px; letter-spacing: 3px; color: #c9a84c; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.story-title { font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 900; color: #111; line-height: 1.2; margin-bottom: 18px; }
+.story-text { font-size: 15px; color: #555; line-height: 1.85; margin-bottom: 16px; }
+
+/* VALUES */
+.values-section { background: #fafafa; padding: 72px 0; }
+.values-title { text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; margin-bottom: 8px; }
+.values-sub { text-align: center; font-size: 15px; color: #888; margin-bottom: 48px; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 32px 28px; transition: .25s; }
+.value-card:hover { border-color: #c9a84c; box-shadow: 0 8px 32px rgba(201,168,76,.1); transform: translateY(-4px); }
+.value-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.value-name { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+.value-desc { font-size: 14px; color: #666; line-height: 1.75; }
+
+/* TEAM */
+.team-section { padding: 72px 0; }
+.team-title { text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; margin-bottom: 8px; }
+.team-sub { text-align: center; font-size: 15px; color: #888; margin-bottom: 48px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.team-card { text-align: center; }
+.team-avatar {
+  width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 42px; font-weight: 900; color: #fff;
+}
+.team-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.team-role { font-size: 13px; color: #888; }
+
+/* MILESTONES */
+.timeline-section { background: linear-gradient(135deg, #0a0a0a, #111); padding: 72px 0; }
+.timeline-title { text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+.timeline-sub { text-align: center; font-size: 15px; color: #666; margin-bottom: 56px; }
+.timeline { position: relative; max-width: 760px; margin: 0 auto; }
+.timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #c9a84c, rgba(201,168,76,.1)); transform: translateX(-50%); }
+.tl-item { display: flex; gap: 32px; margin-bottom: 40px; align-items: flex-start; }
+.tl-item.right { flex-direction: row-reverse; }
+.tl-content { flex: 1; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 20px 22px; }
+.tl-item.right .tl-content { text-align: right; }
+.tl-dot { width: 44px; height: 44px; border-radius: 50%; background: #c9a84c; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800; font-size: 11px; color: #000; z-index: 1; position: relative; margin-top: 4px; }
+.tl-year { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; color: #c9a84c; margin-bottom: 6px; }
+.tl-event { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.tl-desc { font-size: 13px; color: #666; line-height: 1.65; }
+
+/* CTA SECTION */
+.cta-section { background: linear-gradient(135deg, #1a1a0a, #0a0a0a); padding: 72px 0; text-align: center; }
+.cta-title { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: #fff; margin-bottom: 14px; }
+.cta-sub { font-size: 16px; color: #666; max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+/* WA FLOAT */
+.wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.45); cursor: pointer; transition: transform .2s; text-decoration: none; }
+.wa-float:hover { transform: scale(1.1); }
+
+@media (max-width: 900px) {
+  .about-hero-title { font-size: 38px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .story-grid { grid-template-columns: 1fr; }
+  .story-img-wrap { display: none; }
+  .values-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline::before { left: 22px; }
+  .tl-item, .tl-item.right { flex-direction: row; }
+  .tl-item.right .tl-content { text-align: left; }
+}
+@media (max-width: 500px) {
+  .about-hero-title { font-size: 28px; }
+  .stat-num { font-size: 32px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ===== KONTAK PAGE STYLES ===== */
+
+/* PAGE HERO */
+.kontak-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #111 60%, #0a0a0a 100%);
+  padding: 64px 0; text-align: center; border-bottom: 1px solid #1e1e1e;
+}
+.kontak-hero-label { font-size: 11px; letter-spacing: 4px; color: #c9a84c; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; }
+.kontak-hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 14px; }
+.kontak-hero-sub { font-size: 16px; color: #666; max-width: 480px; margin: 0 auto; line-height: 1.75; }
+
+/* CONTACT GRID */
+.kontak-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 56px 0; align-items: start; }
+
+/* CONTACT CARDS */
+.contact-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 16px;
+  padding: 28px; display: flex; gap: 18px; align-items: flex-start;
+  transition: .2s; margin-bottom: 16px;
+}
+.contact-card:hover { border-color: #c9a84c; box-shadow: 0 4px 20px rgba(201,168,76,.1); }
+.contact-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-label { font-size: 12px; font-weight: 600; color: #aaa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+.contact-value { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.contact-note { font-size: 13px; color: #888; line-height: 1.6; }
+
+/* HOURS TABLE */
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table tr { border-bottom: 1px solid #f0f0f0; }
+.hours-table td { padding: 10px 0; font-size: 14px; color: #555; }
+.hours-table td:first-child { font-weight: 500; color: #333; }
+.hours-table td:last-child { text-align: right; font-weight: 600; }
+.hours-table tr.today td { color: #00aa55; font-weight: 700; }
+.open-badge { display: inline-block; background: #00aa55; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+.closed-badge { display: inline-block; background: #e85c2d; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+
+/* MAP SECTION */
+.map-section { background: #f5f5f5; padding: 0; }
+.map-container { position: relative; width: 100%; height: 480px; background: #e0e0e0; overflow: hidden; }
+.map-container iframe { width: 100%; height: 100%; border: none; display: block; }
+.map-overlay {
+  position: absolute; top: 20px; left: 20px;
+  background: #fff; border-radius: 12px; padding: 18px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15); max-width: 300px; z-index: 10;
+}
+.map-store-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+.map-store-addr { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px; }
+
+/* FORM */
+.form-section { padding: 56px 0; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.form-left h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; margin-bottom: 14px; }
+.form-left p { font-size: 15px; color: #666; line-height: 1.75; margin-bottom: 24px; }
+.form-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 32px; }
+.form-row { margin-bottom: 18px; }
+.form-row label { display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px; }
+.form-input {
+  width: 100%; border: 1.5px solid #e0e0e0; border-radius: 8px;
+  padding: 11px 14px; font-size: 14px; color: #111; outline: none;
+  transition: border-color .2s; background: #fff;
+}
+.form-input:focus { border-color: #c9a84c; }
+.form-input::placeholder { color: #bbb; }
+textarea.form-input { resize: vertical; min-height: 120px; }
+.form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-select { width: 100%; border: 1.5px solid #e0e0e0; border-radius: 8px; padding: 11px 14px; font-size: 14px; color: #111; outline: none; background: #fff; cursor: pointer; transition: border-color .2s; }
+.form-select:focus { border-color: #c9a84c; }
+
+/* CHANNEL CARDS */
+.channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+.channel-card {
+  border-radius: 14px; padding: 24px; text-align: center; cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none; display: block;
+}
+.channel-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+.channel-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+.channel-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.channel-desc { font-size: 13px; opacity: .75; line-height: 1.5; }
+
+/* FAQ */
+.faq-section { background: #fafafa; padding: 56px 0; }
+.faq-title { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; margin-bottom: 32px; }
+.faq-item { background: #fff; border: 1px solid #eee; border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+.faq-question { padding: 18px 20px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background .15s; }
+.faq-question:hover { background: #fafafa; }
+.faq-arrow { font-size: 18px; color: #888; transition: transform .2s; }
+.faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s; font-size: 14px; color: #555; line-height: 1.75; }
+.faq-item.open .faq-answer { max-height: 200px; padding: 0 20px 18px; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+/* BREADCRUMB */
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; transition: color .15s; }
+.breadcrumb a:hover { color: #111; }
+.breadcrumb .sep { color: #ccc; }
+.breadcrumb .current { color: #111; font-weight: 500; }
+
+/* WA FLOAT */
+.wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.45); cursor: pointer; transition: transform .2s; text-decoration: none; }
+.wa-float:hover { transform: scale(1.1); }
+
+@media (max-width: 900px) {
+  .kontak-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .channel-grid { grid-template-columns: 1fr; }
+  .map-container { height: 340px; }
+  .map-overlay { display: none; }
+  .form-2col { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .kontak-hero-title { font-size: 32px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== NAV (SHARED) ===== -->
+<nav class="wl-nav">
+  <div class="wl-nav-top">
+    <a href="javascript:void(0)" onclick="goPage('home');return false;" class="wl-logo">
+      <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link Logo">
+      <div class="wl-logo-text">
+        <div class="wl-logo-name">watch link</div>
+        <div class="wl-logo-sub">JAM TANGAN ORIGINAL</div>
+      </div>
+    </a>
+    <div class="wl-search">
+      <svg width="16" height="16" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Cari jam tangan, brand, model...">
+    </div>
+    <div class="wl-nav-right">
+      <div class="wl-cart-btn">
+        <svg width="22" height="22" fill="none" stroke="#333" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="wl-cart-badge" id="cartCount">3</div>
+      </div>
+      <a href="#" class="wl-btn wl-btn-outline">Masuk</a>
+      <a href="#" class="wl-btn wl-btn-dark">Daftar</a>
+    </div>
+  </div>
+  <div class="wl-subnav">
+    <div class="wl-subnav-inner">
+      <a href="javascript:void(0)" onclick="goPage('home');return false;" class="wl-subnav-link active" data-page="home">Beranda</a>
+      <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-subnav-link" data-page="produk">Produk</a>
+      <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-subnav-link" data-page="produk">Promo</a>
+      <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-subnav-link" data-page="produk">Flash Sale</a>
+      <a href="javascript:void(0)" onclick="goPage('tentang');return false;" class="wl-subnav-link" data-page="tentang">Tentang Kami</a>
+      <a href="javascript:void(0)" onclick="goPage('kontak');return false;" class="wl-subnav-link" data-page="kontak">Kontak &amp; Lokasi</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== PAGES ===== -->
+<main>
+<section class="wl-page active" id="page-home">
+<!-- ===== NAV ===== -->
+
+
+<!-- ===== HERO ===== -->
+<div class="wl-section">
+  <div class="hero-grid">
+    <!-- Banner 1: Mid Year Sale -->
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="hero-banner" style="background:linear-gradient(135deg,#1a1a1a 0%,#2d1500 50%,#1a0a00 100%);">
+      <img class="bg" src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum The Big Time">
+      <div class="overlay" style="background:linear-gradient(to right,transparent 25%,rgba(10,5,0,.92) 55%);"></div>
+      <div class="content">
+        <div class="hero-label" style="color:#c9a84c;">Mid Year Sale</div>
+        <div class="hero-title">Diskon s.d.<br><span style="color:#c9a84c;font-size:44px;line-height:1;">70%</span></div>
+        <div class="hero-sub">Produk original bergaransi resmi.<br>Periode 1 – 30 Juni 2026</div>
+        <span class="wl-btn wl-btn-gold" style="display:inline-flex;">Shop Now →</span>
+      </div>
+    </a>
+    <!-- Banner 2: New Arrival -->
+    <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="hero-banner" style="background:linear-gradient(135deg,#0d1117 0%,#1a2030 50%,#0d1117 100%);">
+      <img class="bg" src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda">
+      <div class="overlay" style="background:linear-gradient(to right,transparent 25%,rgba(5,8,20,.93) 55%);"></div>
+      <div class="content">
+        <div class="hero-label" style="color:#6699ff;">New Arrival</div>
+        <div class="hero-title">Quantum<br><span style="color:#88aaff;">Barracuda</span><br><span style="font-size:14px;font-weight:500;color:#aaa;">Automatic · 47mm</span></div>
+        <div class="hero-sub">Sapphire Crystal · 20 ATM<br>Japan Movement</div>
+        <span class="wl-btn" style="background:#fff;color:#111;font-weight:700;display:inline-flex;">Lihat Selengkapnya →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ===== TRUST BADGES ===== -->
+<div style="background:#fff;border-bottom:1px solid #eee;margin-top:16px;">
+  <div class="wl-section" style="padding-top:14px;padding-bottom:14px;">
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">100% Produk Original</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">Gratis Ongkir Seluruh Indonesia</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">Cicilan 0%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">Garansi Resmi 2 Tahun</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span style="font-size:13px;font-weight:600;color:#333;">COD Tersedia</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BRAND TERLARIS ===== -->
+<div class="wl-section mt-32">
+  <div class="wl-section-header">
+    <h2 class="wl-section-title">Brand Terlaris</h2>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-section-more">Lihat Semua →</a>
+  </div>
+  <div class="brand-grid">
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><rect x="5" y="10" width="50" height="40" rx="6" fill="#111"/><rect x="12" y="17" width="36" height="26" rx="3" fill="#222"/><line x1="30" y1="22" x2="30" y2="30" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="38" y2="34" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="30" r="2.5" fill="#fff"/></svg>
+      </div>
+      <span class="brand-name">G-SHOCK</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke="#111" stroke-width="3"/><circle cx="30" cy="30" r="14" stroke="#333" stroke-width="1.5"/><line x1="30" y1="14" x2="30" y2="30" stroke="#111" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="40" y2="36" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <span class="brand-name">SEIKO</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><rect x="18" y="10" width="24" height="40" rx="5" stroke="#111" stroke-width="2.5" fill="none"/><rect x="23" y="18" width="14" height="18" rx="2" stroke="#333" stroke-width="1.5" fill="none"/><line x1="30" y1="21" x2="30" y2="28" stroke="#111" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="28" x2="34" y2="31" stroke="#e85c2d" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <span class="brand-name">CASIO</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#111" stroke-width="2.5"/><circle cx="30" cy="30" r="12" stroke="#555" stroke-width="1"/><line x1="30" y1="14" x2="30" y2="30" stroke="#111" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="30" x2="39" y2="37" stroke="#00aa55" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="30" r="2.5" fill="#00aa55"/></svg>
+      </div>
+      <span class="brand-name">GARMIN</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#c0932a" stroke-width="2.5"/><circle cx="30" cy="30" r="13" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="3 2"/><line x1="30" y1="15" x2="30" y2="30" stroke="#c0932a" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="30" x2="38" y2="36" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <span class="brand-name">ORIENT</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon" style="background:#f0f4ff;">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#1a4fa0" stroke-width="2.5"/><circle cx="30" cy="30" r="12" stroke="#3366cc" stroke-width="1.5"/><line x1="30" y1="15" x2="30" y2="30" stroke="#1a4fa0" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="40" y2="36" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="30" r="2.5" fill="#1a4fa0"/></svg>
+      </div>
+      <span class="brand-name">BHPC</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon" style="background:#fff0f8;">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#aa2266" stroke-width="2.5"/><circle cx="30" cy="30" r="12" stroke="#cc4488" stroke-width="1.5"/><line x1="30" y1="15" x2="30" y2="30" stroke="#aa2266" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="40" y2="36" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="30" r="2.5" fill="#aa2266"/></svg>
+      </div>
+      <span class="brand-name">CJ</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card">
+      <div class="brand-icon" style="background:#f5f0ff;">
+        <svg width="30" height="30" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#6633aa" stroke-width="2.5"/><circle cx="30" cy="30" r="12" stroke="#8855cc" stroke-width="1.5"/><line x1="30" y1="15" x2="30" y2="30" stroke="#6633aa" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="40" y2="36" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="30" r="2.5" fill="#6633aa"/></svg>
+      </div>
+      <span class="brand-name">CHRIST VERRA</span>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="brand-card" style="background:#111;border-color:#111;justify-content:center;">
+      <span style="font-size:24px;color:#c9a84c;font-weight:900;line-height:1;">+</span>
+      <span style="font-size:11px;font-weight:600;color:#fff;text-align:center;">Lihat<br>Semua</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===== FLASH SALE ===== -->
+<div class="flash-section mt-32">
+  <div class="wl-section">
+    <div class="flash-header">
+      <div>
+        <div class="flash-title">⚡ Flash Sale</div>
+        <div class="flash-timer" style="margin-top:6px;">
+          <span style="font-size:13px;color:#aaa;margin-right:6px;">Berakhir dalam:</span>
+          <div class="timer-box" id="fh">05</div>
+          <span class="timer-sep">:</span>
+          <div class="timer-box" id="fm">42</div>
+          <span class="timer-sep">:</span>
+          <div class="timer-box" id="fs">18</div>
+        </div>
+      </div>
+      <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-section-more" style="color:#c9a84c;">Lihat Semua →</a>
+    </div>
+    <div class="flash-grid">
+      <!-- Card 1 -->
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="flash-card">
+        <div class="flash-card-img">
+          <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum Big Time">
+          <div class="wl-card-badge badge-red" style="position:absolute;top:10px;left:10px;">-35%</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#e85c2d;">QUANTUM</div>
+          <div class="flash-name">Quantum The Big Time Chronograph 45mm</div>
+          <div class="flash-price">Rp 2.750.000</div>
+          <div class="flash-original">Rp 4.250.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+      <!-- Card 2 -->
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="flash-card">
+        <div class="flash-card-img">
+          <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda">
+          <div class="wl-card-badge badge-green" style="position:absolute;top:10px;left:10px;">NEW</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#e85c2d;">QUANTUM</div>
+          <div class="flash-name">Quantum Barracuda Automatic 47mm Sapphire</div>
+          <div class="flash-price">Rp 3.950.000</div>
+          <div class="flash-original">Rp 5.500.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+      <!-- Card 3 -->
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="flash-card">
+        <div class="flash-card-img">
+          <div class="flash-card-img-ph" style="background:linear-gradient(135deg,#0d1a2e,#1a2d4a);">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#7788ff" stroke-width="1" stroke-dasharray="3 2"/><line x1="50" y1="16" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="66" y2="58" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#fff"/></svg>
+          </div>
+          <div class="wl-card-badge badge-red" style="position:absolute;top:10px;left:10px;">-42%</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#5566ff;">SEIKO</div>
+          <div class="flash-name">Seiko Presage Cocktail Time Automatic</div>
+          <div class="flash-price">Rp 3.100.000</div>
+          <div class="flash-original">Rp 5.400.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+      <!-- Card 4 -->
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="flash-card">
+        <div class="flash-card-img">
+          <div class="flash-card-img-ph" style="background:linear-gradient(135deg,#1a0a00,#3d1800);">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><rect x="22" y="16" width="56" height="68" rx="12" stroke="#c9a84c" stroke-width="2.5" fill="#1a0800"/><rect x="30" y="24" width="40" height="52" rx="6" stroke="#c9a84c" stroke-width="1.5" fill="#0a0400"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="62" y2="58" stroke="#ff4422" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="50" r="3" fill="#c9a84c"/></svg>
+          </div>
+          <div class="wl-card-badge badge-orange" style="position:absolute;top:10px;left:10px;">LIMITED</div>
+          <div class="wl-card-wish">
+            <svg width="15" height="15" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-brand" style="color:#ff9900;">CASIO</div>
+          <div class="flash-name">G-Shock GM-6900G Gold Full Metal</div>
+          <div class="flash-price">Rp 1.850.000</div>
+          <div class="flash-original">Rp 2.450.000</div>
+          <div class="flash-add">+ Keranjang</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEUNTUNGAN BELANJA ===== -->
+<div class="benefits-section">
+  <div class="wl-section">
+    <h2 class="benefits-title">Keuntungan Belanja di Watch Link</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">100% Authentic</div>
+          <div class="benefit-desc">Semua produk Watch Link original, baru, bergaransi resmi dan telah melalui proses quality control ketat.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">Best Price</div>
+          <div class="benefit-desc">Harga terbaik dengan cicilan 0% dan berbagai pilihan pembayaran yang mudah dan aman.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">Excellent Service</div>
+          <div class="benefit-desc">Keamanan dan kenyamanan belanja senantiasa menjadi prioritas. Garansi 3 hari pengembalian.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="benefit-label">Extra Benefits</div>
+          <div class="benefit-desc">Nikmati gratis ongkir seluruh Indonesia, WL Points &amp; Loyalty untuk potongan belanja eksklusif.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRODUK TERLARIS ===== -->
+<div class="wl-section mt-32 mb-32">
+  <div class="wl-section-header">
+    <h2 class="wl-section-title">Produk Terlaris</h2>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-section-more">Lihat Semua →</a>
+  </div>
+  <div class="products-grid">
+    <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+      <div class="wl-card-img">
+        <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum Big Time">
+        <span class="wl-card-badge badge-gold">TERLARIS</span>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+        <div class="wl-card-name">Quantum Big Time Chronograph 45mm</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(128)</span>
+        </div>
+        <div class="wl-card-price">Rp 2.750.000</div>
+        <div class="wl-card-original">Rp 4.250.000</div>
+      </div>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+      <div class="wl-card-img">
+        <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda">
+        <span class="wl-card-badge badge-green">NEW</span>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+        <div class="wl-card-name">Quantum Barracuda Automatic 47mm</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(94)</span>
+        </div>
+        <div class="wl-card-price">Rp 3.950.000</div>
+        <div class="wl-card-original">Rp 5.500.000</div>
+      </div>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+      <div class="wl-card-img">
+        <div class="wl-card-img-placeholder" style="background:linear-gradient(135deg,#0a1020,#1a2040);">
+          <svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#7788ff" stroke-width="1" stroke-dasharray="3 2"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="67" y2="59" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#fff"/></svg>
+        </div>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#5566ff;">SEIKO</div>
+        <div class="wl-card-name">Seiko Presage Cocktail Time SRPE45</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(89)</span>
+        </div>
+        <div class="wl-card-price">Rp 3.100.000</div>
+        <div class="wl-card-original">Rp 5.400.000</div>
+      </div>
+    </a>
+    <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+      <div class="wl-card-img">
+        <div class="wl-card-img-placeholder" style="background:linear-gradient(135deg,#001a0a,#003320);">
+          <svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#00cc66" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#009944" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#00ff88" stroke-width="1" stroke-dasharray="2 3"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="66" y2="59" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#00cc66"/></svg>
+        </div>
+        <div class="wl-card-wish">
+          <svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-brand" style="color:#00aa55;">GARMIN</div>
+        <div class="wl-card-name">Garmin Fenix 7 Pro Solar GPS</div>
+        <div class="wl-stars">
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="count">(67)</span>
+        </div>
+        <div class="wl-card-price">Rp 9.500.000</div>
+        <div class="wl-card-original">Rp 12.000.000</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ===== BANNER MID ===== -->
+<div style="background:linear-gradient(135deg,#0a0a0a,#1a1a0a);padding:60px 0;">
+  <div class="wl-section" style="text-align:center;">
+    <div style="font-size:12px;letter-spacing:4px;color:#c9a84c;font-weight:700;text-transform:uppercase;margin-bottom:14px;">Koleksi Eksklusif</div>
+    <h2 style="font-size:40px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;">Temukan Jam Tangan<br>Impian Kamu</h2>
+    <p style="font-size:15px;color:#666;max-width:480px;margin:0 auto 30px;line-height:1.75;">Lebih dari 500 model dari 30+ brand ternama dunia. Semua original, bergaransi resmi, dengan harga terbaik.</p>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-btn wl-btn-gold" style="font-size:15px;padding:14px 36px;">Belanja Sekarang</a>
+  </div>
+</div>
+
+<!-- ===== BUSINESS & PARTNERSHIPS ===== -->
+<div class="partner-section">
+  <div class="wl-section">
+    <h2 class="partner-title">🤝 Business &amp; Partnerships</h2>
+    <div class="partner-grid">
+      <div class="partner-card" style="background:linear-gradient(135deg,#1a0a00,#2d1500);">
+        <img class="bg" src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Toko Watch Link">
+        <div class="partner-overlay"></div>
+        <div class="partner-content">
+          <div class="partner-card-title">Toko Offline Watch Link</div>
+          <div class="partner-card-desc">Kunjungi toko kami di Mall Metropolitan 2, Bekasi Barat. Lihat langsung koleksi jam tangan original kami.</div>
+          <a href="javascript:void(0)" onclick="goPage('kontak');return false;" class="partner-btn">Lihat Lokasi Toko</a>
+        </div>
+      </div>
+      <div class="partner-card" style="background:linear-gradient(135deg,#0a0a1a,#1a1a2d);">
+        <img class="bg" src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Corporate Order">
+        <div class="partner-overlay"></div>
+        <div class="partner-content">
+          <div class="partner-card-title">Corporate Order</div>
+          <div class="partner-card-desc">Dapatkan harga khusus untuk corporate order atau pembelian dalam jumlah besar dengan layanan premium.</div>
+          <a href="javascript:void(0)" onclick="goPage('kontak');return false;" class="partner-btn">Lihat Detail</a>
+        </div>
+      </div>
+      <div class="partner-card" style="background:linear-gradient(135deg,#0a1a0a,#0d2d0d);">
+        <img class="bg" src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Partnership">
+        <div class="partner-overlay"></div>
+        <div class="partner-content">
+          <div class="partner-card-title">Partnership Program</div>
+          <div class="partner-card-desc">Raih keuntungan lebih dengan bergabung menjadi partner bisnis dan supplier resmi kami.</div>
+          <a href="javascript:void(0)" onclick="goPage('kontak');return false;" class="partner-btn">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NEWSLETTER ===== -->
+<div class="newsletter-section">
+  <div class="newsletter-inner">
+    <div style="font-size:12px;letter-spacing:3px;color:#c9a84c;font-weight:700;margin-bottom:12px;">NEWSLETTER</div>
+    <h2 class="newsletter-title">Dapatkan Penawaran Eksklusif</h2>
+    <p class="newsletter-sub">Daftar sekarang dan jadilah yang pertama tahu tentang promo, new arrival, dan flash sale Watch Link.</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input class="newsletter-input" type="email" placeholder="Masukkan email kamu...">
+      <button class="wl-btn wl-btn-gold" style="white-space:nowrap;padding:12px 24px;">Langganan Gratis</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+
+
+<!-- WHATSAPP FLOAT -->
+</section>
+<section class="wl-page" id="page-produk">
+<!-- NAV -->
+
+
+<div class="wl-section">
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="javascript:void(0)" onclick="goPage('home');return false;">Home</a>
+    <span class="sep">›</span>
+    <span class="current">Semua Produk</span>
+  </div>
+
+  <!-- PAGE TITLE -->
+  <div style="padding:20px 0 0;">
+    <h1 style="font-size:26px;font-weight:800;margin-bottom:4px;">Semua Produk</h1>
+    <p style="font-size:14px;color:#666;">Temukan jam tangan original dari brand ternama dengan harga terbaik</p>
+  </div>
+
+  <div class="page-body">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- Category -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Kategori <span>Reset</span></div>
+        <div class="filter-option"><input type="checkbox" id="c1" checked><label for="c1">Jam Pria</label><span class="count">124</span></div>
+        <div class="filter-option"><input type="checkbox" id="c2"><label for="c2">Jam Wanita</label><span class="count">89</span></div>
+        <div class="filter-option"><input type="checkbox" id="c3"><label for="c3">Luxury Watches</label><span class="count">43</span></div>
+        <div class="filter-option"><input type="checkbox" id="c4"><label for="c4">Smartwatch</label><span class="count">37</span></div>
+        <div class="filter-option"><input type="checkbox" id="c5"><label for="c5">Strap &amp; Aksesoris</label><span class="count">56</span></div>
+      </div>
+
+      <!-- Brand -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Brand <span>Reset</span></div>
+        <div class="filter-option"><input type="checkbox" id="b1" checked><label for="b1">Quantum</label><span class="count">42</span></div>
+        <div class="filter-option"><input type="checkbox" id="b2"><label for="b2">Casio / G-Shock</label><span class="count">38</span></div>
+        <div class="filter-option"><input type="checkbox" id="b3"><label for="b3">Seiko</label><span class="count">31</span></div>
+        <div class="filter-option"><input type="checkbox" id="b4"><label for="b4">Garmin</label><span class="count">28</span></div>
+        <div class="filter-option"><input type="checkbox" id="b5"><label for="b5">Orient</label><span class="count">22</span></div>
+        <div class="filter-option"><input type="checkbox" id="b6"><label for="b6">Citizen</label><span class="count">19</span></div>
+        <div class="filter-option"><input type="checkbox" id="b7"><label for="b7">Fossil</label><span class="count">17</span></div>
+        <div class="filter-option"><input type="checkbox" id="b8"><label for="b8">Beverly Hills Polo Club</label><span class="count">4</span></div>
+        <div class="filter-option"><input type="checkbox" id="b9"><label for="b9">Charles Jourdan</label><span class="count">14</span></div>
+        <div class="filter-option"><input type="checkbox" id="b10"><label for="b10">Christ Verra</label><span class="count">20</span></div>
+      </div>
+
+      <!-- Price -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Harga</div>
+        <div class="filter-option"><input type="radio" name="price" id="p0"><label for="p0">Semua Harga</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p1"><label for="p1">Di bawah Rp 1 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p2" checked><label for="p2">Rp 1–3 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p3"><label for="p3">Rp 3–7 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p4"><label for="p4">Rp 7–20 juta</label></div>
+        <div class="filter-option"><input type="radio" name="price" id="p5"><label for="p5">Di atas Rp 20 juta</label></div>
+        <div style="margin-top:12px;font-size:12px;color:#888;margin-bottom:6px;">Atau masukkan rentang harga:</div>
+        <div class="price-inputs">
+          <input class="price-input" type="number" placeholder="Min" min="0">
+          <input class="price-input" type="number" placeholder="Max" min="0">
+        </div>
+      </div>
+
+      <!-- Movement -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Jenis Mesin</div>
+        <div class="filter-option"><input type="checkbox" id="m1" checked><label for="m1">Automatic</label><span class="count">87</span></div>
+        <div class="filter-option"><input type="checkbox" id="m2"><label for="m2">Quartz / Battery</label><span class="count">134</span></div>
+        <div class="filter-option"><input type="checkbox" id="m3"><label for="m3">Solar</label><span class="count">23</span></div>
+        <div class="filter-option"><input type="checkbox" id="m4"><label for="m4">Smart / Digital</label><span class="count">37</span></div>
+      </div>
+
+      <!-- Features -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Fitur</div>
+        <div class="filter-option"><input type="checkbox" id="f1"><label for="f1">Chronograph</label></div>
+        <div class="filter-option"><input type="checkbox" id="f2"><label for="f2">Sapphire Crystal</label></div>
+        <div class="filter-option"><input type="checkbox" id="f3"><label for="f3">Water Resistant 10+ ATM</label></div>
+        <div class="filter-option"><input type="checkbox" id="f4"><label for="f4">Date Display</label></div>
+        <div class="filter-option"><input type="checkbox" id="f5"><label for="f5">GPS</label></div>
+      </div>
+
+      <button class="wl-btn wl-btn-dark" style="width:100%;padding:12px;">Terapkan Filter</button>
+    </aside>
+
+    <!-- MAIN PRODUCTS -->
+    <div class="products-main">
+      <!-- TOOLBAR -->
+      <div class="toolbar">
+        <div class="result-count">Menampilkan <strong>1–12</strong> dari <strong>349 produk</strong></div>
+        <div class="toolbar-right">
+          <select class="sort-select">
+            <option>Paling Relevan</option>
+            <option>Terlaris</option>
+            <option>Harga: Rendah ke Tinggi</option>
+            <option>Harga: Tinggi ke Rendah</option>
+            <option>Ulasan Terbaik</option>
+            <option>Terbaru</option>
+          </select>
+          <div class="view-toggle">
+            <div class="view-btn active" title="Grid">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><rect x="0" y="0" width="7" height="7"/><rect x="9" y="0" width="7" height="7"/><rect x="0" y="9" width="7" height="7"/><rect x="9" y="9" width="7" height="7"/></svg>
+            </div>
+            <div class="view-btn" title="List">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVE FILTERS -->
+      <div class="active-filters">
+        <div class="filter-tag">Jam Pria <button>×</button></div>
+        <div class="filter-tag">Quantum <button>×</button></div>
+        <div class="filter-tag">Rp 1–3 juta <button>×</button></div>
+        <div class="filter-tag">Automatic <button>×</button></div>
+        <a href="javascript:void(0)" onclick="goPage('produk');return false;" style="font-size:12px;color:var(--red);font-weight:500;display:flex;align-items:center;gap:3px;">Reset Semua</a>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="products-grid-3" id="prodGrid">
+        <!-- Row 1 -->
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum Big Time" style="height:200px;">
+            <span class="wl-card-badge badge-gold">TERLARIS</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+            <div class="wl-card-name">Quantum Big Time Chronograph 45mm</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(128)</span></div>
+            <div class="wl-card-price">Rp 2.750.000</div>
+            <div class="wl-card-original">Rp 4.250.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Quantum Barracuda" style="height:200px;">
+            <span class="wl-card-badge badge-green">NEW</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div>
+            <div class="wl-card-name">Quantum Barracuda Automatic 47mm Sapphire</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(94)</span></div>
+            <div class="wl-card-price">Rp 3.950.000</div>
+            <div class="wl-card-original">Rp 5.500.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#0d1a2e,#1a2d4a);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="67" y2="59" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#fff"/></svg>
+            </div>
+            <span class="wl-card-badge badge-red">-42%</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#5566ff;">SEIKO</div>
+            <div class="wl-card-name">Seiko Presage Cocktail Time Automatic</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(89)</span></div>
+            <div class="wl-card-price">Rp 3.100.000</div>
+            <div class="wl-card-original">Rp 5.400.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#001a0a,#003320);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#00cc66" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#009944" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="66" y2="59" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#00cc66"/></svg>
+            </div>
+            <span class="wl-card-badge badge-red">-21%</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#00aa55;">GARMIN</div>
+            <div class="wl-card-name">Garmin Fenix 7 Pro Solar GPS</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(67)</span></div>
+            <div class="wl-card-price">Rp 9.500.000</div>
+            <div class="wl-card-original">Rp 12.000.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#1a0a00,#3d1800);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><rect x="22" y="16" width="56" height="68" rx="12" stroke="#c9a84c" stroke-width="2.5" fill="#1a0800"/><rect x="30" y="24" width="40" height="52" rx="6" stroke="#c9a84c" stroke-width="1.5" fill="#0a0400"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="62" y2="58" stroke="#ff4422" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="50" r="3" fill="#c9a84c"/></svg>
+            </div>
+            <span class="wl-card-badge badge-orange">LIMITED</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#ff9900;">CASIO</div>
+            <div class="wl-card-name">G-Shock GM-6900G Gold Full Metal</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(53)</span></div>
+            <div class="wl-card-price">Rp 1.850.000</div>
+            <div class="wl-card-original">Rp 2.450.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <div class="wl-card-img-placeholder" style="height:200px;background:linear-gradient(135deg,#0a1020,#1e2a40);">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#c9a84c" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#a08030" stroke-width="1.5"/><circle cx="50" cy="50" r="16" stroke="#f0d080" stroke-width="1" stroke-dasharray="2 3"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="64" y2="58" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3.5" fill="#c9a84c"/></svg>
+            </div>
+            <span class="wl-card-badge badge-red">-18%</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#c9a84c;">ORIENT</div>
+            <div class="wl-card-name">Orient Bambino Version 5 Automatic</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(41)</span></div>
+            <div class="wl-card-price">Rp 2.250.000</div>
+            <div class="wl-card-original">Rp 2.750.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <!-- Beverly Hills Polo Club -->
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/IMG-20260513-WA0020.jpg" alt="BHPC Watch" style="width:100%;height:200px;object-fit:cover;">
+            <span class="wl-card-badge badge-red">NEW</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#1a5fa8;">BEVERLY HILLS POLO CLUB</div>
+            <div class="wl-card-name">BHPC Chronograph Classic Edition</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(18)</span></div>
+            <div class="wl-card-price">Rp 1.250.000</div>
+            <div class="wl-card-original">Rp 1.650.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/IMG-20260513-WA0021.jpg" alt="BHPC Watch" style="width:100%;height:200px;object-fit:cover;">
+            <span class="wl-card-badge badge-gold">SALE</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#1a5fa8;">BEVERLY HILLS POLO CLUB</div>
+            <div class="wl-card-name">BHPC Analog Sport Leather Strap</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(24)</span></div>
+            <div class="wl-card-price">Rp 980.000</div>
+            <div class="wl-card-original">Rp 1.350.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/IMG-20260513-WA0022.jpg" alt="BHPC Watch" style="width:100%;height:200px;object-fit:cover;">
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#1a5fa8;">BEVERLY HILLS POLO CLUB</div>
+            <div class="wl-card-name">BHPC Men's Dual Time Zone Watch</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(11)</span></div>
+            <div class="wl-card-price">Rp 1.150.000</div>
+            <div class="wl-card-original">Rp 1.500.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <!-- Charles Jourdan -->
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/IMG-20260517-WA0042.jpg" alt="Charles Jourdan Watch" style="width:100%;height:200px;object-fit:cover;">
+            <span class="wl-card-badge badge-red">NEW</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#c0406a;">CHARLES JOURDAN</div>
+            <div class="wl-card-name">Charles Jourdan Paris Elegance Ladies</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(32)</span></div>
+            <div class="wl-card-price">Rp 1.750.000</div>
+            <div class="wl-card-original">Rp 2.200.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/IMG-20260517-WA0045.jpg" alt="Charles Jourdan Watch" style="width:100%;height:200px;object-fit:cover;">
+            <span class="wl-card-badge badge-gold">SALE</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#c0406a;">CHARLES JOURDAN</div>
+            <div class="wl-card-name">Charles Jourdan Men's Prestige Sapphire</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(27)</span></div>
+            <div class="wl-card-price">Rp 2.100.000</div>
+            <div class="wl-card-original">Rp 2.750.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/IMG-20260517-WA0050.jpg" alt="Charles Jourdan Watch" style="width:100%;height:200px;object-fit:cover;">
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#c0406a;">CHARLES JOURDAN</div>
+            <div class="wl-card-name">Charles Jourdan Chronograph Rose Gold</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(19)</span></div>
+            <div class="wl-card-price">Rp 2.450.000</div>
+            <div class="wl-card-original">Rp 3.100.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <!-- Christ Verra -->
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/1781084579022.jpg" alt="Christ Verra Watch" style="width:100%;height:200px;object-fit:cover;">
+            <span class="wl-card-badge badge-red">NEW</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#7b4fa6;">CHRIST VERRA</div>
+            <div class="wl-card-name">Christ Verra Premium Automatic Men</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(45)</span></div>
+            <div class="wl-card-price">Rp 850.000</div>
+            <div class="wl-card-original">Rp 1.200.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/1781100489952.jpg" alt="Christ Verra Watch" style="width:100%;height:200px;object-fit:cover;">
+            <span class="wl-card-badge badge-gold">SALE</span>
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#7b4fa6;">CHRIST VERRA</div>
+            <div class="wl-card-name">Christ Verra Ladies Crystal Elegance</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(38)</span></div>
+            <div class="wl-card-price">Rp 720.000</div>
+            <div class="wl-card-original">Rp 950.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+          <div class="wl-card-img">
+            <img src="wl-uploads/1781084791921.jpg" alt="Christ Verra Watch" style="width:100%;height:200px;object-fit:cover;">
+            <div class="wl-card-wish"><svg width="14" height="14" fill="none" stroke="#555" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="wl-card-body">
+            <div class="wl-card-brand" style="color:#7b4fa6;">CHRIST VERRA</div>
+            <div class="wl-card-name">Christ Verra Stainless Steel Sporty</div>
+            <div class="wl-stars"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="count">(29)</span></div>
+            <div class="wl-card-price">Rp 650.000</div>
+            <div class="wl-card-original">Rp 880.000</div>
+            <div class="wl-card-add">+ Keranjang</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <div class="page-btn">‹</div>
+        <div class="page-btn active">1</div>
+        <div class="page-btn">2</div>
+        <div class="page-btn">3</div>
+        <div class="page-btn dots">…</div>
+        <div class="page-btn">29</div>
+        <div class="page-btn">›</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+</section>
+<section class="wl-page" id="page-detail">
+<!-- NAV -->
+
+
+<div class="wl-section">
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="javascript:void(0)" onclick="goPage('home');return false;">Home</a>
+    <span class="sep">›</span>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;">Jam Pria</a>
+    <span class="sep">›</span>
+    <a href="javascript:void(0)" onclick="goPage('produk');return false;">Quantum</a>
+    <span class="sep">›</span>
+    <span class="current">Quantum The Big Time Chronograph 45mm</span>
+  </div>
+
+  <div class="detail-grid">
+    <!-- GALLERY -->
+    <div>
+      <div class="gallery-main">
+        <img id="mainImg" src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Quantum The Big Time">
+        <div class="gallery-badges">
+          <span class="wl-card-badge badge-red">-35%</span>
+          <span class="wl-card-badge badge-gold">ORIGINAL</span>
+        </div>
+      </div>
+      <div class="gallery-thumb-row">
+        <div class="gallery-thumb active" onclick="switchImg(this,'wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg')">
+          <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="View 1">
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg')">
+          <img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="View 2">
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'')">
+          <div class="gallery-thumb-ph" style="background:linear-gradient(135deg,#1a0a00,#2d1500);">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="38" stroke="#c9a84c" stroke-width="3"/><line x1="50" y1="20" x2="50" y2="50" stroke="#fff" stroke-width="3" stroke-linecap="round"/><line x1="50" y1="50" x2="65" y2="60" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'')">
+          <div class="gallery-thumb-ph" style="background:linear-gradient(135deg,#0a0a0a,#222);">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><rect x="20" y="10" width="60" height="80" rx="10" stroke="#888" stroke-width="3" fill="#111"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT INFO -->
+    <div class="detail-info">
+      <div class="detail-brand">QUANTUM · JAM PRIA</div>
+      <h1 class="detail-name">Quantum The Big Time<br>Chronograph 45mm</h1>
+
+      <div class="detail-rating">
+        <div class="detail-rating-stars">
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="detail-rating-num">4.8</span>
+        <span class="detail-rating-count">(128 ulasan)</span>
+        <span class="detail-rating-sold">1.240 terjual</span>
+      </div>
+
+      <div class="price-box">
+        <div class="price-main">Rp 2.750.000</div>
+        <div class="price-original">Rp 4.250.000</div>
+        <span class="price-savings">Hemat Rp 1.500.000 (35%)</span>
+        <div style="margin-top:12px;font-size:12px;color:#888;">Harga sudah termasuk PPN</div>
+      </div>
+
+      <div class="voucher-strip">
+        <svg width="16" height="16" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <span>Voucher tersedia — hemat s.d. Rp 500.000 →</span>
+      </div>
+
+      <!-- SPECS -->
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3.6" y1="3.6" x2="20.4" y2="20.4"/></svg></div>
+          <div><div class="spec-label">Diameter</div><div class="spec-value">45 mm</div></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div class="spec-label">Garansi Resmi</div><div class="spec-value">2 Tahun</div></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div><div class="spec-label">Water Resistance</div><div class="spec-value">10 ATM</div></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-icon"><svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+          <div><div class="spec-label">Movement</div><div class="spec-value">Japan Battery</div></div>
+        </div>
+      </div>
+
+      <!-- COLOR -->
+      <div class="color-section">
+        <div class="color-title">Pilih Warna: <span style="font-weight:400;color:#888;" id="selectedColor">Hitam / Merah</span></div>
+        <div class="color-options">
+          <div class="color-btn active" onclick="selectColor(this,'Hitam / Merah')">
+            <div class="color-ring active"><div class="color-swatch" style="background:#111;border:2px solid #333;"></div></div>
+            <span class="color-label">Hitam</span>
+          </div>
+          <div class="color-btn" onclick="selectColor(this,'Gold')">
+            <div class="color-ring"><div class="color-swatch" style="background:linear-gradient(135deg,#c9a84c,#f0d080);"></div></div>
+            <span class="color-label">Gold</span>
+          </div>
+          <div class="color-btn" onclick="selectColor(this,'Merah')">
+            <div class="color-ring"><div class="color-swatch" style="background:linear-gradient(135deg,#cc2200,#ff4422);"></div></div>
+            <span class="color-label">Merah</span>
+          </div>
+          <div class="color-btn" onclick="selectColor(this,'Biru')">
+            <div class="color-ring"><div class="color-swatch" style="background:linear-gradient(135deg,#2244cc,#4466ff);"></div></div>
+            <span class="color-label">Biru</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QTY + CTA -->
+      <div class="qty-row">
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-val" id="qtyVal">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+        <span style="font-size:13px;color:#888;">Stok: <strong style="color:#00aa55;">42 unit tersedia</strong></span>
+      </div>
+      <div class="cta-row">
+        <button class="cta-cart" onclick="addCart()">🛒 + Keranjang</button>
+        <button class="cta-buy" style="background:#c9a84c;color:#000;">⚡ Beli Sekarang</button>
+      </div>
+
+      <!-- GUARANTEES -->
+      <div class="guarantee-row">
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#00aa55" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          100% Original
+        </div>
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#5566ff" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Gratis Ongkir
+        </div>
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          3 Hari Retur
+        </div>
+        <div class="guarantee-badge">
+          <svg width="14" height="14" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Cicilan 0%
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div style="margin-top:20px;display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #eee;">
+        <span style="font-size:13px;color:#888;font-weight:500;">Bagikan:</span>
+        <a href="#" style="width:30px;height:30px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#555;">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" style="width:30px;height:30px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#555;">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href)" style="background:none;border:none;font-size:13px;color:#888;cursor:pointer;text-decoration:underline;">Salin Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS: DESCRIPTION / SPECS / REVIEWS -->
+  <div class="tabs">
+    <div class="tab-list">
+      <button class="tab-btn active" onclick="switchTab(this,'desc')">Deskripsi</button>
+      <button class="tab-btn" onclick="switchTab(this,'spec')">Spesifikasi Lengkap</button>
+      <button class="tab-btn" onclick="switchTab(this,'rev')">Ulasan (128)</button>
+      <button class="tab-btn" onclick="switchTab(this,'qa')">Tanya Jawab</button>
+    </div>
+  </div>
+
+  <!-- DESC -->
+  <div class="tab-content active" id="tab-desc">
+    <div style="max-width:720px;">
+      <h2 style="font-size:20px;font-weight:800;margin-bottom:14px;">Quantum The Big Time Chronograph 45mm</h2>
+      <p style="font-size:15px;color:#444;line-height:1.8;margin-bottom:16px;">Quantum The Big Time hadir dengan desain kronograf yang gagah dan berani, sempurna untuk pria yang tidak takut tampil percaya diri. Dilengkapi dengan mesin <strong>Japan Battery Movement</strong> yang presisi dan andal, jam tangan ini merupakan perpaduan sempurna antara performa tinggi dan estetika yang memukau.</p>
+      <p style="font-size:15px;color:#444;line-height:1.8;margin-bottom:16px;">Casing berdiameter 45mm dengan material anti-scratch memberikan ketahanan ekstra, sementara tali silikon premium memastikan kenyamanan di pergelangan tangan sepanjang hari. Fitur kronograf multi-fungsi memudahkan pengukuran waktu secara presisi.</p>
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Fitur Unggulan:</h3>
+      <ul style="font-size:14px;color:#444;line-height:2;padding-left:20px;">
+        <li>Mesin Japan Battery Movement – akurasi tinggi</li>
+        <li>Kronograf 3 sub-dial dengan date display</li>
+        <li>Water resistant 10 ATM (100 meter)</li>
+        <li>Casing stainless steel + resin anti-scratch</li>
+        <li>Tali silikon premium dengan quick-release</li>
+        <li>Kaca mineral anti-gores</li>
+        <li>Diameter 45mm · Ketebalan 14mm</li>
+        <li>Garansi resmi Quantum 2 tahun</li>
+      </ul>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Chronograph</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Date Display</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Tahan Air 10 ATM</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Anti-Scratch</span>
+        <span style="background:#f0f0f0;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#333;">Japan Movement</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPEC TABLE -->
+  <div class="tab-content" id="tab-spec">
+    <div style="max-width:640px;">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <tbody>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;width:200px;">Brand</td><td style="padding:12px 0;font-weight:600;">Quantum</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Model</td><td style="padding:12px 0;font-weight:600;">The Big Time QHG.487.51.592.21.R</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Tipe</td><td style="padding:12px 0;font-weight:600;">Jam Pria Chronograph</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Mesin</td><td style="padding:12px 0;font-weight:600;">Japan Battery Movement (Miyota)</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Diameter Casing</td><td style="padding:12px 0;font-weight:600;">45 mm</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Ketebalan</td><td style="padding:12px 0;font-weight:600;">14 mm</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Material Casing</td><td style="padding:12px 0;font-weight:600;">Stainless Steel + Resin</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Kaca</td><td style="padding:12px 0;font-weight:600;">Mineral Anti-Gores</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Tali</td><td style="padding:12px 0;font-weight:600;">Silikon Premium</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Water Resistance</td><td style="padding:12px 0;font-weight:600;">10 ATM (100 meter)</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Fitur</td><td style="padding:12px 0;font-weight:600;">Chronograph, Date, Sub-dial</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Warna</td><td style="padding:12px 0;font-weight:600;">Hitam/Merah, Gold, Biru</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:12px 0;color:#888;">Garansi</td><td style="padding:12px 0;font-weight:600;">2 Tahun Garansi Resmi</td></tr>
+          <tr><td style="padding:12px 0;color:#888;">Isi Kotak</td><td style="padding:12px 0;font-weight:600;">Jam tangan, box, kartu garansi, buku panduan</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="tab-content" id="tab-rev">
+    <div class="review-summary">
+      <div class="review-avg">
+        <div class="review-avg-num">4.8</div>
+        <div style="display:flex;gap:2px;justify-content:center;margin:4px 0;">
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="review-avg-max">dari 5 bintang</div>
+        <div style="font-size:12px;color:#888;margin-top:4px;">128 ulasan</div>
+      </div>
+      <div class="review-bars">
+        <div class="review-bar-row"><span>5 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:68%;"></div></div><span class="review-bar-count">87</span></div>
+        <div class="review-bar-row"><span>4 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:22%;"></div></div><span class="review-bar-count">28</span></div>
+        <div class="review-bar-row"><span>3 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:7%;"></div></div><span class="review-bar-count">9</span></div>
+        <div class="review-bar-row"><span>2 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:2%;"></div></div><span class="review-bar-count">3</span></div>
+        <div class="review-bar-row"><span>1 ⭐</span><div class="review-bar-track"><div class="review-bar-fill" style="width:1%;"></div></div><span class="review-bar-count">1</span></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div>
+          <div class="reviewer-name">Budi S. ✓ Pembeli Terverifikasi</div>
+          <div style="display:flex;gap:2px;margin-top:4px;"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
+        <div class="review-date">15 Juni 2026</div>
+      </div>
+      <div class="review-text">Jam tangannya keren banget! Desain sporty dan gagah, cocok buat daily wear maupun acara formal. Packaging-nya juga mewah, datang dengan kondisi sempurna. Pengiriman cepat dari Watch Link, cuma 2 hari sampai ke Surabaya. Recommended banget!</div>
+      <div class="review-helpful">Apakah ulasan ini membantu? <button class="helpful-btn">👍 Ya (24)</button> <button class="helpful-btn">Tidak</button></div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div>
+          <div class="reviewer-name">Rian M. ✓ Pembeli Terverifikasi</div>
+          <div style="display:flex;gap:2px;margin-top:4px;"><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="#c9a84c" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="12" height="12" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
+        <div class="review-date">8 Juni 2026</div>
+      </div>
+      <div class="review-text">Produk original 100%, ada sertifikat garansi resminya. Desain besar dan bold, sesuai namanya "The Big Time". Mesinnya presisi, sudah pakai 3 minggu dan masih akurat. Tali silikon nyaman di kulit. Harga juga lebih murah dibanding toko lain.</div>
+      <div class="review-helpful">Apakah ulasan ini membantu? <button class="helpful-btn">👍 Ya (18)</button> <button class="helpful-btn">Tidak</button></div>
+    </div>
+  </div>
+
+  <!-- QA -->
+  <div class="tab-content" id="tab-qa">
+    <div style="max-width:680px;">
+      <div style="background:#f5f5f5;border-radius:12px;padding:20px;margin-bottom:16px;">
+        <div style="font-weight:700;margin-bottom:8px;">❓ Apakah tersedia layanan penggantian baterai?</div>
+        <div style="font-size:14px;color:#444;line-height:1.7;">Jawaban dari Watch Link: Ya, kami menyediakan layanan penggantian baterai di toko offline kami di Mall Metropolitan 2, Bekasi. Hubungi kami via WhatsApp untuk informasi lebih lanjut.</div>
+        <div style="font-size:12px;color:#aaa;margin-top:8px;">Dijawab 20 Juni 2026</div>
+      </div>
+      <div style="background:#f5f5f5;border-radius:12px;padding:20px;margin-bottom:16px;">
+        <div style="font-weight:700;margin-bottom:8px;">❓ Apakah bisa cicilan tanpa kartu kredit?</div>
+        <div style="font-size:14px;color:#444;line-height:1.7;">Jawaban dari Watch Link: Ya! Kami bekerja sama dengan Kredivo, Akulaku, dan GoPay PayLater untuk cicilan 0% tanpa kartu kredit, tergantung limit yang disetujui oleh penyedia layanan.</div>
+        <div style="font-size:12px;color:#aaa;margin-top:8px;">Dijawab 14 Juni 2026</div>
+      </div>
+      <button class="wl-btn wl-btn-outline" style="margin-top:8px;">Ajukan Pertanyaan</button>
+    </div>
+  </div>
+
+  <!-- RELATED PRODUCTS -->
+  <div style="margin-top:48px;padding-bottom:48px;">
+    <div class="wl-section-header">
+      <h2 class="wl-section-title">Produk Serupa</h2>
+      <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-section-more">Lihat Semua →</a>
+    </div>
+    <div class="related-grid">
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+        <div class="wl-card-img"><img src="wl-uploads/e4113efd-5b9e-45f7-80ef-16ca7d49b7ba.jpg" alt="Barracuda" style="height:180px;"><span class="wl-card-badge badge-green">NEW</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#e85c2d;">QUANTUM</div><div class="wl-card-name">Quantum Barracuda Automatic 47mm</div><div class="wl-card-price">Rp 3.950.000</div><div class="wl-card-original">Rp 5.500.000</div></div>
+      </a>
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+        <div class="wl-card-img"><div class="wl-card-img-placeholder" style="height:180px;background:linear-gradient(135deg,#1a0a00,#3d1800);"><svg width="80" height="80" viewBox="0 0 100 100" fill="none"><rect x="22" y="16" width="56" height="68" rx="12" stroke="#c9a84c" stroke-width="2.5" fill="#1a0800"/><line x1="50" y1="30" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="62" y2="58" stroke="#ff4422" stroke-width="2" stroke-linecap="round"/></svg></div><span class="wl-card-badge badge-orange">-28%</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#ff9900;">CASIO</div><div class="wl-card-name">G-Shock GM-6900G Gold</div><div class="wl-card-price">Rp 1.850.000</div><div class="wl-card-original">Rp 2.450.000</div></div>
+      </a>
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+        <div class="wl-card-img"><div class="wl-card-img-placeholder" style="height:180px;background:linear-gradient(135deg,#0d1a2e,#1a2d4a);"><svg width="80" height="80" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#5566ff" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#3344cc" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="67" y2="59" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/></svg></div><span class="wl-card-badge badge-blue">NEW</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#5566ff;">SEIKO</div><div class="wl-card-name">Seiko Presage Cocktail Time</div><div class="wl-card-price">Rp 3.100.000</div><div class="wl-card-original">Rp 5.400.000</div></div>
+      </a>
+      <a href="javascript:void(0)" onclick="goPage('detail');return false;" class="wl-card">
+        <div class="wl-card-img"><div class="wl-card-img-placeholder" style="height:180px;background:linear-gradient(135deg,#0a1020,#1e2a40);"><svg width="80" height="80" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="40" stroke="#c9a84c" stroke-width="2.5"/><circle cx="50" cy="50" r="28" stroke="#a08030" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="64" y2="58" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/></svg></div><span class="wl-card-badge badge-red">-18%</span></div>
+        <div class="wl-card-body"><div class="wl-card-brand" style="color:#c9a84c;">ORIENT</div><div class="wl-card-name">Orient Bambino Version 5 Auto</div><div class="wl-card-price">Rp 2.250.000</div><div class="wl-card-original">Rp 2.750.000</div></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+</section>
+<section class="wl-page" id="page-tentang">
+<!-- NAV -->
+
+
+<!-- BREADCRUMB -->
+<div class="wl-section" style="padding-top:16px;padding-bottom:0;">
+  <div class="breadcrumb">
+    <a href="javascript:void(0)" onclick="goPage('home');return false;">Home</a>
+    <span class="sep">›</span>
+    <span class="current">Tentang Kami</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="wl-section">
+    <div class="about-hero-content">
+      <div class="about-hero-label">Tentang Watch Link</div>
+      <h1 class="about-hero-title">Toko Jam Tangan Original<br><span>Terpercaya Sejak 2015</span></h1>
+      <p class="about-hero-sub">Kami hadir untuk memastikan setiap orang mendapatkan jam tangan original berkualitas tinggi dengan harga yang adil dan layanan yang tulus.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="wl-section" style="padding:0;">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Tahun Pengalaman<br>di Industri Jam Tangan</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50K+</div>
+        <div class="stat-label">Pelanggan Puas<br>di Seluruh Indonesia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Koleksi Model<br>dari 30+ Brand</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Rating Kepuasan<br>Pelanggan</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="wl-section">
+  <div class="story-grid">
+    <div class="story-img-wrap">
+      <img src="wl-uploads/544f3eb1-bad3-4645-b892-14c7f9c5b1bc-2df31b6b.jpg" alt="Watch Link Store">
+      <div class="story-img-overlay"></div>
+      <div class="story-img-badge">
+        <div style="width:40px;height:40px;background:#c9a84c;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#fff;">Garansi Keaslian</div>
+          <div style="font-size:12px;color:#aaa;">Setiap produk 100% original</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="story-label">Cerita Kami</div>
+      <h2 class="story-title">Berawal dari Passion,<br>Tumbuh dengan Kepercayaan</h2>
+      <p class="story-text">Watch Link lahir dari kecintaan mendalam terhadap dunia horology — seni dan ilmu pembuatan jam tangan. Didirikan pada tahun 2015 di Bekasi, kami memulai perjalanan sebagai distributor resmi beberapa brand ternama dengan visi sederhana: memberikan akses kepada jam tangan original berkualitas tinggi untuk semua.</p>
+      <p class="story-text">Kini, setelah satu dekade, Watch Link telah menjadi salah satu toko jam tangan original terpercaya di Indonesia. Berlokasi di Mall Metropolitan 2, Bekasi Barat, kami hadir tidak hanya sebagai penjual, tetapi sebagai konsultan jam tangan terpercaya bagi ribuan pelanggan setia kami.</p>
+      <p class="story-text">Setiap jam tangan yang kami jual melewati proses verifikasi keaslian yang ketat. Kami berkomitmen bahwa tidak satu pun produk tiruan akan sampai ke tangan pelanggan kami.</p>
+      <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#c9a84c;">30+</div>
+          <div style="font-size:13px;color:#888;">Brand Resmi</div>
+        </div>
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#c9a84c;">2 Tahun</div>
+          <div style="font-size:13px;color:#888;">Garansi Resmi</div>
+        </div>
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#c9a84c;">24 Jam</div>
+          <div style="font-size:13px;color:#888;">Layanan Customer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div class="wl-section">
+    <h2 class="values-title">Nilai-Nilai Kami</h2>
+    <p class="values-sub">Prinsip yang memandu setiap langkah kami dalam melayani pelanggan</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(232,92,45,.1);">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div class="value-name">Keaslian Tanpa Kompromi</div>
+        <div class="value-desc">Setiap produk yang kami jual dijamin 100% original dari distributor resmi. Kami tidak pernah dan tidak akan pernah menjual produk replika atau palsu dalam bentuk apapun.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(201,168,76,.1);">
+          <svg width="28" height="28" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="value-name">Harga yang Adil & Transparan</div>
+        <div class="value-desc">Kami berkomitmen memberikan harga terbaik tanpa biaya tersembunyi. Setiap diskon dan promosi yang kami tawarkan adalah nyata, bukan rekayasa dari harga awal yang dinaikkan.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(0,170,85,.1);">
+          <svg width="28" height="28" fill="none" stroke="#00aa55" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="value-name">Layanan dari Hati</div>
+        <div class="value-desc">Tim kami terdiri dari para enthusiast jam tangan yang siap memberikan konsultasi tulus. Kami tidak sekadar menjual — kami membantu Anda menemukan jam tangan yang benar-benar tepat.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(85,102,255,.1);">
+          <svg width="28" height="28" fill="none" stroke="#5566ff" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="value-name">Kepuasan Pelanggan Utama</div>
+        <div class="value-desc">Garansi 3 hari pengembalian, layanan purna jual, dan after-sales support yang responsif. Hubungan kami dengan pelanggan tidak berakhir saat transaksi selesai.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(201,168,76,.1);">
+          <svg width="28" height="28" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="value-name">Pengiriman Terpercaya</div>
+        <div class="value-desc">Setiap paket dikemas dengan material pelindung premium dan diasuransikan penuh. Kami bekerja sama dengan kurir terpilih untuk memastikan jam tangan Anda tiba dalam kondisi sempurna.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(232,92,45,.1);">
+          <svg width="28" height="28" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <div class="value-name">Koleksi yang Dikurasi</div>
+        <div class="value-desc">Kami hanya menjual produk yang telah kami percaya kualitasnya. Setiap brand dan model dipilih secara cermat berdasarkan reputasi, kualitas, dan nilai yang diberikan kepada pelanggan.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-section">
+  <div class="wl-section">
+    <h2 class="team-title">Tim Kami</h2>
+    <p class="team-sub">Orang-orang yang berdedikasi di balik Watch Link</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1a1a2e,#2a2a4e);">A</div>
+        <div class="team-name">Arief Santoso</div>
+        <div class="team-role">Founder & CEO</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1a0a00,#3d1500);">D</div>
+        <div class="team-name">Diana Putri</div>
+        <div class="team-role">Head of Operations</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#0a1a0a,#0d3320);">R</div>
+        <div class="team-name">Rizky Pratama</div>
+        <div class="team-role">Watch Specialist</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#0a0a1a,#1a1a3e);">S</div>
+        <div class="team-name">Sari Indah</div>
+        <div class="team-role">Customer Experience</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MILESTONES -->
+<div class="timeline-section">
+  <div class="wl-section">
+    <h2 class="timeline-title">Perjalanan Watch Link</h2>
+    <p class="timeline-sub">Dari toko kecil hingga kepercayaan ribuan pelanggan</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2015</div>
+          <div class="tl-event">Watch Link Berdiri</div>
+          <div class="tl-desc">Membuka toko pertama di Mall Metropolitan 2, Bekasi dengan koleksi awal 50 model dari 5 brand.</div>
+        </div>
+        <div class="tl-dot">📍</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item right">
+        <div class="tl-content">
+          <div class="tl-year">2017</div>
+          <div class="tl-event">Distributor Resmi Quantum</div>
+          <div class="tl-desc">Mendapatkan kepercayaan menjadi distributor resmi Quantum — brand unggulan yang kini menjadi produk terlaris kami.</div>
+        </div>
+        <div class="tl-dot">🏆</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2019</div>
+          <div class="tl-event">Ekspansi Online & 10.000 Pelanggan</div>
+          <div class="tl-desc">Meluncurkan platform online dan mencapai 10.000 pelanggan aktif. Mulai melayani pengiriman ke seluruh Indonesia.</div>
+        </div>
+        <div class="tl-dot">🚀</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item right">
+        <div class="tl-content">
+          <div class="tl-year">2021</div>
+          <div class="tl-event">Penghargaan Best Watch Store</div>
+          <div class="tl-desc">Meraih penghargaan Best Watch Retailer Jawa Barat dan bergabung dengan asosiasi distributor jam tangan nasional.</div>
+        </div>
+        <div class="tl-dot">⭐</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2023</div>
+          <div class="tl-event">50 Brand, 500+ Koleksi</div>
+          <div class="tl-desc">Memperluas portofolio ke 30+ brand internasional dengan lebih dari 500 model, termasuk koleksi luxury watches.</div>
+        </div>
+        <div class="tl-dot">💎</div>
+        <div style="flex:1;"></div>
+      </div>
+      <div class="tl-item right">
+        <div class="tl-content">
+          <div class="tl-year">2026</div>
+          <div class="tl-event">50.000+ Pelanggan Puas</div>
+          <div class="tl-desc">Melayani lebih dari 50.000 pelanggan dengan rating kepuasan 4.9/5 dan terus berinovasi untuk pengalaman belanja terbaik.</div>
+        </div>
+        <div class="tl-dot">🎯</div>
+        <div style="flex:1;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="wl-section">
+    <h2 class="cta-title">Siap Temukan Jam Tangan Impianmu?</h2>
+    <p class="cta-sub">Kunjungi toko kami atau belanja online sekarang. Tim kami siap membantu 24/7.</p>
+    <div class="cta-btns">
+      <a href="javascript:void(0)" onclick="goPage('produk');return false;" class="wl-btn wl-btn-gold" style="padding:14px 32px;font-size:15px;">Belanja Sekarang</a>
+      <a href="javascript:void(0)" onclick="goPage('kontak');return false;" class="wl-btn wl-btn-outline" style="padding:14px 32px;font-size:15px;border-color:#555;color:#ccc;">Kunjungi Toko</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+</section>
+<section class="wl-page" id="page-kontak">
+<!-- NAV -->
+
+
+<!-- BREADCRUMB -->
+<div class="wl-section" style="padding-top:16px;padding-bottom:0;">
+  <div class="breadcrumb">
+    <a href="javascript:void(0)" onclick="goPage('home');return false;">Home</a>
+    <span class="sep">›</span>
+    <span class="current">Kontak & Lokasi</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="kontak-hero">
+  <div class="wl-section">
+    <div class="kontak-hero-label">Kontak & Lokasi</div>
+    <h1 class="kontak-hero-title">Kami Siap Melayani Kamu</h1>
+    <p class="kontak-hero-sub">Kunjungi toko kami langsung atau hubungi via channel pilihan kamu. Tim kami siap membantu 7 hari seminggu.</p>
+  </div>
+</div>
+
+<!-- CONTACT INFO + HOURS -->
+<div class="wl-section">
+  <div class="kontak-grid">
+    <!-- LEFT: Contact Info -->
+    <div>
+      <h2 style="font-size:22px;font-weight:800;margin-bottom:20px;">Informasi Kontak</h2>
+
+      <!-- Address -->
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#fff3f0;">
+          <svg width="26" height="26" fill="none" stroke="#e85c2d" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Alamat Toko</div>
+          <div class="contact-value">Mall Metropolitan 2</div>
+          <div class="contact-note">
+            RT.002/RW.003, Jakasampurna<br>
+            Kec. Bekasi Barat, Kota Bekasi<br>
+            Jawa Barat 17145, Indonesia
+          </div>
+          <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-gold" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:8px 14px;">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Buka di Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/6281234567890?text=Halo%20Watch%20Link%2C%20saya%20ingin%20bertanya%20tentang%20produk." target="_blank" class="contact-card" style="display:flex;text-decoration:none;color:inherit;">
+        <div class="contact-icon" style="background:#e8fdf0;">
+          <svg width="26" height="26" fill="#25d366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">+62 821-2345-6789</div>
+          <div class="contact-note">Respons cepat · Aktif 08.00–22.00 WIB <span class="open-badge">AKTIF</span></div>
+        </div>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:hello@watchlink.id" class="contact-card" style="display:flex;text-decoration:none;color:inherit;">
+        <div class="contact-icon" style="background:#f0f4ff;">
+          <svg width="26" height="26" fill="none" stroke="#5566ff" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">hello@watchlink.id</div>
+          <div class="contact-note">Balasan dalam 1×24 jam kerja</div>
+        </div>
+      </a>
+
+      <!-- Instagram -->
+      <a href="#" class="contact-card" style="display:flex;text-decoration:none;color:inherit;">
+        <div class="contact-icon" style="background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);border-radius:14px;">
+          <svg width="26" height="26" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">@watchlink.id</div>
+          <div class="contact-note">Follow untuk update produk & promo terbaru</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- RIGHT: Hours + How to Get There -->
+    <div>
+      <!-- JAM BUKA -->
+      <div style="background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:28px;margin-bottom:20px;">
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:10px;">
+          <svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Jam Operasional
+        </h3>
+        <table class="hours-table">
+          <tr><td>Senin</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Selasa</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Rabu</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Kamis</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr class="today"><td>Minggu ini <span class="open-badge">BUKA</span></td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Sabtu</td><td>10:00 – 22:00 WIB</td></tr>
+          <tr><td>Minggu & Hari Libur</td><td>11:00 – 21:00 WIB</td></tr>
+        </table>
+        <div style="margin-top:16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;font-size:13px;color:#166534;display:flex;align-items:center;gap:8px;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          Toko kami buka setiap hari termasuk hari libur nasional.
+        </div>
+      </div>
+
+      <!-- CARA KE SANA -->
+      <div style="background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:28px;">
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:10px;">
+          <svg width="20" height="20" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Cara Menuju Toko
+        </h3>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:#fff3f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🚗</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;margin-bottom:3px;">Kendaraan Pribadi</div>
+              <div style="font-size:13px;color:#666;line-height:1.65;">Masuk dari pintu utama Mall Metropolitan 2. Toko Watch Link berada di lantai dasar area elektronik & aksesori. Tersedia parkir luas di basement dan rooftop.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:#f0f4ff;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🚌</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;margin-bottom:3px;">Transportasi Umum</div>
+              <div style="font-size:13px;color:#666;line-height:1.65;">Naik TransJakarta atau Angkot jurusan Bekasi Barat. Turun di halte Mall Metropolitan. Juga tersedia ojek online dari Stasiun Bekasi (±10 menit).</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:#e8fdf0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🛵</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;margin-bottom:3px;">Ojek Online</div>
+              <div style="font-size:13px;color:#666;line-height:1.65;">Tersedia drop-off khusus ojek online di pintu samping Mall Metropolitan 2. Cari "Watch Link — Mall Metropolitan 2" di aplikasi navigasi kamu.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <div style="position:relative;">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0504855!2d106.9862!3d-6.2201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c0000000001%3A0x1!2sMall%20Metropolitan%202%2C%20Bekasi!5e0!3m2!1sid!2sid!4v1234567890"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Lokasi Watch Link - Mall Metropolitan 2 Bekasi">
+      </iframe>
+    </div>
+    <div class="map-overlay">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link" style="width:36px;height:36px;object-fit:cover;border-radius:6px;">
+        <div>
+          <div class="map-store-name">Watch Link</div>
+          <div style="font-size:11px;color:#888;">Jam Tangan Original</div>
+        </div>
+      </div>
+      <div class="map-store-addr">Mall Metropolitan 2, Jakasampurna, Bekasi Barat, Jawa Barat 17145</div>
+      <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-dark" style="width:100%;justify-content:center;font-size:13px;padding:9px;">
+        Buka Google Maps →
+      </a>
+    </div>
+  </div>
+  <!-- Map CTA Strip -->
+  <div style="background:#111;padding:20px 0;">
+    <div class="wl-section" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <svg width="24" height="24" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <div style="font-weight:700;color:#fff;font-size:15px;">Mall Metropolitan 2, Bekasi Barat</div>
+          <div style="font-size:13px;color:#666;">RT.002/RW.003, Jakasampurna, Kec. Bekasi Barat, Kota Bekasi 17145</div>
+        </div>
+      </div>
+      <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-gold" style="padding:11px 24px;">
+        Petunjuk Arah →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK CONTACT CHANNELS -->
+<div class="wl-section" style="padding-top:48px;padding-bottom:0;">
+  <h2 style="font-size:22px;font-weight:800;text-align:center;margin-bottom:8px;">Hubungi Kami Sekarang</h2>
+  <p style="text-align:center;font-size:14px;color:#888;margin-bottom:8px;">Pilih channel yang paling nyaman untukmu</p>
+  <div class="channel-grid">
+    <a href="https://wa.me/6281234567890?text=Halo%20Watch%20Link%2C%20saya%20ingin%20bertanya." target="_blank" class="channel-card" style="background:#e8fdf0;color:#1a6a2a;">
+      <div class="channel-icon" style="background:#25d366;">
+        <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+      </div>
+      <div class="channel-name">WhatsApp</div>
+      <div class="channel-desc">+62 821-2345-6789<br>Respons dalam hitungan menit</div>
+    </a>
+    <a href="mailto:hello@watchlink.id" class="channel-card" style="background:#f0f4ff;color:#1a2a6a;">
+      <div class="channel-icon" style="background:#5566ff;">
+        <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="channel-name">Email</div>
+      <div class="channel-desc">hello@watchlink.id<br>Balasan dalam 1×24 jam</div>
+    </a>
+    <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" class="channel-card" style="background:#fff3f0;color:#6a1a0a;">
+      <div class="channel-icon" style="background:#e85c2d;">
+        <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="channel-name">Toko Offline</div>
+      <div class="channel-desc">Mall Metropolitan 2<br>Buka setiap hari</div>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="form-section">
+  <div class="wl-section">
+    <div class="form-grid">
+      <div class="form-left">
+        <h2>Kirim Pesan kepada Kami</h2>
+        <p>Punya pertanyaan tentang produk, pesanan, atau ingin kerja sama? Isi formulir di samping dan tim kami akan segera merespons.</p>
+        <div style="background:#fafafa;border:1px solid #eee;border-radius:12px;padding:20px;margin-top:24px;">
+          <div style="font-weight:700;font-size:15px;margin-bottom:12px;">Pertanyaan Umum</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Cara Pembelian Online</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Cek Status Pesanan</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Garansi & Pengembalian</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Corporate / Bulk Order</div>
+            <div style="font-size:13px;color:#666;display:flex;gap:8px;"><span style="color:#c9a84c;">→</span> Program Kemitraan</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <form onsubmit="submitForm(event)">
+          <div class="form-2col">
+            <div class="form-row">
+              <label for="nama">Nama Lengkap *</label>
+              <input class="form-input" type="text" id="nama" placeholder="Nama kamu" required>
+            </div>
+            <div class="form-row">
+              <label for="hp">Nomor HP / WhatsApp *</label>
+              <input class="form-input" type="tel" id="hp" placeholder="+62 8xx xxxx xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input class="form-input" type="email" id="email" placeholder="email@example.com">
+          </div>
+          <div class="form-row">
+            <label for="topik">Topik Pesan</label>
+            <select class="form-select" id="topik">
+              <option value="">Pilih topik...</option>
+              <option>Pertanyaan Produk</option>
+              <option>Cek Stok</option>
+              <option>Status Pesanan</option>
+              <option>Garansi / Servis</option>
+              <option>Corporate Order</option>
+              <option>Kerjasama / Partnership</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="pesan">Pesan *</label>
+            <textarea class="form-input" id="pesan" placeholder="Tulis pertanyaan atau pesan kamu di sini..." required></textarea>
+          </div>
+          <button type="submit" class="wl-btn wl-btn-gold" style="width:100%;padding:13px;font-size:15px;justify-content:center;" id="submitBtn">
+            Kirim Pesan
+          </button>
+          <div id="formSuccess" style="display:none;margin-top:14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;font-size:14px;color:#166534;text-align:center;">
+            ✅ Pesan berhasil dikirim! Tim kami akan menghubungi kamu segera.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="wl-section">
+    <h2 class="faq-title">Pertanyaan Sering Ditanyakan</h2>
+    <div style="max-width:760px;">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Apakah produk Watch Link 100% original?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Ya, 100% original dan bergaransi resmi. Kami adalah distributor resmi dari semua brand yang kami jual. Setiap produk dilengkapi kartu garansi resmi dari brand, buku panduan, dan packaging original. Kami tidak pernah dan tidak akan menjual produk replika.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Bagaimana jika produk yang saya terima rusak atau tidak sesuai?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Kami memberikan garansi 3 hari pengembalian barang sejak diterima. Jika produk rusak saat diterima atau tidak sesuai deskripsi, hubungi kami via WhatsApp dengan foto/video kondisi produk dan kami akan memproses pengembalian atau penggantian segera.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Apakah ada layanan cicilan?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Ya! Kami bekerja sama dengan berbagai platform cicilan: kartu kredit semua bank (0% s.d. 24 bulan), Kredivo, Akulaku, dan GoPay PayLater. Untuk pembelian di toko offline, tersedia cicilan melalui BCA, Mandiri, BNI, dan BRI.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Berapa lama proses pengiriman?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Pengiriman regular: 2-4 hari kerja. Pengiriman express: 1-2 hari kerja. Same-day delivery untuk area Bekasi dan sekitarnya (order sebelum jam 12.00 WIB). Setiap paket dikemas dengan bubble wrap tebal dan diasuransikan penuh.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Apakah bisa beli langsung di toko?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">Tentu! Toko offline kami berlokasi di Mall Metropolitan 2, Bekasi Barat. Kamu bisa datang langsung untuk melihat koleksi, mencoba jam tangan, dan berkonsultasi dengan tim ahli kami. Toko buka setiap hari dari jam 10.00–22.00 WIB.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+</section>
+</main>
+
+<!-- ===== FOOTER (SHARED) ===== -->
+<footer class="wl-footer">
+  <div class="wl-footer-inner">
+    <div class="wl-footer-grid">
+      <div>
+        <div class="wl-footer-logo">
+          <img src="wl-uploads/40a8bccd-89bd-4a59-87f4-3faeb67bd286-c067c00c.jpg" alt="Watch Link">
+          <div>
+            <div class="wl-footer-logo-name">watch link</div>
+            <div class="wl-footer-logo-sub">JAM TANGAN ORIGINAL</div>
+          </div>
+        </div>
+        <p class="wl-footer-desc">Toko jam tangan original terpercaya dengan ribuan pilihan brand ternama. Garansi resmi, harga terbaik, pengiriman seluruh Indonesia.</p>
+        <div style="margin-top:20px;display:flex;gap:12px;">
+          <a href="#" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="Instagram">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="Facebook">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="TikTok">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.08a4.85 4.85 0 0 1-1-.39z"/></svg>
+          </a>
+          <a href="https://wa.me/6281234567890" style="width:34px;height:34px;background:#1e1e1e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;transition:.15s;" title="WhatsApp">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="wl-footer-heading">Produk</div>
+        <div class="wl-footer-links">
+          <a href="javascript:void(0)" onclick="goPage('produk');return false;">Jam Pria</a>
+          <a href="javascript:void(0)" onclick="goPage('produk');return false;">Jam Wanita</a>
+          <a href="javascript:void(0)" onclick="goPage('produk');return false;">Luxury Watches</a>
+          <a href="javascript:void(0)" onclick="goPage('produk');return false;">Smartwatch</a>
+          <a href="javascript:void(0)" onclick="goPage('produk');return false;">Strap &amp; Aksesoris</a>
+        </div>
+      </div>
+      <div>
+        <div class="wl-footer-heading">Layanan</div>
+        <div class="wl-footer-links">
+          <a href="javascript:void(0)" onclick="goPage('tentang');return false;">Tentang Kami</a>
+          <a href="#">Cara Pembelian</a>
+          <a href="#">Kebijakan Retur</a>
+          <a href="#">Garansi Produk</a>
+          <a href="javascript:void(0)" onclick="goPage('kontak');return false;">Hubungi Kami</a>
+        </div>
+      </div>
+      <div>
+        <div class="wl-footer-heading">Toko Kami</div>
+        <div style="font-size:13px;color:#555;line-height:1.75;margin-bottom:14px;">
+          Mall Metropolitan 2<br>
+          Jakasampurna, Bekasi Barat<br>
+          Kota Bekasi, Jawa Barat 17145
+        </div>
+        <div style="font-size:13px;color:#555;margin-bottom:8px;">
+          <svg width="13" height="13" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:middle;margin-right:5px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +62 821-2345-6789
+        </div>
+        <a href="https://maps.app.goo.gl/cXP2mirR524B9AVHA" target="_blank" rel="noopener" class="wl-btn wl-btn-gold" style="font-size:12px;padding:8px 16px;display:inline-flex;gap:5px;margin-top:4px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Google Maps
+        </a>
+      </div>
+    </div>
+    <div class="wl-footer-bottom">
+      <span class="wl-footer-copy">© 2026 Watch Link. Jam Tangan Original. All rights reserved.</span>
+      <span class="wl-footer-copy">Garansi Resmi · Pengiriman Seluruh Indonesia · COD Tersedia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT (SHARED) ===== -->
+<a href="https://wa.me/6281234567890?text=Halo%20Watch%20Link%2C%20saya%20ingin%20tanya%20tentang%20produk%20jam%20tangan." target="_blank" class="wa-float" title="Chat WhatsApp">
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.122 1.533 5.855L.057 24l6.305-1.654A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.002-1.37l-.359-.214-3.722.976.994-3.633-.234-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+
+<script>
+
+// ===== SPA ROUTER =====
+function goPage(name) {
+  document.querySelectorAll('.wl-page').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('page-' + name);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.wl-subnav-link').forEach(function(a) {
+    if (a.getAttribute('data-page') === name) a.classList.add('active');
+    else a.classList.remove('active');
+  });
+  window.scrollTo(0, 0);
+  var titles = {
+    home: "Watch Link – Jam Tangan Original | Mall Metropolitan 2 Bekasi",
+    produk: "Semua Produk – Watch Link | Jam Tangan Original",
+    detail: "Quantum The Big Time Chronograph 45mm – Watch Link",
+    tentang: "Tentang Kami – Watch Link | Jam Tangan Original Bekasi",
+    kontak: "Kontak & Lokasi Toko – Watch Link | Mall Metropolitan 2 Bekasi"
+  };
+  if (titles[name]) document.title = titles[name];
+}
+
+/* --- home script --- */
+
+// Flash sale countdown
+(function() {
+  let h = 5, m = 42, s = 18;
+  const fh = document.getElementById('fh');
+  const fm = document.getElementById('fm');
+  const fs = document.getElementById('fs');
+  const fmt = n => String(n).padStart(2,'0');
+  setInterval(() => {
+    s--;
+    if (s < 0) { s = 59; m--; }
+    if (m < 0) { m = 59; h--; }
+    if (h < 0) { h = 0; m = 0; s = 0; }
+    if (fh) fh.textContent = fmt(h);
+    if (fm) fm.textContent = fmt(m);
+    if (fs) fs.textContent = fmt(s);
+  }, 1000);
+})();
+
+
+/* --- detail script --- */
+
+let qty = 1;
+function changeQty(d) { qty = Math.max(1, qty + d); document.getElementById('qtyVal').textContent = qty; }
+function selectColor(el, name) {
+  document.querySelectorAll('.color-btn').forEach(b => { b.classList.remove('active'); b.querySelector('.color-ring').classList.remove('active'); });
+  el.classList.add('active'); el.querySelector('.color-ring').classList.add('active');
+  document.getElementById('selectedColor').textContent = name;
+}
+function switchTab(btn, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+function switchImg(thumb, src) {
+  document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+  if (src) document.getElementById('mainImg').src = src;
+}
+function addCart() {
+  const badge = document.getElementById('cartCount');
+  const cur = parseInt(badge.textContent);
+  badge.textContent = cur + qty;
+  badge.style.transform = 'scale(1.4)';
+  setTimeout(() => badge.style.transform = '', 300);
+}
+
+
+/* --- kontak script --- */
+
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Mengirim...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('formSuccess').style.display = 'block';
+    btn.style.display = 'none';
+    e.target.reset();
+  }, 1200);
+}
+
+
+// initialize
+goPage('home');
+
+</script>
+</body>
+</html>
